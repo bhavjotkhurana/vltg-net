@@ -1,0 +1,21 @@
+# VLTG
+
+> A free, full-length IBEW electrical-apprenticeship aptitude practice test with an instant 1-9 stanine diagnostic and a personalized study plan.
+
+VLTG helps people preparing for the IBEW / electrical Training ALLIANCE (formerly NJATC) apprenticeship aptitude test. Most prep sites paywall their practice tests. VLTG gives you the complete test for free, scores it, and builds a study plan around your weakest skills.
+
+## About the real test (accurate reference)
+- Two sections: Algebra & Functions (33 questions) and Reading Comprehension (36 questions), 69 questions total.
+- Time on the real exam: about 46 minutes for math and 51 minutes for reading.
+- Scoring is a stanine: a normalized 1-9 scale based on percentile rank, where 5 is average and 4 is the minimum to qualify for an interview.
+- No prior electrical knowledge is required; the math is generic high-school algebra and the reading passages cover everyday topics.
+
+## What VLTG offers
+- The full 69-question practice test, free, no credit card, self-paced.
+- An instant diagnostic on the 1-9 stanine scale, plus an estimated percentile.
+- A pace benchmark comparing your time to the real section limits.
+- A prioritized, skill-by-skill study plan built from your answers.
+
+## Pages
+- Home: https://vltg.net (take the free practice test)
+- More guides and an About page are in progress.
