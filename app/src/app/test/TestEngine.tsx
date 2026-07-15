@@ -267,19 +267,19 @@ export default function TestEngine({
         </header>
         <div className="flex flex-1 items-center justify-center px-6 py-12">
           <div className="w-full max-w-2xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">You&apos;re all set</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">You&apos;re all set</p>
             <h1 className="text-4xl font-extrabold tracking-tight text-[#111827] sm:text-5xl">
               Here&apos;s what<br />you&apos;re about to take.
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-gray-700">
-              The IBEW aptitude test has two sections, taken in order. Take your time —
+              The IBEW aptitude test has two sections, taken in order. Take your time,
               there&apos;s no cutoff here, but we&apos;ll show you how your pace compares to the real clock.
             </p>
 
             <div className="mt-8 divide-y-2 divide-[#111827] border-2 border-[#111827] bg-white">
               {/* Section 1 */}
               <div className="flex items-start gap-6 p-6">
-                <div className="flex-none bg-[#1E3A5F] px-3 py-2 font-mono text-xs font-bold uppercase tracking-wide text-white">
+                <div className="flex-none bg-[#1E3A5F] px-3 py-2 text-xs font-bold uppercase tracking-wide text-white">
                   Part 1
                 </div>
                 <div>
@@ -293,7 +293,7 @@ export default function TestEngine({
               </div>
               {/* Section 2 */}
               <div className="flex items-start gap-6 p-6">
-                <div className="flex-none bg-amber-500 px-3 py-2 font-mono text-xs font-bold uppercase tracking-wide text-[#111827]">
+                <div className="flex-none bg-amber-500 px-3 py-2 text-xs font-bold uppercase tracking-wide text-[#111827]">
                   Part 2
                 </div>
                 <div>
@@ -314,7 +314,7 @@ export default function TestEngine({
                 ].map(({ value, label }) => (
                   <div key={label} className="px-6 py-5 text-center">
                     <p className="text-3xl font-extrabold text-[#111827]">{value}</p>
-                    <p className="mt-1 font-mono text-xs font-bold uppercase tracking-wide text-gray-600">{label}</p>
+                    <p className="mt-1 text-xs font-bold uppercase tracking-wide text-gray-600">{label}</p>
                   </div>
                 ))}
               </div>
@@ -349,11 +349,11 @@ export default function TestEngine({
           <div className="w-full max-w-xl">
             <button
               onClick={() => setPhase("overview")}
-              className="mb-6 font-mono text-xs font-bold uppercase tracking-[0.14em] text-gray-600 hover:text-[#111827] transition-colors"
+              className="mb-6 text-xs font-bold uppercase tracking-[0.14em] text-gray-600 hover:text-[#111827] transition-colors"
             >
               ← Back
             </button>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">Part 1 of 2</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">Part 1 of 2</p>
             <h1 className="text-5xl font-extrabold tracking-tight text-[#111827] sm:text-6xl">
               Mathematics
             </h1>
@@ -369,11 +369,11 @@ export default function TestEngine({
                 <p className="text-sm leading-relaxed text-gray-700">Difficulty ranges from quick evaluations to <span className="font-semibold text-[#111827]">problems that take several steps</span> in sequence.</p>
               </div>
               <div className="px-5 py-4">
-                <p className="mb-1 text-base font-bold text-[#111827]">No calculator — work by hand</p>
+                <p className="mb-1 text-base font-bold text-[#111827]">No calculator, work by hand</p>
                 <p className="text-sm leading-relaxed text-gray-700">All arithmetic is done by hand. <span className="font-semibold text-[#111827]">Write things down</span> rather than doing it all in your head.</p>
               </div>
               <div className="px-5 py-4">
-                <p className="mb-1 text-base font-bold text-[#111827]">Untimed — but we&apos;ll clock you</p>
+                <p className="mb-1 text-base font-bold text-[#111827]">Untimed, but we&apos;ll clock you</p>
                 <p className="text-sm leading-relaxed text-gray-700">Take the time you need. Afterward we&apos;ll tell you whether you&apos;d have finished inside the real <span className="font-semibold text-[#111827]">46-minute</span> limit.</p>
               </div>
             </div>
@@ -407,11 +407,11 @@ export default function TestEngine({
                 setPhase("test");
                 questionStartRef.current = Date.now();
               }}
-              className="mb-6 font-mono text-xs font-bold uppercase tracking-[0.14em] text-slate-300 hover:text-white transition-colors"
+              className="mb-6 text-xs font-bold uppercase tracking-[0.14em] text-slate-300 hover:text-white transition-colors"
             >
               ← Back to math
             </button>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-amber-400 mb-3">Part 2 of 2</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400 mb-3">Part 2 of 2</p>
             <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl">
               Reading<br />Comprehension
             </h1>
@@ -423,7 +423,7 @@ export default function TestEngine({
                   {mathTotal - mathAnswered} math question{mathTotal - mathAnswered !== 1 ? "s" : ""} still unanswered
                 </p>
                 <p className="mt-1 text-sm text-slate-200">
-                  You can go back and finish them before submitting — but you can&apos;t return to math once you start reading.
+                  You can go back and finish them before submitting, but you can&apos;t return to math once you start reading.
                 </p>
               </div>
             )}
@@ -434,7 +434,7 @@ export default function TestEngine({
                 <p className="text-sm leading-relaxed text-slate-200">Read the passage before answering. On a wider screen the passage sits beside the question and <span className="font-semibold text-white">scrolls independently</span>.</p>
               </div>
               <div className="border-2 border-white/15 bg-white/5 px-5 py-4">
-                <p className="mb-1 text-base font-bold text-white">Everyday topics — no special knowledge needed</p>
+                <p className="mb-1 text-base font-bold text-white">Everyday topics, no special knowledge needed</p>
                 <p className="text-sm leading-relaxed text-slate-200">Short passages on workplace safety, trades history, science, and civics. You&apos;re tested on the reading, <span className="font-semibold text-white">not on the subject</span>.</p>
               </div>
               <div className="border-2 border-white/15 bg-white/5 px-5 py-4">
@@ -442,8 +442,8 @@ export default function TestEngine({
                 <p className="text-sm leading-relaxed text-slate-200">Questions ask for the <span className="font-semibold text-white">main idea</span>, specific <span className="font-semibold text-white">details</span>, logical <span className="font-semibold text-white">inferences</span>, and <span className="font-semibold text-white">word meaning in context</span>.</p>
               </div>
               <div className="border-2 border-white/15 bg-white/5 px-5 py-4">
-                <p className="mb-1 text-base font-bold text-white">Untimed — but reading takes longer</p>
-                <p className="text-sm leading-relaxed text-slate-200">These take <span className="font-semibold text-white">more time than math</span>. Read carefully — afterward we&apos;ll show you how your pace compares to the real 51-minute limit.</p>
+                <p className="mb-1 text-base font-bold text-white">Untimed, but reading takes longer</p>
+                <p className="text-sm leading-relaxed text-slate-200">These take <span className="font-semibold text-white">more time than math</span>. Read carefully. Afterward we&apos;ll show you how your pace compares to the real 51-minute limit.</p>
               </div>
             </div>
 
@@ -481,7 +481,7 @@ export default function TestEngine({
   // ── Render ────────────────────────────────────────────────────────────────
 
   // Windowed question grid — show 7 questions centered on current
-  const WINDOW = 7;
+  const WINDOW = 5;
   const half = Math.floor(WINDOW / 2);
   const windowStart = Math.max(0, Math.min(currentIndex - half, questions.length - WINDOW));
   const windowEnd = Math.min(questions.length - 1, windowStart + WINDOW - 1);
@@ -489,36 +489,36 @@ export default function TestEngine({
   const showRightEllipsis = windowEnd < questions.length - 1;
 
   return (
-    <div className="flex h-screen flex-col bg-[#F4F1EC] overflow-hidden">
+    <div className="flex min-h-[100dvh] flex-col bg-[#F4F1EC] md:h-screen md:overflow-hidden">
       {/* ── Header ── */}
-      <header className="flex-none flex items-center justify-between border-b-2 border-[#111827] bg-white px-5 py-3.5 sm:px-8">
+      <header className="sticky top-0 z-20 flex flex-none items-center justify-between border-b-2 border-[#111827] bg-white px-5 py-3.5 sm:px-8">
         <div className="flex items-center gap-3">
-          <span className={`px-3 py-1 font-mono text-xs font-bold uppercase tracking-wide ${
+          <span className={`px-3 py-1 text-xs font-bold uppercase tracking-wide ${
             isMath
               ? "bg-[#1E3A5F] text-white"
               : "bg-amber-500 text-[#111827]"
           }`}>
             {isMath ? "Math" : "Reading"}
           </span>
-          <span className="font-mono text-sm font-bold text-gray-600">
+          <span className="text-sm font-bold text-gray-600">
             Q<span className="text-[#111827]">{sectionIndex + 1}</span> / {sectionTotal}
           </span>
           <button
             onClick={() => setPhase(isMath ? "math_intro" : "reading_intro")}
-            className="hidden font-mono text-xs font-bold uppercase tracking-wide text-gray-600 hover:text-[#111827] transition-colors sm:inline"
+            className="hidden text-xs font-bold uppercase tracking-wide text-gray-600 hover:text-[#111827] transition-colors sm:inline"
           >
             Instructions
           </button>
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="font-mono text-sm font-bold text-gray-700" aria-label="Time elapsed">
+          <span className="text-sm font-bold text-gray-700" aria-label="Time elapsed">
             {formatTime(totalSeconds)}
           </span>
           <button
             onClick={handleToggleFlag}
             aria-pressed={!!flagged[currentQuestion.id]}
-            className={`border-2 px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wide transition ${
+            className={`border-2 px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition ${
               flagged[currentQuestion.id]
                 ? "border-amber-500 bg-amber-50 text-amber-800"
                 : "border-slate-300 bg-white text-gray-700 hover:border-[#111827] hover:text-[#111827]"
@@ -530,7 +530,7 @@ export default function TestEngine({
       </header>
 
       {/* ── Question Content ── */}
-      <main className="flex-1 overflow-hidden">
+      <main className="flex-1 md:overflow-hidden">
         {isMath ? (
           <MathQuestionView
             question={currentQuestion}
@@ -557,7 +557,7 @@ export default function TestEngine({
             if (sectionQs.length === 0) return null;
             return (
               <div key={section} className="mb-4 last:mb-0">
-                <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
                   {section === "math" ? "Mathematics" : "Reading Comprehension"}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -571,7 +571,7 @@ export default function TestEngine({
                         onClick={() => { navigateTo(i); setShowGrid(false); }}
                         aria-label={`Question ${i + 1}${isAnswered ? ", answered" : ""}${isFlagged ? ", flagged" : ""}`}
                         aria-current={isCurrent ? "true" : undefined}
-                        className={`h-10 w-10 font-mono text-xs font-bold transition ${
+                        className={`h-10 w-10 text-xs font-bold transition ${
                           isCurrent
                             ? "bg-[#1E3A5F] text-white"
                             : isFlagged
@@ -599,7 +599,7 @@ export default function TestEngine({
             ].map(({ color, label }) => (
               <div key={label} className="flex items-center gap-1.5">
                 <span className={`inline-block h-4 w-4 flex-none ${color}`} />
-                <span className="font-mono text-xs font-bold text-gray-700">{label}</span>
+                <span className="text-xs font-bold text-gray-700">{label}</span>
               </div>
             ))}
           </div>
@@ -607,7 +607,7 @@ export default function TestEngine({
       )}
 
       {/* ── Footer Navigation ── */}
-      <footer className="flex-none border-t-2 border-[#111827] bg-white px-5 py-3.5 sm:px-8">
+      <footer className="sticky bottom-0 z-20 flex-none border-t-2 border-[#111827] bg-white px-5 py-3.5 sm:px-8">
         {/* Windowed question grid + expand toggle */}
         <div className="mb-3.5 flex items-center justify-center gap-1.5">
           {showLeftEllipsis && (
@@ -624,7 +624,7 @@ export default function TestEngine({
                 onClick={() => navigateTo(i)}
                 aria-label={`Question ${i + 1}${isAnswered ? ", answered" : ""}${isFlagged ? ", flagged" : ""}`}
                 aria-current={isCurrent ? "true" : undefined}
-                className={`h-10 w-10 flex-none font-mono text-xs font-bold transition ${
+                className={`h-9 w-9 flex-none text-xs font-bold transition sm:h-10 sm:w-10 ${
                   isCurrent
                     ? "bg-[#1E3A5F] text-white"
                     : isFlagged
@@ -645,7 +645,7 @@ export default function TestEngine({
             onClick={() => setShowGrid((v) => !v)}
             aria-label={showGrid ? "Close question grid" : "View all questions"}
             aria-expanded={showGrid}
-            className={`ml-1 h-10 w-10 flex-none border-2 font-mono text-xs font-bold transition ${
+            className={`ml-1 h-9 w-9 flex-none border-2 text-xs font-bold transition sm:h-10 sm:w-10 ${
               showGrid
                 ? "border-[#111827] bg-[#111827] text-white"
                 : "border-slate-300 text-gray-700 hover:border-[#111827] hover:text-[#111827]"
@@ -673,7 +673,7 @@ export default function TestEngine({
             ← Prev
           </button>
 
-          <div className="text-center font-mono text-xs font-bold text-gray-600">
+          <div className="text-center text-xs font-bold text-gray-600">
             <span className="text-[#1E3A5F]">{answeredCount}</span> / {questions.length}
           </div>
 
@@ -698,7 +698,7 @@ export default function TestEngine({
       {showConfirm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4" role="dialog" aria-modal="true" aria-labelledby="submit-title">
           <div className="w-full max-w-sm border-2 border-[#111827] bg-white p-6">
-            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#1E3A5F]">Confirm</p>
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-[#1E3A5F]">Confirm</p>
             <h2 id="submit-title" className="text-xl font-bold text-[#111827]">
               Ready to submit?
             </h2>
@@ -707,11 +707,11 @@ export default function TestEngine({
                 You have{" "}
                 <strong className="text-[#111827]">{unansweredCount}</strong>{" "}
                 unanswered question{unansweredCount !== 1 ? "s" : ""}. Skipped
-                questions count as incorrect — but you can still go back and answer them.
+                questions count as incorrect, but you can still go back and answer them.
               </p>
             ) : (
               <p className="mt-2 text-sm text-gray-700">
-                You&apos;ve answered all {questions.length} questions. Nice — you&apos;re ready.
+                You&apos;ve answered all {questions.length} questions. Nice, you&apos;re ready.
               </p>
             )}
             <div className="mt-5 flex gap-3">
@@ -749,7 +749,7 @@ function MathQuestionView({
   onAnswer: (a: Answer) => void;
 }) {
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F1EC]">
+    <div className="bg-[#F4F1EC] md:h-full md:overflow-y-auto">
       <div className="mx-auto max-w-2xl px-6 py-10">
         <p className="text-lg leading-relaxed text-[#111827] font-medium">
           <MathText text={question.question} />
@@ -778,7 +778,7 @@ function MathQuestionView({
               }`}
             >
               <span
-                className={`mt-0.5 flex h-7 w-7 flex-none items-center justify-center font-mono text-xs font-bold ${
+                className={`mt-0.5 flex h-7 w-7 flex-none items-center justify-center text-xs font-bold ${
                   selectedAnswer === letter
                     ? "bg-amber-500 text-[#111827]"
                     : "bg-slate-100 text-gray-700"
@@ -812,16 +812,16 @@ function ReadingQuestionView({
   const { passage, pairedPassages } = question;
 
   return (
-    <div className="h-full md:grid md:grid-cols-2">
+    <div className="md:grid md:h-full md:grid-cols-2">
       {/* Passage pane */}
-      <div className="h-64 overflow-y-auto border-b-2 border-[#111827] bg-white px-6 py-6 text-base leading-loose text-[#111827] md:h-full md:border-b-0 md:border-r-2">
+      <div className="border-b-2 border-[#111827] bg-white px-6 py-6 text-base leading-loose text-[#111827] md:h-full md:overflow-y-auto md:border-b-0 md:border-r-2">
         {pairedPassages ? (
           <>
-            <p className="mb-3 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
               Passage 1
             </p>
             <PassageText passage={pairedPassages[0]} />
-            <p className="mb-3 mt-8 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
+            <p className="mb-3 mt-8 text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
               Passage 2
             </p>
             <PassageText passage={pairedPassages[1]} />
@@ -832,7 +832,7 @@ function ReadingQuestionView({
       </div>
 
       {/* Question pane */}
-      <div className="overflow-y-auto bg-[#F4F1EC] px-6 py-6">
+      <div className="bg-[#F4F1EC] px-6 py-6 md:overflow-y-auto">
         <p className="text-lg font-bold leading-relaxed text-[#111827]">
           {question.question}
         </p>
@@ -851,7 +851,7 @@ function ReadingQuestionView({
               }`}
             >
               <span
-                className={`mt-0.5 flex h-7 w-7 flex-none items-center justify-center font-mono text-xs font-bold ${
+                className={`mt-0.5 flex h-7 w-7 flex-none items-center justify-center text-xs font-bold ${
                   selectedAnswer === letter
                     ? "bg-amber-500 text-[#111827]"
                     : "bg-slate-100 text-gray-700"
@@ -880,7 +880,7 @@ function PassageText({
 }) {
   return (
     <>
-      <p className="mb-3 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[#1E3A5F]">
         {passage.title}
       </p>
       {passage.media && (

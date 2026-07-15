@@ -28,7 +28,7 @@ function LoginForm() {
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-[#1E3A5F] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-[#1E3A5F] transition-colors"
           >
             <span aria-hidden="true">←</span> <Logo className="text-sm" />
           </Link>

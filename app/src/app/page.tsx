@@ -10,7 +10,7 @@ export default function HomePage() {
         <Logo className="text-[1.6rem]" />
         <Link
           href="/auth/login"
-          className="font-mono text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
+          className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
         >
           Sign in →
         </Link>
@@ -19,16 +19,16 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="border-b-2 border-[#111827] px-6 py-16 sm:px-12 sm:py-24">
         <div className="mx-auto max-w-4xl">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-6">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-6">
             Free diagnostic test · No credit card
           </p>
-          <h1 className="text-5xl font-extrabold leading-[1.04] tracking-tight text-[#111827] sm:text-7xl sm:leading-[1.0]">
+          <h1 className="text-5xl font-extrabold leading-[1.18] tracking-tight text-[#111827] sm:text-7xl sm:leading-[1.12]">
             You&apos;ve got this.<br />
             Let&apos;s find your{" "}
-            <span className="box-decoration-clone bg-amber-400 px-2 text-[#111827]">starting line</span>.
+            <span className="box-decoration-clone bg-amber-400 px-2 py-0.5 text-[#111827]">starting line</span>.
           </h1>
           <p className="mt-8 max-w-xl text-xl leading-relaxed text-gray-700">
-            A full-length IBEW practice test that shows you exactly where you stand —
+            A full-length IBEW practice test that shows you exactly where you stand,
             then a study plan to close the gap.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -40,7 +40,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/auth/login"
-              className="font-mono text-xs font-bold uppercase tracking-[0.15em] text-gray-600 hover:text-[#111827] transition-colors"
+              className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 hover:text-[#111827] transition-colors"
             >
               Already have an account
             </Link>
@@ -54,11 +54,11 @@ export default function HomePage() {
           {[
             { stat: "69", label: "Questions", sub: "33 math · 36 reading" },
             { stat: "4+", label: "Score to qualify", sub: "1–9 stanine scale" },
-            { stat: "97m", label: "Real test clock", sub: "Untimed here — we benchmark you" },
+            { stat: "97m", label: "Real test clock", sub: "Untimed here, we benchmark you" },
           ].map(({ stat, label, sub }) => (
             <div key={label} className="px-8 py-10 text-center">
               <p className="text-5xl font-extrabold text-amber-400 sm:text-6xl">{stat}</p>
-              <p className="mt-2 font-mono text-sm font-bold uppercase tracking-[0.12em] text-white">{label}</p>
+              <p className="mt-2 text-sm font-bold uppercase tracking-[0.12em] text-white">{label}</p>
               <p className="mt-1.5 text-sm text-slate-300">{sub}</p>
             </div>
           ))}
@@ -68,7 +68,7 @@ export default function HomePage() {
       {/* ── How it works ── */}
       <section className="border-b-2 border-[#111827] px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-4xl">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-10">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-10">
             What happens when you take the test
           </p>
           <div className="grid gap-px bg-[#111827] border-2 border-[#111827] sm:grid-cols-3">
@@ -76,7 +76,7 @@ export default function HomePage() {
               {
                 num: "01",
                 title: "Take the test",
-                body: "33 algebra and functions questions, then 36 reading comprehension questions — no calculator, just you and the questions.",
+                body: "33 algebra and functions questions, then 36 reading comprehension questions. No calculator, just you and the questions.",
               },
               {
                 num: "02",
@@ -86,11 +86,11 @@ export default function HomePage() {
               {
                 num: "03",
                 title: "Get your study plan",
-                body: "A skill-by-skill breakdown of what you got right and wrong — with a prioritized study plan built around your specific gaps.",
+                body: "A skill-by-skill breakdown of what you got right and wrong, with a prioritized study plan built around your specific gaps.",
               },
             ].map(({ num, title, body }) => (
               <div key={num} className="bg-[#F4F1EC] px-8 py-10">
-                <p className="font-mono text-4xl font-bold text-[#1E3A5F]">{num}</p>
+                <p className="text-4xl font-bold text-[#1E3A5F]">{num}</p>
                 <p className="mt-5 text-lg font-bold text-[#111827]">{title}</p>
                 <p className="mt-3 text-base leading-relaxed text-gray-700">{body}</p>
               </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
       {/* ── Score scale ── */}
       <section className="border-b-2 border-[#111827] bg-white px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-4xl">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-10">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-10">
             The 1–9 stanine scoring scale
           </p>
           <div className="grid grid-cols-9 gap-2">
@@ -136,14 +136,14 @@ export default function HomePage() {
 
       {/* ── Bottom CTA ── */}
       <section className="on-dark bg-[#1E3A5F] px-6 py-20 text-center">
-        <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-amber-400 mb-5">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400 mb-5">
           Start here
         </p>
         <h2 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
           Know your number.<br />Make a plan.
         </h2>
         <p className="mt-5 mx-auto max-w-md text-lg text-slate-300">
-          Untimed — most people finish in about 90 minutes.
+          Untimed. Most people finish in about 90 minutes.
         </p>
         <Link
           href="/auth/login"
@@ -155,7 +155,7 @@ export default function HomePage() {
 
       <footer className="flex flex-col items-center gap-2 border-t-2 border-[#111827] py-8">
         <Logo className="text-lg" />
-        <p className="font-mono text-xs font-bold uppercase tracking-[0.15em] text-gray-600">
+        <p className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600">
           &ldquo;Voltage&rdquo; · Wired for the test
         </p>
       </footer>

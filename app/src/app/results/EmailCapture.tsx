@@ -28,7 +28,7 @@ export default function EmailCapture() {
 
   return (
     <div className="mt-4 border-2 border-[#111827] bg-white px-6 py-5">
-      <p className="mb-1 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#1E3A5F]">Coming soon</p>
+      <p className="mb-1 text-xs font-bold uppercase tracking-[0.16em] text-[#1E3A5F]">Coming soon</p>
       <p className="mb-3 text-sm font-bold text-[#111827]">
         Full study guides and practice sets are on the way. Want a heads-up when they land?
       </p>

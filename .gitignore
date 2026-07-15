@@ -24,3 +24,6 @@ media/
 rc-questions/
 math-questions/
 VLTG Brand Identity Kit/.thumbnail
+
+# Editable design working files
+*.pxd

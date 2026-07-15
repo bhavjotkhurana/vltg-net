@@ -20,7 +20,6 @@
   --color-muted: var(--muted);
   --color-muted-strong: var(--muted-strong);
   --font-sans: var(--font-work-sans);
-  --font-mono: var(--font-space-mono);
 }
 
 html {

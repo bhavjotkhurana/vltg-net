@@ -45,7 +45,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
       <div className="flex min-h-screen items-center justify-center bg-[#F4F1EC] px-4 py-12">
         <div className="w-full max-w-lg">
           <div className="mb-6">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-2">Before you begin</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-2">Before you begin</p>
             <h1 className="text-3xl font-extrabold tracking-tight text-[#111827]">
               A quick look at what&apos;s ahead.
             </h1>
@@ -54,7 +54,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
           <div className="divide-y-2 divide-[#111827] border-2 border-[#111827] bg-white">
             {/* Test structure */}
             <div className="p-7">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-4">Test structure</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-4">Test structure</p>
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { label: "Math", value: "33 questions", note: "Algebra & functions" },
@@ -63,7 +63,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
                   { label: "Passing score", value: "Score 4+", note: "Qualifies for interview" },
                 ].map(({ label, value, note }) => (
                   <div key={label} className="border border-slate-300 bg-[#F4F1EC] p-4">
-                    <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-gray-600">{label}</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.1em] text-gray-600">{label}</p>
                     <p className="mt-1 text-xl font-bold text-[#111827]">{value}</p>
                     <p className="text-xs text-gray-600">{note}</p>
                   </div>
@@ -73,17 +73,17 @@ export default function OnboardingForm({ userId }: { userId: string }) {
 
             {/* Rules */}
             <div className="p-7">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-4">Good to know</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-4">Good to know</p>
               <ul className="space-y-2.5">
                 {[
-                  "No calculator — work the math by hand",
+                  "No calculator, work the math by hand",
                   "No outside references or notes",
                   "One answer per question (A, B, C, or D)",
                   "Unanswered questions count as incorrect",
                   "Flag anything you want to revisit before submitting",
                 ].map((rule) => (
                   <li key={rule} className="flex items-start gap-3 text-base text-gray-700">
-                    <span className="mt-0.5 flex-none font-bold text-amber-500" aria-hidden="true">—</span>
+                    <span className="mt-0.5 flex-none font-bold text-amber-500" aria-hidden="true">·</span>
                     {rule}
                   </li>
                 ))}
@@ -92,7 +92,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
 
             {/* Keyboard shortcuts */}
             <div className="p-7">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-4">Keyboard shortcuts</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-4">Keyboard shortcuts</p>
               <div className="space-y-2">
                 {[
                   ["A / B / C / D", "Select answer"],
@@ -100,7 +100,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
                   ["←", "Previous question"],
                 ].map(([key, action]) => (
                   <div key={key} className="flex items-center gap-4">
-                    <kbd className="border-2 border-[#111827] bg-[#F4F1EC] px-3 py-1 font-mono text-xs font-bold uppercase tracking-wide text-[#111827]">{key}</kbd>
+                    <kbd className="border-2 border-[#111827] bg-[#F4F1EC] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#111827]">{key}</kbd>
                     <span className="text-sm text-gray-700">{action}</span>
                   </div>
                 ))}
@@ -136,7 +136,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
     <div className="flex min-h-screen items-center justify-center bg-[#F4F1EC] px-4 py-12">
       <div className="w-full max-w-lg">
         <div className="mb-8">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-2">Step 1 of 2</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-2">Step 1 of 2</p>
           <h1 className="text-3xl font-extrabold tracking-tight text-[#111827]">
             Set your target score.
           </h1>
@@ -165,7 +165,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
         </div>
 
         <div className="mt-5">
-          <label htmlFor="local_union" className="mb-1.5 block font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#111827]">
+          <label htmlFor="local_union" className="mb-1.5 block text-xs font-bold uppercase tracking-[0.14em] text-[#111827]">
             Local union <span className="font-normal normal-case tracking-normal text-gray-600">(optional)</span>
           </label>
           <input
