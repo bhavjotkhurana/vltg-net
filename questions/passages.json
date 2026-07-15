@@ -1,0 +1,74 @@
+{
+  "passages": [
+    {
+      "id": "p001",
+      "title": "Lightning Conductors",
+      "type": "technical",
+      "word_count": 215,
+      "source": "\"Lightning Conductors\" by Richard Anderson — Project Gutenberg (public domain)",
+      "paired_with": null,
+      "media": null,
+      "text": "Benjamin Franklin constructed the first practical lightning conductor at his Philadelphia residence in the summer of 1752. The apparatus consisted entirely of iron with a sharp steel point projecting seven or eight feet above the roof, while the lower end penetrated more than five feet into the ground. To satisfy his scientific curiosity about electrical flow, Franklin devised an ingenious system using two bells connected to the conductor. He found the bells rang sometimes when there was no lightning or thunder, but only a dark cloud over the rod.\n\nThrough careful observation, Franklin discovered that electrical current fluctuated significantly during storms. He initially theorized that thunderclouds maintained a negative electrical state, but subsequent investigations revealed they shifted between negative and positive charges throughout a single storm. These findings proved invaluable for refining conductor design.\n\nFranklin later erected a superior lightning conductor over the home of his friend Mr. West, a Philadelphia merchant. This improved model featured an iron rod one-half inch in diameter with a brass wire ten inches long at the summit, tapering to a sharp point. When a severe thunderstorm struck the residence, visible lightning struck the conductor's point and dissipated harmlessly into the ground. Upon examination, Franklin observed that the brass wire had partially melted and shortened, teaching him that summit conductors required sufficient thickness to withstand intense heat."
+    },
+    {
+      "id": "p002",
+      "title": "Riding the Rods",
+      "type": "literary",
+      "word_count": 245,
+      "source": "\"The Road\" by Jack London — Project Gutenberg (public domain)",
+      "paired_with": null,
+      "media": null,
+      "text": "When the train slows down for a stop, half a dozen platforms from where I had decked her I come down. No one is on the platform. When the train comes to a standstill, I slip off to the ground. Ahead, and between me and the engine, are two moving lanterns. The shacks are looking for me on the roofs of the cars. I note that the car beside which I am standing is a \"four-wheeler\" — by which is meant that it has only four wheels to each truck. I duck under the train and make for the rods, and I can tell you I am mighty glad that the train is standing still.\n\nIt is the first time I have ever gone underneath on the Canadian Pacific, and the internal arrangements are new to me. I try to crawl over the top of the truck, between the truck and the bottom of the car. But the space is not large enough for me to squeeze through. Feeling with my hands in the darkness, I learn that there is room between the brake-beam and the ground. It is a tight squeeze. I have to lie flat and worm my way through. Once inside the truck, I take my seat on the rod and wonder what the shacks are thinking has become of me.\n\nI do not know how long I have been under there, when I become aware that the train is moving. I know I am safe. I can feel the rod I am sitting on. My hands grip a rod above. I am in the clear, and I am riding the rods. There is nothing to do but to wait for the next stop, creep out, and deck her again."
+    },
+    {
+      "id": "p003",
+      "title": "The History of Apprenticeship",
+      "type": "historical",
+      "word_count": 230,
+      "source": "1911 Encyclopædia Britannica, \"Apprenticeship\" — Wikisource (public domain)",
+      "paired_with": null,
+      "media": null,
+      "text": "Apprenticeship is a contract whereby one person, called the master, binds himself to teach, and another, called the apprentice, undertakes to learn, some trade or profession. This educational arrangement emerged during the medieval period as a foundational element of trade guilds and corporations, which sought to protect skilled workers from feudal lords while maintaining exclusive professional privileges. The system incorporated both masters entitled to practice their crafts and apprentices undergoing instruction.\n\nDuring the Middle Ages, apprenticeships typically lasted seven years — a duration deemed necessary for thorough professional training. Upon completing this period, apprentices became masters themselves with full membership rights in their respective corporations. This framework applied across Europe with considerable consistency, though England proved slower to adopt such rigid structures due to traditional resistance toward trade restrictions. Parliament first acknowledged apprenticeships in 1388 and 1405, eventually codifying the seven-year standard through a 1562 statute that mandated no person could exercise any trade or mystery without completing such training.\n\nThe system underwent dramatic transformation following England's Industrial Revolution. Economic theories championing free trade, particularly those of Adam Smith, gradually undermined monopolistic structures. An 1814 statute repealed the Elizabethan apprenticeship requirements, permitting individuals to pursue mechanical trades without formal training. However, learned professions like law and medicine retained and intensified their apprenticeship requirements, maintaining quality standards through formal training and examination. While some skilled trades experienced decline in apprentice numbers due to organizational difficulties and financial obstacles, the system persisted in modified forms across Europe, eventually attracting renewed interest as the nineteenth century progressed."
+    },
+    {
+      "id": "p004",
+      "title": "Labor and the Church",
+      "type": "argumentative",
+      "word_count": 220,
+      "source": "\"The Iron Heel\" by Jack London — Project Gutenberg (public domain)",
+      "paired_with": null,
+      "media": null,
+      "text": "With the introduction of machinery and the factory system in the latter part of the eighteenth century, the great mass of the working people was separated from the land. The old system of labor was broken down. The working people were driven from their villages and herded in factory towns. The mothers and children were put to work at the new machines. Family life ceased. The conditions were frightful. It is a tale of blood.\n\n\"I know, I know,\" Bishop Morehouse interrupted with an agonized expression on his face. \"It was terrible. But it occurred a century and a half ago.\"\n\n\"And there, a century and a half ago, originated the modern proletariat,\" Ernest continued. \"And the Church ignored it. While a slaughter-house was made of the nation by the capitalist, the Church was dumb. It did not protest, as to-day it does not protest.\"\n\n\"But we move in cycles,\" the Bishop urged. \"The worse conditions of labor a century ago were merely a temporary fluctuation. We have emerged from that low point and are rising toward the light. Conditions of labor are improving. The laborer today is better off than he was then.\"\n\n\"I deny it,\" Ernest answered. \"There is not a single standard of living that obtains today that did not obtain a century ago. The only difference is that there are more people today who are compelled to live under those miserable standards. The increase in population, combined with the greater productivity of the machines, has resulted in the increase of misery and not in its diminution.\""
+    },
+    {
+      "id": "p005a",
+      "title": "Trade Unions in the Early Twentieth Century",
+      "type": "historical",
+      "word_count": 140,
+      "source": "1922 Encyclopædia Britannica, \"Trade Unions\" — Wikisource (public domain)",
+      "paired_with": "p005b",
+      "media": null,
+      "text": "Trade unions emerged as organized associations of wage-earners for the purpose of maintaining or improving the conditions of their employment. Members pooled resources through contributions to build funds that supported unemployed colleagues and those on strike. Beyond these immediate concerns, unions negotiated wage rates, working hours, and employment conditions with employers. During the early twentieth century, trade unions expanded their activities considerably, taking on educational initiatives, political engagement, and experimental ventures in workers' control of industry.\n\nThe growth of trade unionism during this era was remarkable. British trade union membership rose from approximately 2.4 million in 1910 to over 8 million by 1919, representing a transformation in labor organization. This expansion occurred across multiple sectors — from traditionally organized industries like mining and railroads to newer areas such as agriculture, postal service, and professional occupations. By 1921, trade unions had achieved unprecedented social and political influence, securing representation on government committees and industrial councils that shaped national policy."
+    },
+    {
+      "id": "p005b",
+      "title": "A History of Electrical Safety Standards",
+      "type": "technical",
+      "word_count": 150,
+      "source": "History of Electrical Safety Standards (public domain historical record)",
+      "paired_with": "p005a",
+      "media": null,
+      "text": "In 1895, five different electrical installation codes were established to protect workers and ensure consistent practices across the country. However, this fragmented approach proved problematic, so in 1897 a committee developed and published the National Electrical Code, providing a uniform standard that electricians could apply nationwide. The National Fire Protection Association took on sponsorship of the NEC, recognizing that unsafe electrical conditions frequently caused fires.\n\nThe research of Charles Dalziel in 1956 fundamentally transformed how the industry understood electrical hazards. After investigating electric shock, he authored \"The Effects of Electric Shock on Man,\" establishing crucial benchmarks for electrical safety. His invention of GFCI outlets and breakers proved so effective at preventing deaths that the NEC mandated their use. Following the passage of the Occupational Safety and Health Act in 1970, OSHA was established to enforce safe working conditions. The resulting NFPA 70E standard, published in 1979, became the foundation of modern electrical safety practices. Both passages describe how workers in the electrical industry sought protection — one through collective organization, the other through codified safety standards."
+    },
+    {
+      "id": "p006",
+      "title": "Electrician Employment and Wages in the United States",
+      "type": "data_table",
+      "word_count": 120,
+      "source": "Bureau of Labor Statistics occupational employment surveys (public domain)",
+      "paired_with": null,
+      "media": null,
+      "text": "The following table presents data on electrician employment and average annual wages in the United States from 2000 to 2020, based on Bureau of Labor Statistics occupational employment surveys. Wages are shown in nominal dollars (not adjusted for inflation). The unemployment rate column reflects the national civilian unemployment rate for that year.\n\nYear: 2000 | Employed Electricians: 659,000 | Avg Annual Wage: $41,370 | % Change in Employment: — | National Unemployment Rate: 4.0%\nYear: 2005 | Employed Electricians: 705,000 | Avg Annual Wage: $47,520 | % Change in Employment: +6.9% | National Unemployment Rate: 5.1%\nYear: 2010 | Employed Electricians: 527,000 | Avg Annual Wage: $51,840 | % Change in Employment: −25.2% | National Unemployment Rate: 9.6%\nYear: 2015 | Employed Electricians: 619,000 | Avg Annual Wage: $54,110 | % Change in Employment: +17.5% | National Unemployment Rate: 5.3%\nYear: 2020 | Employed Electricians: 729,000 | Avg Annual Wage: $60,370 | % Change in Employment: +17.8% | National Unemployment Rate: 8.1%\n\nNote: Employment figures are rounded to the nearest thousand. Wage figures represent the mean (average) wage across all electrician specialties, including residential wiremen, inside wiremen, and linemen. The 2010 decline in employment corresponds with the 2008–2009 financial crisis and associated contraction in construction activity."
+    }
+  ]
+}

@@ -1,0 +1,832 @@
+{
+  "questions": [
+    {
+      "id": "r001",
+      "section": "reading",
+      "passage_id": "p001",
+      "question_number": 1,
+      "question": "Which statement best expresses the main idea of the passage?",
+      "options": {
+        "A": "Safety data sheets should be locked in a central office.",
+        "B": "Standardized pictograms have replaced written labels entirely.",
+        "C": "Most workplaces have eliminated hazardous chemicals.",
+        "D": "Workers must be informed about chemical hazards so they can protect themselves."
+      },
+      "correct_answer": "D",
+      "difficulty": "easy",
+      "primary_skill": "main_idea",
+      "skill_tags": [
+        "main_idea"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage repeatedly stresses that the point of labels, data sheets, and training is to keep workers informed so they can protect themselves.",
+      "media": null
+    },
+    {
+      "id": "r002",
+      "section": "reading",
+      "passage_id": "p001",
+      "question_number": 2,
+      "question": "According to the passage, what does a safety data sheet provide that a label does not?",
+      "options": {
+        "A": "Exhaustive detail about properties, health effects, handling, and emergencies.",
+        "B": "A signal word such as 'Warning' or 'Danger.'",
+        "C": "Standardized hazard pictograms.",
+        "D": "The product's name."
+      },
+      "correct_answer": "A",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage contrasts the label's 'quick summary' with the data sheet, which is 'exhaustive' and covers properties, health effects, handling, and emergencies.",
+      "media": null
+    },
+    {
+      "id": "r003",
+      "section": "reading",
+      "passage_id": "p001",
+      "question_number": 3,
+      "question": "It can be inferred that pictograms are standardized primarily so that",
+      "options": {
+        "A": "employers can avoid providing safety data sheets.",
+        "B": "workers do not need any training.",
+        "C": "a hazard can be recognized quickly, even before the fine print is read.",
+        "D": "chemicals can be removed from the workplace."
+      },
+      "correct_answer": "C",
+      "difficulty": "medium",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage says a worker can 'recognize a hazard at a glance' because the pictograms are standardized, implying speed of recognition is the purpose.",
+      "media": null
+    },
+    {
+      "id": "r004",
+      "section": "reading",
+      "passage_id": "p002",
+      "question_number": 4,
+      "question": "The passage is primarily a description of",
+      "options": {
+        "A": "why medieval guilds treated boys unfairly.",
+        "B": "how the apprenticeship system trained craftsmen through three stages.",
+        "C": "the French origin of the word 'journeyman.'",
+        "D": "the steps for producing a masterpiece today."
+      },
+      "correct_answer": "B",
+      "difficulty": "medium",
+      "primary_skill": "main_idea",
+      "skill_tags": [
+        "main_idea"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage lays out the apprenticeship as an old system that advanced a learner through three stages: apprentice, journeyman, and master.",
+      "media": null
+    },
+    {
+      "id": "r005",
+      "section": "reading",
+      "passage_id": "p002",
+      "question_number": 5,
+      "question": "As used in the passage, the word \"indenture\" most nearly means a",
+      "options": {
+        "A": "daily wage.",
+        "B": "formal contract of service.",
+        "C": "finished masterpiece.",
+        "D": "travelling journeyman."
+      },
+      "correct_answer": "B",
+      "difficulty": "medium",
+      "primary_skill": "vocabulary_in_context",
+      "skill_tags": [
+        "vocabulary_in_context"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage defines indenture as a contract that 'set out how many years the boy would serve.'",
+      "media": null
+    },
+    {
+      "id": "r006",
+      "section": "reading",
+      "passage_id": "p002",
+      "question_number": 6,
+      "question": "The author's main purpose in the final paragraph is to",
+      "options": {
+        "A": "argue that guilds should be brought back.",
+        "B": "criticize modern apprenticeships for paying wages.",
+        "C": "explain how to produce a masterpiece.",
+        "D": "contrast old and modern apprenticeships while noting an enduring idea."
+      },
+      "correct_answer": "D",
+      "difficulty": "hard",
+      "primary_skill": "author_perspective",
+      "skill_tags": [
+        "author_perspective"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The final paragraph notes what has changed ('modern apprenticeships pay wages... governed by law') yet stresses the 'remarkably durable' underlying idea.",
+      "media": null
+    },
+    {
+      "id": "r007",
+      "section": "reading",
+      "passage_id": "p003",
+      "question_number": 7,
+      "question": "Which statement best captures the main idea of the passage?",
+      "options": {
+        "A": "A suspension bridge works by passing a load through its parts down into the ground.",
+        "B": "Suspension bridges are more fragile than beam bridges and often collapse.",
+        "C": "The towers are the only part of a suspension bridge that carries weight.",
+        "D": "Anchorages are the parts that carry traffic across the span."
+      },
+      "correct_answer": "A",
+      "difficulty": "medium",
+      "primary_skill": "main_idea",
+      "skill_tags": [
+        "main_idea"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage traces how load moves from deck to suspenders to cables to towers to anchorages, 'all the way into the earth.'",
+      "media": null
+    },
+    {
+      "id": "r008",
+      "section": "reading",
+      "passage_id": "p003",
+      "question_number": 8,
+      "question": "What is the role of the anchorages?",
+      "options": {
+        "A": "They carry traffic across the span.",
+        "B": "They transfer load from the deck to the suspenders.",
+        "C": "They push the towers apart.",
+        "D": "They hold the ends of the cables fast, resisting the cables' inward pull."
+      },
+      "correct_answer": "D",
+      "difficulty": "medium",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage states the anchorages 'hold the ends of the cables fast, resisting the constant inward pull.'",
+      "media": null
+    },
+    {
+      "id": "r009",
+      "section": "reading",
+      "passage_id": "p003",
+      "question_number": 9,
+      "question": "As used in the passage, \"compression\" most nearly means a force that",
+      "options": {
+        "A": "pulls a material apart.",
+        "B": "carries traffic.",
+        "C": "pushes a material together.",
+        "D": "buries a concrete block."
+      },
+      "correct_answer": "C",
+      "difficulty": "medium",
+      "primary_skill": "vocabulary_in_context",
+      "skill_tags": [
+        "vocabulary_in_context"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage defines compression as the force that 'pushes them together,' contrasted with tension, which pulls apart.",
+      "media": null
+    },
+    {
+      "id": "r010",
+      "section": "reading",
+      "passage_id": "p003",
+      "question_number": 10,
+      "question": "It can be inferred that without the anchorages, the towers would",
+      "options": {
+        "A": "be pulled toward each other by the tension in the cables.",
+        "B": "carry no load at all.",
+        "C": "stand more firmly than before.",
+        "D": "no longer need suspenders."
+      },
+      "correct_answer": "A",
+      "difficulty": "hard",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The passage states that without the anchorages 'the tension in the cables would drag the towers toward each other.'",
+      "media": null
+    },
+    {
+      "id": "r011",
+      "section": "reading",
+      "passage_id": "p004",
+      "question_number": 11,
+      "question": "In what year did Congress make Labor Day a national holiday?",
+      "options": {
+        "A": "1894",
+        "B": "1882",
+        "C": "1900",
+        "D": "1918"
+      },
+      "correct_answer": "A",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage states, 'in 1894, Congress made the first Monday in September a national holiday.'",
+      "media": null
+    },
+    {
+      "id": "r012",
+      "section": "reading",
+      "passage_id": "p004",
+      "question_number": 12,
+      "question": "The author suggests that the benefits of the modern workweek were",
+      "options": {
+        "A": "granted freely by employers.",
+        "B": "unimportant to organized labor.",
+        "C": "won gradually and at real cost by workers.",
+        "D": "invented in the twenty-first century."
+      },
+      "correct_answer": "C",
+      "difficulty": "medium",
+      "primary_skill": "author_perspective",
+      "skill_tags": [
+        "author_perspective"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The final paragraph states these comforts 'were not granted freely' but 'were won, gradually and at real cost.'",
+      "media": null
+    },
+    {
+      "id": "r013",
+      "section": "reading",
+      "passage_id": "p005",
+      "question_number": 13,
+      "question": "The \"four to one\" rule concerns a ladder's",
+      "options": {
+        "A": "maximum weight rating.",
+        "B": "number of rungs.",
+        "C": "angle when leaned against a wall.",
+        "D": "material."
+      },
+      "correct_answer": "C",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage describes the four-to-one rule for a leaned ladder: 'for every four feet of height, the base should sit one foot out from the wall' — a matter of angle/setup.",
+      "media": null
+    },
+    {
+      "id": "r014",
+      "section": "reading",
+      "passage_id": "p005",
+      "question_number": 14,
+      "question": "The passage suggests that carrying tools by hand while climbing is discouraged because it",
+      "options": {
+        "A": "voids the ladder's duty rating.",
+        "B": "makes the ladder too steep.",
+        "C": "is required by the four-to-one rule.",
+        "D": "makes it harder to maintain three points of contact."
+      },
+      "correct_answer": "D",
+      "difficulty": "medium",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage links keeping hands free (via a tool belt or hoist) to maintaining three points of contact, implying hand-carrying undermines it.",
+      "media": null
+    },
+    {
+      "id": "r015",
+      "section": "reading",
+      "passage_id": "p005",
+      "question_number": 15,
+      "question": "The author's main point about ladder safety is that it depends on",
+      "options": {
+        "A": "consistently performing simple precautions.",
+        "B": "learning a rare and difficult technique.",
+        "C": "physical strength and nerve.",
+        "D": "buying expensive equipment."
+      },
+      "correct_answer": "A",
+      "difficulty": "medium",
+      "primary_skill": "author_perspective",
+      "skill_tags": [
+        "author_perspective"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage concludes that safety is 'not knowing some rare technique but performing ordinary precautions every single time.'",
+      "media": null
+    },
+    {
+      "id": "r016",
+      "section": "reading",
+      "passage_id": "p006",
+      "question_number": 16,
+      "question": "The passage is mainly about",
+      "options": {
+        "A": "why rain is dangerous to cities.",
+        "B": "how plants grow from sunlight.",
+        "C": "the difference between snow and hail.",
+        "D": "how water continuously moves through stages driven by the sun."
+      },
+      "correct_answer": "D",
+      "difficulty": "easy",
+      "primary_skill": "main_idea",
+      "skill_tags": [
+        "main_idea"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage describes the water cycle as an endless movement through stages, 'driven by the sun.'",
+      "media": null
+    },
+    {
+      "id": "r017",
+      "section": "reading",
+      "passage_id": "p006",
+      "question_number": 17,
+      "question": "The process by which plants release water vapor from their leaves is called",
+      "options": {
+        "A": "condensation",
+        "B": "precipitation",
+        "C": "transpiration",
+        "D": "evaporation"
+      },
+      "correct_answer": "C",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage states plants 'add to this moisture through transpiration, releasing water vapor from their leaves.'",
+      "media": null
+    },
+    {
+      "id": "r018",
+      "section": "reading",
+      "passage_id": "p006",
+      "question_number": 18,
+      "question": "According to the passage, condensation is best described as",
+      "options": {
+        "A": "a liquid turning to gas.",
+        "B": "water soaking into the ground.",
+        "C": "snow falling from a cloud.",
+        "D": "a gas returning to liquid."
+      },
+      "correct_answer": "D",
+      "difficulty": "medium",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage calls condensation 'the reverse of evaporation: a gas returning to liquid.'",
+      "media": null
+    },
+    {
+      "id": "r019",
+      "section": "reading",
+      "passage_id": "p006",
+      "question_number": 19,
+      "question": "The statement that a summer rain is 'literally ancient' is meant to emphasize that",
+      "options": {
+        "A": "rain only forms during summer.",
+        "B": "Earth's water is continually reused rather than newly made.",
+        "C": "clouds are older than oceans.",
+        "D": "the sun is no longer needed for the cycle."
+      },
+      "correct_answer": "B",
+      "difficulty": "hard",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The passage says water 'is never created or destroyed' and has cycled 'for billions of years,' so the rain is reused ancient water.",
+      "media": null
+    },
+    {
+      "id": "r020",
+      "section": "reading",
+      "passage_id": "p007",
+      "question_number": 20,
+      "question": "Who greeted Marisol when she was hovering near the door?",
+      "options": {
+        "A": "The woman who ran the tool crib",
+        "B": "The safety officer",
+        "C": "No one",
+        "D": "A tall man named Dale"
+      },
+      "correct_answer": "D",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage says 'a tall man in a worn canvas jacket' crossed the room and introduced himself as Dale.",
+      "media": null
+    },
+    {
+      "id": "r021",
+      "section": "reading",
+      "passage_id": "p007",
+      "question_number": 21,
+      "question": "The ending suggests that Marisol's greatest worry before the job was",
+      "options": {
+        "A": "that the work would be too easy.",
+        "B": "that she would not belong.",
+        "C": "that she would arrive late.",
+        "D": "that the building would smell of oil."
+      },
+      "correct_answer": "B",
+      "difficulty": "medium",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The final lines name 'the thing she had dreaded most — not belonging,' which then 'failed to happen.'",
+      "media": null
+    },
+    {
+      "id": "r022",
+      "section": "reading",
+      "passage_id": "p007",
+      "question_number": 22,
+      "question": "In the final sentence, the phrase \"made room\" most nearly means the workers",
+      "options": {
+        "A": "gave her more space to park.",
+        "B": "cleared off a workbench.",
+        "C": "accepted her into the group.",
+        "D": "sent her home early."
+      },
+      "correct_answer": "C",
+      "difficulty": "hard",
+      "primary_skill": "vocabulary_in_context",
+      "skill_tags": [
+        "vocabulary_in_context"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "In context, 'made room' contrasts with making things 'easy' and resolves her fear of not belonging, so it means they accepted her.",
+      "media": null
+    },
+    {
+      "id": "r023",
+      "section": "reading",
+      "passage_id": "p008",
+      "question_number": 23,
+      "question": "The passage is mainly concerned with",
+      "options": {
+        "A": "the daily schedule of the president.",
+        "B": "the deliberately lengthy, multi-step process by which a bill becomes law.",
+        "C": "the reasons committees should be abolished.",
+        "D": "the history of one particular famous law."
+      },
+      "correct_answer": "B",
+      "difficulty": "medium",
+      "primary_skill": "main_idea",
+      "skill_tags": [
+        "main_idea"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage walks through each stage a bill must clear and stresses the process was 'designed to be slow.'",
+      "media": null
+    },
+    {
+      "id": "r024",
+      "section": "reading",
+      "passage_id": "p008",
+      "question_number": 24,
+      "question": "The passage suggests the lawmaking process is slow because the founders wanted to",
+      "options": {
+        "A": "give the president complete control.",
+        "B": "let bills become law without debate.",
+        "C": "prevent the government from acting too rashly.",
+        "D": "keep committees from studying bills."
+      },
+      "correct_answer": "C",
+      "difficulty": "hard",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The passage states the founders reasoned 'a government which could act too easily might act too rashly.'",
+      "media": null
+    },
+    {
+      "id": "r025",
+      "section": "reading",
+      "passage_id": "p009",
+      "question_number": 25,
+      "question": "Before standard time, how was noon in a given town determined?",
+      "options": {
+        "A": "By the moment the sun stood highest overhead.",
+        "B": "By the nearest railroad schedule.",
+        "C": "By a national government clock.",
+        "D": "By the town to the west."
+      },
+      "correct_answer": "A",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage says 'Noon was simply the moment the sun stood highest overhead.'",
+      "media": null
+    },
+    {
+      "id": "r026",
+      "section": "reading",
+      "passage_id": "p009",
+      "question_number": 26,
+      "question": "Why did the railroads, rather than the government, first impose standard time?",
+      "options": {
+        "A": "The government had banned time zones.",
+        "B": "The mismatched local clocks created a direct safety hazard for trains.",
+        "C": "Railroads had no printed schedules.",
+        "D": "Towns preferred the railroads' authority."
+      },
+      "correct_answer": "B",
+      "difficulty": "medium",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage explains mismatched clocks could put 'two trains... on the same track at the same moment,' a hazard the railroads needed to solve.",
+      "media": null
+    },
+    {
+      "id": "r027",
+      "section": "reading",
+      "passage_id": "p009",
+      "question_number": 27,
+      "question": "The final sentence implies that the law adopting standard time",
+      "options": {
+        "A": "was the true origin of time zones.",
+        "B": "reversed the railroads' decision.",
+        "C": "confirmed a practice that commerce had already established.",
+        "D": "was rejected by most cities."
+      },
+      "correct_answer": "C",
+      "difficulty": "hard",
+      "primary_skill": "author_perspective",
+      "skill_tags": [
+        "author_perspective"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The passage says the government 'confirmed in law what commerce had already made a fact of daily life.'",
+      "media": null
+    },
+    {
+      "id": "r028",
+      "section": "reading",
+      "passage_id": "p010",
+      "question_number": 28,
+      "question": "The central claim of the passage is that",
+      "options": {
+        "A": "college degrees are worthless.",
+        "B": "no one should attend college.",
+        "C": "the skilled trades pay poorly.",
+        "D": "treating a four-year degree as the only worthy path has done real harm."
+      },
+      "correct_answer": "D",
+      "difficulty": "medium",
+      "primary_skill": "main_idea",
+      "skill_tags": [
+        "main_idea"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The author argues against 'treating it as the only worthy path' while explicitly saying college is not worthless.",
+      "media": null
+    },
+    {
+      "id": "r029",
+      "section": "reading",
+      "passage_id": "p010",
+      "question_number": 29,
+      "question": "The author's attitude toward the skilled trades is best described as",
+      "options": {
+        "A": "respectful and advocating for them.",
+        "B": "dismissive and mocking.",
+        "C": "indifferent.",
+        "D": "hostile."
+      },
+      "correct_answer": "A",
+      "difficulty": "medium",
+      "primary_skill": "author_perspective",
+      "skill_tags": [
+        "author_perspective"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The author defends the trades against being treated as a 'consolation prize' and argues they deserve respect.",
+      "media": null
+    },
+    {
+      "id": "r030",
+      "section": "reading",
+      "passage_id": "p010",
+      "question_number": 30,
+      "question": "The author would most likely agree that steering reluctant students toward degrees",
+      "options": {
+        "A": "is the best way to end trade shortages.",
+        "B": "can burden them with debt for credentials they cannot use.",
+        "C": "guarantees them enjoyable work.",
+        "D": "should be done more aggressively."
+      },
+      "correct_answer": "B",
+      "difficulty": "hard",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The passage warns such students accumulate 'debt for credentials that do not lead to work they enjoy.'",
+      "media": null
+    },
+    {
+      "id": "r031",
+      "section": "reading",
+      "passage_id": "p010",
+      "question_number": 31,
+      "question": "As used in the passage, \"ennobles\" most nearly means",
+      "options": {
+        "A": "pays a salary for.",
+        "B": "requires a degree for.",
+        "C": "gives dignity or worth to.",
+        "D": "shortens the path to."
+      },
+      "correct_answer": "C",
+      "difficulty": "hard",
+      "primary_skill": "vocabulary_in_context",
+      "skill_tags": [
+        "vocabulary_in_context"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The author contrasts an education that 'ennobles' with one that 'merely settles,' so ennobles means confers dignity or worth.",
+      "media": null
+    },
+    {
+      "id": "r032",
+      "section": "reading",
+      "passage_id": "p011",
+      "question_number": 32,
+      "question": "According to the passage, why is wind described as \"solar power in disguise\"?",
+      "options": {
+        "A": "The sun heats the air unevenly, creating the pressure differences that cause wind.",
+        "B": "Wind turbines contain small solar panels.",
+        "C": "Wind only blows during daylight.",
+        "D": "Wind is stored inside the sun."
+      },
+      "correct_answer": "A",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage explains 'the sun heats the air unevenly, and the resulting differences in pressure set the wind in motion.'",
+      "media": null
+    },
+    {
+      "id": "r033",
+      "section": "reading",
+      "passage_id": "p011",
+      "question_number": 33,
+      "question": "The passage is primarily concerned with",
+      "options": {
+        "A": "arguing that fossil fuels should be banned immediately.",
+        "B": "describing how dams are built.",
+        "C": "comparing solar panels to wind turbines only.",
+        "D": "explaining renewable energy sources and their advantages."
+      },
+      "correct_answer": "D",
+      "difficulty": "medium",
+      "primary_skill": "main_idea",
+      "skill_tags": [
+        "main_idea"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage surveys several renewable sources and notes their shared advantages of endurance and low pollution.",
+      "media": null
+    },
+    {
+      "id": "r034",
+      "section": "reading",
+      "passage_id": "p011",
+      "question_number": 34,
+      "question": "The reference to storing and distributing energy suggests that a current limitation of renewables is that",
+      "options": {
+        "A": "they will soon run out like fossil fuels.",
+        "B": "their supply can be inconsistent, as when the sun sets or wind drops.",
+        "C": "they produce more pollution than coal.",
+        "D": "they cannot generate electricity at all."
+      },
+      "correct_answer": "B",
+      "difficulty": "hard",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 115,
+      "explanation": "The passage notes 'the sun sets and the wind is not constant,' implying inconsistency that storage technology aims to address.",
+      "media": null
+    },
+    {
+      "id": "r035",
+      "section": "reading",
+      "passage_id": "p012",
+      "question_number": 35,
+      "question": "According to the passage, arteries carry blood",
+      "options": {
+        "A": "toward the heart.",
+        "B": "away from the heart.",
+        "C": "only through the lungs.",
+        "D": "backward through valves."
+      },
+      "correct_answer": "B",
+      "difficulty": "easy",
+      "primary_skill": "detail_retrieval",
+      "skill_tags": [
+        "detail_retrieval"
+      ],
+      "topic": null,
+      "expected_time_seconds": 55,
+      "explanation": "The passage states 'Arteries carry blood away from the heart.'",
+      "media": null
+    },
+    {
+      "id": "r036",
+      "section": "reading",
+      "passage_id": "p012",
+      "question_number": 36,
+      "question": "The thin walls of the capillaries are important because they",
+      "options": {
+        "A": "allow oxygen, nutrients, and wastes to be exchanged with cells.",
+        "B": "keep blood under the highest pressure in the body.",
+        "C": "prevent blood from reaching the cells.",
+        "D": "pump blood back to the heart."
+      },
+      "correct_answer": "A",
+      "difficulty": "medium",
+      "primary_skill": "inference",
+      "skill_tags": [
+        "inference"
+      ],
+      "topic": null,
+      "expected_time_seconds": 85,
+      "explanation": "The passage says it is across 'the thin walls of the capillaries' that oxygen and nutrients pass to cells and wastes pass in.",
+      "media": null
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "skills": {
+    "arithmetic_basic": {
+      "label": "Basic Arithmetic",
+      "section": "math",
+      "prerequisites": []
+    },
+    "fractions": {
+      "label": "Fractions & Rational Numbers",
+      "section": "math",
+      "prerequisites": ["arithmetic_basic"]
+    },
+    "order_of_operations": {
+      "label": "Order of Operations",
+      "section": "math",
+      "prerequisites": ["arithmetic_basic"]
+    },
+    "algebraic_substitution": {
+      "label": "Plugging Values into Expressions",
+      "section": "math",
+      "prerequisites": ["arithmetic_basic", "order_of_operations"]
+    },
+    "linear_equations": {
+      "label": "Linear Equations",
+      "section": "math",
+      "prerequisites": ["arithmetic_basic", "order_of_operations", "algebraic_substitution"]
+    },
+    "inequalities": {
+      "label": "Inequalities",
+      "section": "math",
+      "prerequisites": ["linear_equations"]
+    },
+    "systems_of_equations": {
+      "label": "Systems of Equations",
+      "section": "math",
+      "prerequisites": ["linear_equations"]
+    },
+    "polynomials": {
+      "label": "Polynomials & Algebraic Manipulation",
+      "section": "math",
+      "prerequisites": ["linear_equations"]
+    },
+    "factoring": {
+      "label": "Factoring",
+      "section": "math",
+      "prerequisites": ["polynomials", "fractions"]
+    },
+    "quadratics": {
+      "label": "Quadratic Equations",
+      "section": "math",
+      "prerequisites": ["factoring"]
+    },
+    "graph_interpretation": {
+      "label": "Graph Interpretation",
+      "section": "math",
+      "prerequisites": ["linear_equations"]
+    },
+    "number_sequences": {
+      "label": "Number Sequences & Patterns",
+      "section": "math",
+      "prerequisites": ["arithmetic_basic"]
+    },
+    "vocabulary_in_context": {
+      "label": "Vocabulary in Context",
+      "section": "reading",
+      "prerequisites": []
+    },
+    "detail_retrieval": {
+      "label": "Detail Retrieval",
+      "section": "reading",
+      "prerequisites": []
+    },
+    "sentence_purpose": {
+      "label": "Sentence Purpose",
+      "section": "reading",
+      "prerequisites": ["detail_retrieval"]
+    },
+    "main_idea": {
+      "label": "Main Idea",
+      "section": "reading",
+      "prerequisites": []
+    },
+    "paragraph_function": {
+      "label": "Paragraph Function",
+      "section": "reading",
+      "prerequisites": ["main_idea"]
+    },
+    "inference": {
+      "label": "Inference",
+      "section": "reading",
+      "prerequisites": ["main_idea", "detail_retrieval"]
+    },
+    "evidence_support": {
+      "label": "Evidence Support",
+      "section": "reading",
+      "prerequisites": ["inference"]
+    },
+    "rhetorical_techniques": {
+      "label": "Rhetorical Techniques",
+      "section": "reading",
+      "prerequisites": ["main_idea", "paragraph_function"]
+    },
+    "author_perspective": {
+      "label": "Author Perspective",
+      "section": "reading",
+      "prerequisites": ["main_idea", "inference"]
+    },
+    "dual_passage": {
+      "label": "Dual Passage Comparison",
+      "section": "reading",
+      "prerequisites": ["author_perspective", "evidence_support"]
+    },
+    "data_table_reading": {
+      "label": "Data / Table Reading",
+      "section": "reading",
+      "prerequisites": ["detail_retrieval"]
+    },
+    "experiment_interpretation": {
+      "label": "Experiment Interpretation",
+      "section": "reading",
+      "prerequisites": ["inference", "evidence_support"]
+    }
+  }
+}

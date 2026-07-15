@@ -1,0 +1,26 @@
+# ── Dependencies & build output ──
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Secrets & environment ──
+.env
+.env.local
+.env.*.local
+.env.production
+
+# ── OS / editor junk ──
+.DS_Store
+*.pem
+.vercel
+
+# ── Heavy / legacy content (kept locally, excluded from the repo) ──
+ux/
+research/
+media/
+rc-questions/
+math-questions/
+VLTG Brand Identity Kit/.thumbnail

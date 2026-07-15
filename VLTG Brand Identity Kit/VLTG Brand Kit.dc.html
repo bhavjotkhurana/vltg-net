@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="page">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; background:#F4F1EC; }
+    a { color:#1E3A5F; }
+    a:hover { color:#F59E0B; }
+  </style>
+</helmet>
+<div style="background:#F4F1EC; padding:56px 32px 88px; font-family:'Work Sans',sans-serif; color:#111827; min-height:100vh;">
+  <div style="max-width:1160px; margin:0 auto; display:flex; flex-direction:column; gap:28px;">
+
+    <!-- ===================== MASTHEAD ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC; display:flex; flex-wrap:wrap; align-items:stretch;">
+      <div style="flex:1 1 460px; padding:36px 40px; display:flex; flex-direction:column; justify-content:space-between; gap:32px; min-width:300px;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#111827;">Brand Identity Kit</span>
+          <span style="height:2px; flex:1; background:#111827; min-width:24px;"></span>
+          <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#1E3A5F;">v1 · 2026</span>
+        </div>
+        <div style="display:flex; align-items:flex-end;">
+          <dc-import name="Lockup" size="118" hint-size="440px,150px"></dc-import>
+        </div>
+        <div style="max-width:520px;">
+          <p style="margin:0; font-size:17px; line-height:1.5; color:#1E3A5F; font-weight:500;">Read it <strong style="color:#111827;">“voltage.”</strong> A free online practice test &amp; diagnostic that helps aspiring electricians prepare for the IBEW apprenticeship aptitude exam.</p>
+        </div>
+      </div>
+      <div style="flex:0 0 300px; border-left:2px solid #111827; background:#1E3A5F; display:flex; align-items:center; justify-content:center; padding:32px; min-width:220px;">
+        <div style="width:150px; height:150px;">
+          <dc-import name="VMark" left-color="#F4F1EC" right-color="#F59E0B" hint-size="150px,150px"></dc-import>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== 01 PRIMARY LOGO ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC;">
+      <div style="background:#111827; padding:12px 20px; display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F59E0B;">01</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F4F1EC; text-transform:uppercase;">Primary Logo — Lockup</span>
+      </div>
+      <div style="padding:64px 40px; display:flex; align-items:center; justify-content:center;">
+        <dc-import name="Lockup" size="132" hint-size="500px,170px"></dc-import>
+      </div>
+      <div style="border-top:2px solid #111827; padding:14px 20px; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#1E3A5F;">
+        THE WORDMARK “VLTG” · WORK SANS BOLD · UPPERCASE · 0.06EM TRACKING
+      </div>
+    </div>
+
+    <!-- ===================== 02 THE MARK ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC;">
+      <div style="background:#111827; padding:12px 20px; display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F59E0B;">02</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F4F1EC; text-transform:uppercase;">The Mark — Amber “V”</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap;">
+        <div style="flex:1 1 300px; padding:48px; display:flex; align-items:center; justify-content:center; border-right:2px solid #111827; min-width:260px;">
+          <div style="width:220px; height:220px;">
+            <dc-import name="VMark" hint-size="220px,220px"></dc-import>
+          </div>
+        </div>
+        <div style="flex:1 1 340px; padding:40px; display:flex; flex-direction:column; justify-content:center; gap:22px; min-width:280px;">
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <span style="flex:none; width:16px; height:16px; background:#1E3A5F; border:2px solid #111827;"></span>
+            <p style="margin:0; font-size:15px; line-height:1.5;"><strong>Amber V —</strong> the mark is simply the wordmark’s V set in amber. Amber carries the electricity.</p>
+          </div>
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <span style="flex:none; width:16px; height:16px; background:#1E3A5F; border:2px solid #111827;"></span>
+            <p style="margin:0; font-size:15px; line-height:1.5;"><strong>On any background —</strong> switch the V to navy, cream, or ink wherever amber lacks contrast.</p>
+          </div>
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <span style="flex:none; width:16px; height:16px; border:2px solid #111827; background:repeating-linear-gradient(45deg,#111827 0 2px,transparent 2px 5px);"></span>
+            <p style="margin:0; font-size:15px; line-height:1.5;"><strong>Favicon-ready —</strong> a single bold letter holds cleanly down to 16px.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== 03 COLOR VARIANTS ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC;">
+      <div style="background:#111827; padding:12px 20px; display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F59E0B;">03</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F4F1EC; text-transform:uppercase;">Color Variants</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <!-- full color / cream -->
+        <div style="border-right:2px solid #111827; border-bottom:2px solid #111827;">
+          <div style="height:180px; background:#F4F1EC; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+            <dc-import name="Lockup" size="42" left-color="#1E3A5F" right-color="#F59E0B" text-color="#111827" hint-size="180px,60px"></dc-import>
+            <div style="width:44px; height:44px;"><dc-import name="VMark" left-color="#1E3A5F" right-color="#F59E0B" hint-size="44px,44px"></dc-import></div>
+          </div>
+          <div style="border-top:2px solid #111827; padding:12px 18px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">FULL COLOR · CREAM</div>
+        </div>
+        <!-- full color / navy -->
+        <div style="border-right:2px solid #111827; border-bottom:2px solid #111827;">
+          <div style="height:180px; background:#1E3A5F; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+            <dc-import name="Lockup" size="42" left-color="#F4F1EC" right-color="#F59E0B" text-color="#F4F1EC" hint-size="180px,60px"></dc-import>
+            <div style="width:44px; height:44px;"><dc-import name="VMark" left-color="#F4F1EC" right-color="#F59E0B" hint-size="44px,44px"></dc-import></div>
+          </div>
+          <div style="border-top:2px solid #111827; padding:12px 18px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">FULL COLOR · NAVY</div>
+        </div>
+        <!-- all navy mono -->
+        <div style="border-bottom:2px solid #111827;">
+          <div style="height:180px; background:#F4F1EC; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+            <dc-import name="Lockup" size="42" left-color="#1E3A5F" right-color="#1E3A5F" text-color="#1E3A5F" hint-size="180px,60px"></dc-import>
+            <div style="width:44px; height:44px;"><dc-import name="VMark" left-color="#1E3A5F" right-color="#1E3A5F" hint-size="44px,44px"></dc-import></div>
+          </div>
+          <div style="border-top:2px solid #111827; padding:12px 18px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">MONO · NAVY</div>
+        </div>
+        <!-- all cream mono on dark -->
+        <div style="border-right:2px solid #111827;">
+          <div style="height:180px; background:#111827; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+            <dc-import name="Lockup" size="42" left-color="#F4F1EC" right-color="#F4F1EC" text-color="#F4F1EC" hint-size="180px,60px"></dc-import>
+            <div style="width:44px; height:44px;"><dc-import name="VMark" left-color="#F4F1EC" right-color="#F4F1EC" hint-size="44px,44px"></dc-import></div>
+          </div>
+          <div style="border-top:2px solid #111827; padding:12px 18px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">MONO · CREAM (REVERSED)</div>
+        </div>
+        <!-- all black -->
+        <div style="border-right:2px solid #111827;">
+          <div style="height:180px; background:#F4F1EC; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+            <dc-import name="Lockup" size="42" left-color="#111827" right-color="#111827" text-color="#111827" hint-size="180px,60px"></dc-import>
+            <div style="width:44px; height:44px;"><dc-import name="VMark" left-color="#111827" right-color="#111827" hint-size="44px,44px"></dc-import></div>
+          </div>
+          <div style="border-top:2px solid #111827; padding:12px 18px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">MONO · BLACK</div>
+        </div>
+        <div style="display:flex; align-items:center; padding:20px 24px; background:#F4F1EC;">
+          <p style="margin:0; font-size:13px; line-height:1.5; color:#1E3A5F;">On busy or mid-tone backgrounds, use a mono variant. Keep the amber for the electricity only — never the type.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== 05 APP ICON / FAVICON ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC;">
+      <div style="background:#111827; padding:12px 20px; display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F59E0B;">04</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F4F1EC; text-transform:uppercase;">App Icon &amp; Favicon</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; align-items:stretch;">
+        <div style="flex:1 1 200px; min-width:200px; border-right:2px solid #111827; padding:36px; display:flex; flex-direction:column; align-items:center; gap:16px;">
+          <div style="width:132px; height:132px; background:#1E3A5F; border:2px solid #111827; display:flex; align-items:center; justify-content:center;">
+            <div style="width:78px; height:78px;"><dc-import name="VMark" left-color="#F4F1EC" right-color="#F59E0B" hint-size="78px,78px"></dc-import></div>
+          </div>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">NAVY TILE</span>
+        </div>
+        <div style="flex:1 1 200px; min-width:200px; border-right:2px solid #111827; padding:36px; display:flex; flex-direction:column; align-items:center; gap:16px;">
+          <div style="width:132px; height:132px; background:#F59E0B; border:2px solid #111827; display:flex; align-items:center; justify-content:center;">
+            <div style="width:78px; height:78px;"><dc-import name="VMark" left-color="#1E3A5F" right-color="#1E3A5F" hint-size="78px,78px"></dc-import></div>
+          </div>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">AMBER TILE</span>
+        </div>
+        <div style="flex:1 1 200px; min-width:200px; padding:36px; display:flex; flex-direction:column; align-items:center; gap:16px;">
+          <div style="width:132px; height:132px; border:2px solid #111827; display:flex; align-items:center; justify-content:center; background-color:#fff; background-image:linear-gradient(45deg,#e3e0da 25%,transparent 25%),linear-gradient(-45deg,#e3e0da 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e3e0da 75%),linear-gradient(-45deg,transparent 75%,#e3e0da 75%); background-size:20px 20px; background-position:0 0,0 10px,10px -10px,-10px 0;">
+            <div style="width:78px; height:78px;"><dc-import name="VMark" left-color="#1E3A5F" right-color="#F59E0B" hint-size="78px,78px"></dc-import></div>
+          </div>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em;">TRANSPARENT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== 06 CLEARSPACE & MIN SIZE ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC;">
+      <div style="background:#111827; padding:12px 20px; display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F59E0B;">05</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F4F1EC; text-transform:uppercase;">Clearspace &amp; Minimum Size</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap;">
+        <!-- clearspace -->
+        <div style="flex:1 1 340px; min-width:300px; border-right:2px solid #111827; padding:40px; display:flex; flex-direction:column; align-items:center; gap:18px;">
+          <div style="position:relative; padding:56px; outline:2px dashed #1E3A5F; outline-offset:-2px;">
+            <span style="position:absolute; top:8px; left:50%; transform:translateX(-50%); font-family:'Space Mono',monospace; font-size:11px; color:#1E3A5F;">↕ X</span>
+            <span style="position:absolute; left:10px; top:50%; transform:translateY(-50%); font-family:'Space Mono',monospace; font-size:11px; color:#1E3A5F;">X</span>
+            <div style="width:112px; height:112px;"><dc-import name="VMark" hint-size="112px,112px"></dc-import></div>
+          </div>
+          <p style="margin:0; text-align:center; font-size:13px; line-height:1.5; color:#1E3A5F; max-width:280px;">Keep clearspace of <strong>X</strong> on all sides, where X = half the mark’s height. Nothing intrudes into this zone.</p>
+        </div>
+        <!-- min size -->
+        <div style="flex:1 1 340px; min-width:300px; padding:40px; display:flex; flex-direction:column; justify-content:center; gap:26px;">
+          <div style="display:flex; align-items:flex-end; gap:32px; justify-content:center;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+              <div style="width:32px; height:32px;"><dc-import name="VMark" hint-size="32px,32px"></dc-import></div>
+              <span style="font-family:'Space Mono',monospace; font-size:11px;">32PX</span>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+              <div style="width:24px; height:24px;"><dc-import name="VMark" hint-size="24px,24px"></dc-import></div>
+              <span style="font-family:'Space Mono',monospace; font-size:11px;">24PX</span>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+              <div style="width:16px; height:16px;"><dc-import name="VMark" hint-size="16px,16px"></dc-import></div>
+              <span style="font-family:'Space Mono',monospace; font-size:11px;">16PX ✦</span>
+            </div>
+          </div>
+          <p style="margin:0; text-align:center; font-size:13px; line-height:1.5; color:#1E3A5F;">Minimum mark size <strong>16px</strong> (favicon). Minimum full lockup width <strong>120px</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== 07 PALETTE ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC;">
+      <div style="background:#111827; padding:12px 20px; display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F59E0B;">06</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F4F1EC; text-transform:uppercase;">Color Palette</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+        <div style="border-right:2px solid #111827;">
+          <div style="height:120px; background:#F4F1EC; border-bottom:2px solid #111827;"></div>
+          <div style="padding:16px 18px;">
+            <div style="font-weight:700; font-size:15px;">Cream</div>
+            <div style="font-family:'Space Mono',monospace; font-size:13px; color:#1E3A5F; margin-top:3px;">#F4F1EC</div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; color:#111827; opacity:0.6; margin-top:8px; letter-spacing:0.06em;">BACKGROUND</div>
+          </div>
+        </div>
+        <div style="border-right:2px solid #111827;">
+          <div style="height:120px; background:#1E3A5F; border-bottom:2px solid #111827;"></div>
+          <div style="padding:16px 18px;">
+            <div style="font-weight:700; font-size:15px;">Navy</div>
+            <div style="font-family:'Space Mono',monospace; font-size:13px; color:#1E3A5F; margin-top:3px;">#1E3A5F</div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; color:#111827; opacity:0.6; margin-top:8px; letter-spacing:0.06em;">PRIMARY</div>
+          </div>
+        </div>
+        <div style="border-right:2px solid #111827;">
+          <div style="height:120px; background:#F59E0B; border-bottom:2px solid #111827;"></div>
+          <div style="padding:16px 18px;">
+            <div style="font-weight:700; font-size:15px;">Amber</div>
+            <div style="font-family:'Space Mono',monospace; font-size:13px; color:#1E3A5F; margin-top:3px;">#F59E0B</div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; color:#111827; opacity:0.6; margin-top:8px; letter-spacing:0.06em;">ACCENT · ELECTRICITY</div>
+          </div>
+        </div>
+        <div>
+          <div style="height:120px; background:#111827; border-bottom:2px solid #111827;"></div>
+          <div style="padding:16px 18px;">
+            <div style="font-weight:700; font-size:15px;">Ink</div>
+            <div style="font-family:'Space Mono',monospace; font-size:13px; color:#1E3A5F; margin-top:3px;">#111827</div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; color:#111827; opacity:0.6; margin-top:8px; letter-spacing:0.06em;">TEXT · BORDERS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== 08 TYPOGRAPHY ===================== -->
+    <div style="border:2px solid #111827; background:#F4F1EC;">
+      <div style="background:#111827; padding:12px 20px; display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F59E0B;">07</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#F4F1EC; text-transform:uppercase;">Typography</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap;">
+        <div style="flex:1 1 380px; min-width:300px; border-right:2px solid #111827; padding:32px 40px;">
+          <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#1E3A5F;">PRIMARY · WORK SANS</div>
+          <div style="font-weight:700; font-size:64px; letter-spacing:0.02em; line-height:1; margin-top:14px; text-transform:uppercase;">Aa</div>
+          <div style="font-size:22px; letter-spacing:0.02em; margin-top:8px;">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ</div>
+          <div style="font-family:'Space Mono',monospace; font-size:22px; margin-top:10px; color:#1E3A5F;">0123456789</div>
+        </div>
+        <div style="flex:1 1 300px; min-width:280px; padding:32px 40px; display:flex; flex-direction:column; gap:18px; justify-content:center;">
+          <div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#1E3A5F;">WORDMARK / DISPLAY</div>
+            <div style="font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.06em;">Bold · Uppercase · 0.06em</div>
+          </div>
+          <div style="height:2px; background:#111827;"></div>
+          <div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#1E3A5F;">BODY</div>
+            <div style="font-size:16px; font-weight:500;">Regular / Medium · sentence case</div>
+          </div>
+          <div style="height:2px; background:#111827;"></div>
+          <div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#1E3A5F;">LABELS / DATA</div>
+            <div style="font-family:'Space Mono',monospace; font-size:15px; letter-spacing:0.06em;">Space Mono · UPPERCASE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:4px;">
+      <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#1E3A5F;">VLTG — “VOLTAGE” · WIRED FOR THE TEST.</span>
+      <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#111827; opacity:0.55;">BRAND KIT · v1 · 2026</span>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { yes: true };
+  }
+}
+</script>
+</body>
+</html>

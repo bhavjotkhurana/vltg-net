@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</helmet>
+<span style="display:inline-block; font-family:'Work Sans',sans-serif; font-weight:700; font-size:{{ fontSize }}px; letter-spacing:0.06em; line-height:1; text-transform:uppercase; white-space:nowrap;"><span style="color:{{ vColor }}">V</span><span style="color:{{ textColor }}">LTG</span></span>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:160},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:96,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:24,&quot;max&quot;:240},&quot;rightColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F59E0B&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;textColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#111827&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const size = p.size ?? 96;             // target cap height in px
+    return {
+      vColor:    p.rightColor ?? "#F59E0B",
+      textColor: p.textColor  ?? "#111827",
+      fontSize:  Math.round(size / 0.716 * 100) / 100,
+    };
+  }
+}
+</script>
+</body>
+</html>

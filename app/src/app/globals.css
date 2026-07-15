@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F4F1EC; /* cream */
+  --foreground: #111827; /* ink */
+  --navy: #1E3A5F;
+  --amber: #F59E0B;
+
+  /* Accessible neutrals — all meet WCAG AA (>=4.5:1) on cream/white.
+     Use these instead of slate-300/400 for de-emphasized text. */
+  --muted: #4b5563; /* gray-600 — ~7:1 on cream, for secondary text */
+  --muted-strong: #374151; /* gray-700 — for labels needing weight */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-amber: var(--amber);
+  --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
+  --font-sans: var(--font-work-sans);
+  --font-mono: var(--font-space-mono);
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Accessibility: always show a visible focus ring for keyboard users ──
+   Default is a high-contrast ink ring (great on our light backgrounds).
+   Elements on dark/navy backgrounds should add `focus-visible:outline-amber`
+   via the `.on-dark` helper below. */
+:focus-visible {
+  outline: 3px solid var(--foreground);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--amber);
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
