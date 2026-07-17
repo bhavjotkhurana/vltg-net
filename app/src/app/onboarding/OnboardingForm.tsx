@@ -117,14 +117,14 @@ export default function OnboardingForm({ userId }: { userId: string }) {
               onClick={() => setStep("goal")}
               className="border-2 border-[#111827] px-6 py-3 text-sm font-bold uppercase tracking-wide text-[#111827] transition hover:bg-slate-100"
             >
-              ← Back
+              Back
             </button>
             <button
               onClick={handleStartTest}
               disabled={loading}
               className="flex-1 bg-amber-500 py-3 text-sm font-bold uppercase tracking-wide text-[#111827] transition hover:bg-amber-400 active:scale-95 disabled:opacity-50"
             >
-              {loading ? "Starting…" : "Start the test →"}
+              {loading ? "Starting…" : "Start the test"}
             </button>
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
           disabled={!selectedScore}
           className="mt-5 w-full bg-amber-500 py-3.5 text-sm font-bold uppercase tracking-wide text-[#111827] transition hover:bg-amber-400 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Continue →
+          Continue
         </button>
       </div>
     </div>

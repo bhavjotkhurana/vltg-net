@@ -12,7 +12,7 @@ export default function HomePage() {
 
       {/* ── Nav ── */}
       <header className="flex items-center justify-between border-b-2 border-[#111827] px-6 py-4 sm:px-12">
-        <Logo className="text-[1.6rem]" />
+        <Logo responsive className="text-[1.6rem]" />
         <nav className="flex items-center gap-5 sm:gap-7">
           <Link
             href="/faq"
@@ -30,7 +30,7 @@ export default function HomePage() {
             href="/auth/login"
             className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
           >
-            Sign in →
+            Sign in
           </Link>
         </nav>
       </header>
@@ -55,7 +55,7 @@ export default function HomePage() {
               href="/auth/login"
               className="inline-block bg-amber-500 px-10 py-4 text-base font-bold uppercase tracking-wider text-[#111827] transition hover:bg-amber-400 active:scale-95"
             >
-              Take the practice test →
+              Take the practice test
             </Link>
             <Link
               href="/auth/login"
@@ -154,7 +154,7 @@ export default function HomePage() {
             href="/faq#scoring"
             className="mt-8 inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
           >
-            How the scoring works, and what it&apos;s estimating →
+            How the scoring works, and what it&apos;s estimating
           </Link>
         </div>
       </section>
@@ -174,7 +174,7 @@ export default function HomePage() {
           href="/auth/login"
           className="mt-8 inline-block bg-amber-500 px-12 py-4 text-base font-bold uppercase tracking-wider text-[#111827] transition hover:bg-amber-400 active:scale-95"
         >
-          Take the practice test →
+          Take the practice test
         </Link>
       </section>
 

@@ -177,7 +177,7 @@ export default async function ResultsPage() {
       {/* ── Nav ── */}
       <header className="border-b-2 border-[#111827] px-6 py-4 sm:px-10">
         <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <Link href="/" className="focus-visible:outline-offset-4"><Logo className="text-[1.4rem]" /></Link>
+          <Link href="/" className="focus-visible:outline-offset-4"><Logo responsive className="text-[1.4rem]" /></Link>
           <span className="text-xs font-bold uppercase tracking-[0.12em] text-gray-600">Completed {completedDate}</span>
         </div>
       </header>
@@ -429,7 +429,7 @@ export default async function ResultsPage() {
                 href="/"
                 className="inline-block border-2 border-white/30 px-6 py-3 text-base font-bold uppercase tracking-wide text-white transition hover:bg-white/10"
               >
-                ← Home
+                Home
               </Link>
             </div>
           </div>

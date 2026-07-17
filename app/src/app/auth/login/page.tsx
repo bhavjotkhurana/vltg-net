@@ -30,7 +30,7 @@ function LoginForm() {
             href="/"
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-[#1E3A5F] transition-colors"
           >
-            <span aria-hidden="true">←</span> <Logo className="text-sm" />
+            <Logo className="text-sm" />
           </Link>
           <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-[#111827]">
             Let&apos;s get you started.

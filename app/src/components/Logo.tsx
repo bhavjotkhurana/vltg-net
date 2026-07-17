@@ -1,37 +1,59 @@
-// VLTG wordmark (brand kit v1): amber "V" carries the electricity, "LTG" in ink
-// (or cream on dark backgrounds). Work Sans bold, uppercase, 0.06em tracking.
+// VLTG logo. The "V-bolt" mark (see lib/logoMark) sits beside the Work Sans
+// wordmark. The wordmark is plain ink so it doesn't fight the amber V in the
+// mark; on dark backgrounds both the V arm and the wordmark flip to cream.
+// Sized off font-size (the `className` sets it), so every existing call site
+// that passed `text-[1.4rem]` etc. keeps working.
 
-export function Logo({
+import { MARK_COLORS, MARK_PATHS, MARK_VIEWBOX_TIGHT } from "@/lib/logoMark";
+
+export function VMark({
   variant = "light",
   className = "",
 }: {
   variant?: "light" | "dark";
   className?: string;
 }) {
-  const ltgColor = variant === "dark" ? "text-[#F4F1EC]" : "text-[#111827]";
+  const vFill = variant === "dark" ? MARK_COLORS.cream : MARK_COLORS.navy;
   return (
-    <span
-      className={`inline-block font-sans font-bold uppercase leading-none tracking-[0.06em] select-none ${className}`}
-      aria-label="VLTG"
+    <svg
+      viewBox={MARK_VIEWBOX_TIGHT}
+      className={className}
+      aria-hidden="true"
+      focusable="false"
     >
-      <span className="text-amber-500" aria-hidden="true">
-        V
-      </span>
-      <span className={ltgColor} aria-hidden="true">
-        LTG
-      </span>
-    </span>
+      <path d={MARK_PATHS.v} fill={vFill} />
+      <path d={MARK_PATHS.bolt} fill={MARK_COLORS.bolt} />
+      <path d={MARK_PATHS.facet} fill={MARK_COLORS.boltFacet} />
+    </svg>
   );
 }
 
-// Standalone mark — the amber "V" alone (app icon / compact contexts).
-export function VMark({ className = "" }: { className?: string }) {
+export function Logo({
+  variant = "light",
+  responsive = false,
+  className = "",
+}: {
+  variant?: "light" | "dark";
+  /** Hide the wordmark below the `sm` breakpoint (mark only), for tight headers. */
+  responsive?: boolean;
+  className?: string;
+}) {
+  const textColor = variant === "dark" ? "text-[#F4F1EC]" : "text-[#111827]";
   return (
     <span
-      className={`inline-block font-sans font-bold uppercase leading-none text-amber-500 select-none ${className}`}
+      className={`inline-flex items-center gap-[0.4em] leading-none ${className}`}
+      role="img"
       aria-label="VLTG"
     >
-      V
+      <VMark variant={variant} className="h-[1.25em] w-auto shrink-0" />
+      <span
+        className={`font-sans font-bold uppercase tracking-[0.06em] ${textColor} ${
+          responsive ? "hidden sm:inline-block" : ""
+        }`}
+        aria-hidden="true"
+      >
+        VLTG
+      </span>
     </span>
   );
 }

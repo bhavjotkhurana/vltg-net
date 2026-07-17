@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const ABOUT_DESCRIPTION =
   "I'm not an electrician. I measure learning. Why VLTG exists, how the questions were built, and how the 1-9 stanine scoring actually works, including what I don't know.";
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/about`,
     title: `About · ${SITE_NAME}`,
     description: ABOUT_DESCRIPTION,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: SITE_TITLE }],
+    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: `About · ${SITE_NAME}`,
     description: ABOUT_DESCRIPTION,
-    images: ["/og.png"],
+    images: ["/opengraph-image"],
   },
 };
 
@@ -69,12 +69,12 @@ export default function AboutPage() {
 
       {/* Nav */}
       <header className="flex items-center justify-between border-b-2 border-[#111827] px-6 py-4 sm:px-12">
-        <Link href="/"><Logo className="text-[1.4rem]" /></Link>
+        <Link href="/"><Logo responsive className="text-[1.4rem]" /></Link>
         <Link
           href="/auth/login"
           className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] transition-colors hover:text-amber-600"
         >
-          Take the test →
+          Take the test
         </Link>
       </header>
 
@@ -189,7 +189,7 @@ export default function AboutPage() {
           href="/faq"
           className="mt-6 inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] transition-colors hover:text-amber-600"
         >
-          The details, and the rest of the questions people ask →
+          The details, and the rest of the questions people ask
         </Link>
 
         {/* ── The catch ── */}
@@ -209,13 +209,13 @@ export default function AboutPage() {
             href="/auth/login"
             className="inline-block bg-amber-500 px-8 py-4 text-base font-bold uppercase tracking-wider text-[#111827] transition hover:bg-amber-400 active:scale-95"
           >
-            Take the practice test →
+            Take the practice test
           </Link>
           <Link
             href="/"
             className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 transition-colors hover:text-[#111827]"
           >
-            ← Back home
+            Back home
           </Link>
         </div>
 

@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase";
 import type { ClientQuestion } from "@/lib/questions";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import MathText from "./MathText";
 import { Logo } from "@/components/Logo";
@@ -263,7 +264,7 @@ export default function TestEngine({
     return (
       <div className="flex min-h-screen flex-col bg-[#F4F1EC]">
         <header className="border-b-2 border-[#111827] px-6 py-4 sm:px-12">
-          <a href="/"><Logo className="text-[1.4rem]" /></a>
+          <Link href="/"><Logo responsive className="text-[1.4rem]" /></Link>
         </header>
         <div className="flex flex-1 items-center justify-center px-6 py-12">
           <div className="w-full max-w-2xl">
@@ -343,7 +344,7 @@ export default function TestEngine({
     return (
       <div className="flex min-h-screen flex-col bg-[#F4F1EC]">
         <header className="border-b-2 border-[#111827] px-6 py-4 sm:px-12">
-          <a href="/"><Logo className="text-[1.4rem]" /></a>
+          <Link href="/"><Logo responsive className="text-[1.4rem]" /></Link>
         </header>
         <div className="flex flex-1 items-center justify-center px-6 py-12">
           <div className="w-full max-w-xl">
@@ -396,7 +397,7 @@ export default function TestEngine({
     return (
       <div className="on-dark flex min-h-screen flex-col bg-[#1E3A5F]">
         <header className="border-b-2 border-white/10 px-6 py-4 sm:px-12">
-          <a href="/"><Logo variant="dark" className="text-[1.4rem]" /></a>
+          <Link href="/"><Logo variant="dark" responsive className="text-[1.4rem]" /></Link>
         </header>
         <div className="flex flex-1 items-center justify-center px-6 py-12">
           <div className="w-full max-w-xl">
@@ -668,9 +669,10 @@ export default function TestEngine({
           <button
             onClick={() => navigateTo(currentIndex - 1)}
             disabled={currentIndex === 0}
-            className="border-2 border-[#111827] px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#111827] transition hover:bg-slate-50 disabled:opacity-30"
+            aria-label="Previous question"
+            className="border-2 border-[#111827] px-5 py-2.5 text-sm font-bold text-[#111827] transition hover:bg-slate-50 disabled:opacity-30"
           >
-            ← Prev
+            <span aria-hidden="true">←</span>
           </button>
 
           <div className="text-center text-xs font-bold text-gray-600">
@@ -680,9 +682,10 @@ export default function TestEngine({
           <button
             onClick={() => navigateTo(currentIndex + 1)}
             disabled={currentIndex === questions.length - 1}
-            className="border-2 border-[#111827] px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#111827] transition hover:bg-slate-50 disabled:opacity-30"
+            aria-label="Next question"
+            className="border-2 border-[#111827] px-5 py-2.5 text-sm font-bold text-[#111827] transition hover:bg-slate-50 disabled:opacity-30"
           >
-            Next →
+            <span aria-hidden="true">→</span>
           </button>
 
           <button
