@@ -55,6 +55,8 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/icon.svg`,
       description: SITE_DESCRIPTION,
+      // Resolved on /about, which describes the person in full.
+      founder: { "@id": `${SITE_URL}/#person` },
     },
     {
       "@type": "WebSite",

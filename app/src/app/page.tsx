@@ -13,12 +13,26 @@ export default function HomePage() {
       {/* ── Nav ── */}
       <header className="flex items-center justify-between border-b-2 border-[#111827] px-6 py-4 sm:px-12">
         <Logo className="text-[1.6rem]" />
-        <Link
-          href="/auth/login"
-          className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
-        >
-          Sign in →
-        </Link>
+        <nav className="flex items-center gap-5 sm:gap-7">
+          <Link
+            href="/faq"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 hover:text-[#111827] transition-colors"
+          >
+            FAQ
+          </Link>
+          <Link
+            href="/about"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 hover:text-[#111827] transition-colors"
+          >
+            About
+          </Link>
+          <Link
+            href="/auth/login"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
+          >
+            Sign in →
+          </Link>
+        </nav>
       </header>
 
       {/* ── Hero ── */}
@@ -136,6 +150,12 @@ export default function HomePage() {
               <p className="mt-1 text-sm text-gray-700">Locals rank applicants by score. The higher you score, the earlier you get called for an apprenticeship slot.</p>
             </div>
           </div>
+          <Link
+            href="/faq#scoring"
+            className="mt-8 inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
+          >
+            How the scoring works, and what it&apos;s estimating →
+          </Link>
         </div>
       </section>
 
@@ -158,11 +178,25 @@ export default function HomePage() {
         </Link>
       </section>
 
-      <footer className="flex flex-col items-center gap-2 border-t-2 border-[#111827] py-8">
+      <footer className="flex flex-col items-center gap-3 border-t-2 border-[#111827] py-8">
         <Logo className="text-lg" />
         <p className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600">
           &ldquo;Voltage&rdquo; · Wired for the test
         </p>
+        <nav className="flex items-center gap-5">
+          <Link
+            href="/faq"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
+          >
+            FAQ
+          </Link>
+          <Link
+            href="/about"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
+          >
+            About VLTG
+          </Link>
+        </nav>
       </footer>
     </div>
   );

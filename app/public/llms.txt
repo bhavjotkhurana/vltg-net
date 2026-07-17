@@ -18,4 +18,23 @@ VLTG helps people preparing for the IBEW / electrical Training ALLIANCE (formerl
 
 ## Pages
 - Home: https://vltg.net (take the free practice test)
-- More guides and an About page are in progress.
+- FAQ: https://vltg.net/faq (what the test is, how many questions, what score you need, what a stanine is, retake waits, and how this practice test is built)
+- About: https://vltg.net/about (who built it and why)
+- More guides are in progress.
+
+## Common questions, answered
+- **How many questions and how long?** 69 questions in about 97 minutes: 33 math in 46 minutes and 36 reading in 51 minutes. Roughly 85 seconds per question, no calculator.
+- **What score do you need?** A 4 or better on the 1-9 stanine scale qualifies you for an interview at most locals. 5 is average. Locals rank applicants by score, so higher usually means an earlier call.
+- **Do you need electrical knowledge?** No. The math is ordinary high-school algebra and the passages cover everyday topics. It is an aptitude test, not a knowledge test.
+- **What is a stanine?** A 1-9 score based on where you land relative to other test takers, not the percentage you got right. 5 is average by definition; 70% correct does not mean a 7.
+- **How long until you can retake it?** It depends on the local. Three months is the standard minimum, plenty require six, and some require a full year.
+- **Is it affiliated with the IBEW?** No. VLTG is independent and not affiliated with, endorsed by, or connected to the IBEW, NECA, or the electrical Training ALLIANCE.
+
+## Who built it
+VLTG is built by Bhavjot Khurana, who works in learning measurement rather than the electrical trade: a math and statistics background, 700+ tutoring sessions, and a former data analyst at an education company. The premise is that people are bad at self-diagnosis. Miss an algebra question that has fractions in it and pass one that doesn't, and the problem is fractions, not algebra. The test exists to identify which skill is actually the gap.
+
+## Methodology and limitations (stated plainly)
+- All questions are original, written for VLTG. The real exam's items are secured and not public, so no practice product anywhere has the real questions.
+- Math answers are verified programmatically before being served, correct answers are distributed evenly across A/B/C/D, and reading passages are original.
+- The stanine score is an ESTIMATE. The official conversion tables are proprietary to the American Institutes for Research and are not public, so VLTG implements the standard stanine method against a documented estimate of applicant performance and displays the percentile alongside it. It will be recalibrated as real response data accumulates.
+- VLTG is not affiliated with, endorsed by, or connected to the IBEW, NECA, or the electrical Training ALLIANCE.
