@@ -18,86 +18,62 @@ export default async function OpengraphImage() {
     readFile(join(process.cwd(), "src/app/_og/WorkSans-700.ttf")),
   ]);
 
+  // Cream V arm so the mark reads on the navy panel.
   const mark = `data:image/svg+xml;base64,${Buffer.from(
-    markSvgString({ viewBox: MARK_VIEWBOX_TIGHT })
+    markSvgString({ viewBox: MARK_VIEWBOX_TIGHT, dark: true })
   ).toString("base64")}`;
 
   return new ImageResponse(
     (
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          background: "#F4F1EC",
-          border: "14px solid #111827",
-          padding: "70px",
-          fontFamily: "Work Sans",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "30px" }}>
-          <img src={mark} width={128} height={128} alt="" />
+      <div style={{ height: "100%", width: "100%", display: "flex", fontFamily: "Work Sans" }}>
+        {/* Navy panel: the mark + tagline */}
+        <div
+          style={{
+            width: "460px",
+            background: "#1E3A5F",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "34px",
+          }}
+        >
+          <img src={mark} width={230} height={230} alt="" />
           <div
             style={{
               display: "flex",
-              fontSize: 128,
+              fontSize: 27,
               fontWeight: 700,
-              letterSpacing: "0.04em",
-              color: "#111827",
+              letterSpacing: 6,
+              color: "#cbd5e1",
             }}
           >
-            VLTG
+            WIRED FOR THE TEST
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 60,
-              fontWeight: 700,
-              color: "#111827",
-              lineHeight: 1.1,
-            }}
-          >
+        {/* Cream panel: the wordmark + copy */}
+        <div
+          style={{
+            flex: 1,
+            background: "#F4F1EC",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            padding: "70px",
+          }}
+        >
+          <div style={{ display: "flex", fontSize: 104, fontWeight: 700, letterSpacing: 4, color: "#111827" }}>
+            VLTG
+          </div>
+          <div style={{ display: "flex", fontSize: 46, fontWeight: 700, color: "#111827", marginTop: 18, lineHeight: 1.12 }}>
             Free IBEW aptitude practice test
           </div>
-          <div
-            style={{
-              display: "flex",
-              marginTop: "20px",
-              fontSize: 32,
-              fontWeight: 400,
-              color: "#4b5563",
-              maxWidth: "900px",
-              lineHeight: 1.35,
-            }}
-          >
-            The full test, an instant 1–9 stanine score, and a study plan built around
-            your weakest skills.
+          <div style={{ display: "flex", fontSize: 28, fontWeight: 400, color: "#4b5563", marginTop: 18 }}>
+            Instant score and a clear study plan.
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "16px",
-              marginTop: "40px",
-            }}
-          >
-            <div style={{ display: "flex", width: "40px", height: "8px", background: "#F59E0B" }} />
-            <div
-              style={{
-                display: "flex",
-                fontSize: 28,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                color: "#1E3A5F",
-              }}
-            >
-              VLTG.NET
-            </div>
+          <div style={{ display: "flex", fontSize: 26, fontWeight: 700, letterSpacing: 2.6, color: "#1E3A5F", marginTop: 30 }}>
+            VLTG.NET
           </div>
         </div>
       </div>
