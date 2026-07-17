@@ -1,7 +1,7 @@
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { createServiceSupabaseClient } from "@/lib/supabase-server";
 import { loadFullQuestionMeta } from "@/lib/questions";
-import { computeDiagnosticReport, MATH_QUESTIONS, READING_QUESTIONS } from "@/lib/scoring";
+import { computeDiagnosticReport, studyCadence, MATH_QUESTIONS, READING_QUESTIONS } from "@/lib/scoring";
 import { NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 
@@ -109,6 +109,13 @@ export async function POST(request: Request) {
           .map(([id]) => id.replace(/_/g, " "))
           .join(", ");
 
+        // Frame effort as the same daily cadence the results page shows, not a
+        // raw lump-sum hours figure, so the coach note and the page agree.
+        const passCadence = studyCadence(diagnostic.hours_to_passing);
+        const cadenceText = passCadence
+          ? `about ${passCadence.weeks === 1 ? "a week" : `${passCadence.weeks} weeks`} at ~${passCadence.minutesPerDay} minutes a day`
+          : "already there";
+
         const msg = await anthropic.messages.create({
           model: "claude-haiku-4-5-20251001",
           max_tokens: 300,
@@ -118,9 +125,9 @@ export async function POST(request: Request) {
 
 Score: ${diagnostic.composite_score}/9 stanine (math: ${diagnostic.math_raw}/${MATH_QUESTIONS}, reading: ${diagnostic.reading_raw}/${READING_QUESTIONS})
 Weakest skills: ${topWeak || "none identified"}
-Hours to a qualifying score (4): ${diagnostic.hours_to_passing}h
+Effort to a qualifying score (4), framed as a daily habit: ${cadenceText}
 
-Tone: supportive and human, like a coach who believes in them — never intimidating or discouraging, but honest and specific. Acknowledge where they are, name the single biggest thing to work on, and point to one concrete next step that feels doable. Write in plain, everyday language. No bullet points. Don't open with generic filler like "Great job" or "Congratulations."`,
+Tone: supportive and human, like a coach who believes in them — never intimidating or discouraging, but honest and specific. Acknowledge where they are, name the single biggest thing to work on, and point to one concrete next step that feels doable. If you mention how much work is ahead, use the daily-habit framing above (e.g. "about two weeks at 25 minutes a day") rather than a lump sum of hours. Write in plain, everyday language. No bullet points. Don't open with generic filler like "Great job" or "Congratulations."`,
           }],
         });
         aiSummary = (msg.content[0] as { type: string; text: string }).text ?? null;

@@ -5,11 +5,13 @@ import {
   MATH_TIME_LIMIT_SECONDS,
   READING_TIME_LIMIT_SECONDS,
   rawToPercentile,
+  studyCadence,
 } from "@/lib/scoring";
 import skillsData from "@/data/skills.json";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Logo } from "@/components/Logo";
+import { StanineCurve } from "@/components/StanineCurve";
 import RetakeButton from "./RetakeButton";
 import EmailCapture from "./EmailCapture";
 
@@ -107,7 +109,19 @@ export default async function ResultsPage() {
   const alreadyPassing = composite >= 4;
   const alreadyAtGoal = scoreGap <= 0;
   const percentile = rawToPercentile(mathRaw + readingRaw);
-  const planTotalHours = Math.round(studyPlan.reduce((s, i) => s + (i.hours_estimate ?? 0), 0) * 10) / 10;
+
+  // One honest "how much work" figure, recast as a daily rhythm rather than a
+  // lump sum: the hours to the target that actually matters right now (a
+  // qualifying 4 if you're below it, otherwise your own goal).
+  const targetStanine = alreadyPassing ? desiredScore : 4;
+  const hoursToTarget = alreadyPassing ? hoursToGoal : hoursToPass;
+  const cadence = studyCadence(hoursToTarget);
+
+  // Lead with what they got right. Strongest tested skills first.
+  const strongSkills = Object.entries(skillScores)
+    .filter(([, s]) => s.total > 0 && s.pct >= 0.8)
+    .sort(([, a], [, b]) => b.pct - a.pct)
+    .map(([id]) => skillLabel(id));
 
   // Group the study plan by category, in the intended working order.
   const groupedPlan = (Object.keys(CATEGORY_META) as StudyCategory[])
@@ -157,10 +171,6 @@ export default async function ResultsPage() {
     month: "short", day: "numeric", year: "numeric",
   });
 
-  const primaryHoursLabel = !alreadyPassing ? "Hours to qualify" : "Hours to goal";
-  const primaryHoursValue = !alreadyPassing ? `${hoursToPass}h` : `${hoursToGoal}h`;
-  const primaryHoursSub = !alreadyPassing ? "to reach a 4" : `to reach a ${desiredScore}`;
-
   return (
     <div className="min-h-screen bg-[#F4F1EC]">
 
@@ -193,34 +203,31 @@ export default async function ResultsPage() {
             )}
           </div>
 
-          {/* Right: scale + stats */}
+          {/* Right: where you landed on the curve + section stats */}
           <div className="flex flex-col bg-white">
-            <div className="border-b-2 border-[#111827] px-6 py-5">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">Score scale</p>
-              <div className="grid grid-cols-9 gap-1">
-                {[1,2,3,4,5,6,7,8,9].map((s) => (
-                  <div key={s} className={`border-2 py-2.5 text-center text-base font-bold ${
-                    s === composite && s === desiredScore ? "border-amber-500 bg-amber-400 text-[#111827]" :
-                    s === composite ? "border-[#1E3A5F] bg-[#1E3A5F] text-white" :
-                    s === desiredScore ? "border-amber-400 bg-amber-50 text-amber-800" :
-                    s === 4 ? "border-slate-300 bg-slate-100 text-gray-700" :
-                    "border-slate-200 bg-white text-gray-500"
-                  }`}>
-                    {s}
-                    {s === 4 && <div className="text-[8px] font-bold leading-none mt-0.5 text-gray-600">PASS</div>}
-                  </div>
-                ))}
-              </div>
+            <div className="border-b-2 border-[#111827] p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">Where you landed</p>
+              <StanineCurve
+                marker={composite}
+                goal={desiredScore}
+                caption={
+                  <>
+                    The dark dot is you, at a{" "}
+                    <strong className="text-[#111827]">{composite}</strong>. The amber
+                    ring is your goal of {desiredScore}. A stanine is your standing
+                    against everyone else, not your percent correct.
+                  </>
+                }
+              />
             </div>
 
-            <div className="grid flex-1 grid-cols-2 divide-x-2 divide-y-2 divide-[#111827] lg:grid-cols-4 lg:divide-y-0">
+            <div className="grid flex-1 grid-cols-1 divide-y-2 divide-[#111827] sm:grid-cols-3 sm:divide-x-2 sm:divide-y-0">
               {[
-                { label: "Math", value: `${mathRaw}/${MATH_QUESTIONS}`, sub: `${Math.round((mathRaw/MATH_QUESTIONS)*100)}%`, accent: false },
-                { label: "Reading", value: `${readingRaw}/${READING_QUESTIONS}`, sub: `${Math.round((readingRaw/READING_QUESTIONS)*100)}%`, accent: false },
-                { label: primaryHoursLabel, value: primaryHoursValue, sub: primaryHoursSub, accent: true },
-                { label: "Time taken", value: formatDuration(session.time_spent_seconds), sub: "total", accent: false },
-              ].map(({ label, value, sub, accent }, i) => (
-                <div key={label} className={`flex flex-col justify-center px-5 py-5 ${accent ? "bg-amber-50" : ""} ${i >= 2 ? "border-t-2 border-[#111827] lg:border-t-0" : ""}`}>
+                { label: "Math", value: `${mathRaw}/${MATH_QUESTIONS}`, sub: `${Math.round((mathRaw/MATH_QUESTIONS)*100)}%` },
+                { label: "Reading", value: `${readingRaw}/${READING_QUESTIONS}`, sub: `${Math.round((readingRaw/READING_QUESTIONS)*100)}%` },
+                { label: "Time taken", value: formatDuration(session.time_spent_seconds), sub: "total" },
+              ].map(({ label, value, sub }) => (
+                <div key={label} className="flex flex-col justify-center px-5 py-5">
                   <p className="text-xs font-bold uppercase tracking-[0.1em] text-gray-600">{label}</p>
                   <p className="mt-1 text-3xl font-extrabold text-[#111827] xl:text-4xl">{value}</p>
                   <p className="text-sm text-gray-600">{sub}</p>
@@ -229,6 +236,26 @@ export default async function ResultsPage() {
             </div>
           </div>
         </div>
+
+        {/* ══ Strengths first — start from what's already working ══ */}
+        {strongSkills.length > 0 && (
+          <div className="mt-4 border-2 border-[#111827] bg-white px-6 py-5">
+            <div className="flex items-baseline gap-3">
+              <span aria-hidden="true" className="h-3 w-3 flex-none translate-y-0.5 bg-emerald-500" />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">
+                  Already solid
+                </p>
+                <p className="mt-1 text-lg leading-relaxed text-gray-800">
+                  You&apos;re already strong on{" "}
+                  <strong className="text-[#111827]">{strongSkills.slice(0, 5).join(", ")}</strong>
+                  {strongSkills.length > 5 ? `, and ${strongSkills.length - 5} more.` : "."}{" "}
+                  That&apos;s the part you don&apos;t have to spend time on.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ══ Coach note ══ */}
         {aiSummary && (
@@ -246,10 +273,14 @@ export default async function ResultsPage() {
               <h2 className="mt-1 text-2xl font-extrabold text-[#111827]">What to work on, in order.</h2>
               <p className="mt-1 text-base text-gray-700">Built from your answers. The skills at the top move your score the most.</p>
             </div>
-            {planTotalHours > 0 && (
-              <div className="flex-none sm:text-right">
-                <p className="text-3xl font-extrabold text-[#111827]">~{planTotalHours}h</p>
-                <p className="text-xs uppercase tracking-[0.1em] text-gray-600">estimated total</p>
+            {cadence && (
+              <div className="flex-none border-l-4 border-amber-500 bg-amber-50 py-2 pl-4 pr-4 sm:min-w-[13rem]">
+                <p className="text-xl font-extrabold text-[#111827]">
+                  {cadence.weeks === 1 ? "About a week" : `About ${cadence.weeks} weeks`}
+                </p>
+                <p className="text-sm text-gray-700">
+                  at ~{cadence.minutesPerDay} min a day to reach a {targetStanine}
+                </p>
               </div>
             )}
           </div>
@@ -301,13 +332,13 @@ export default async function ResultsPage() {
             <p className="mt-0.5 text-base text-gray-700">Sorted weakest to strongest, so you can see the full picture.</p>
           </div>
           <div className="grid divide-y-2 divide-[#111827] sm:grid-cols-2 sm:divide-y-0">
-            <div className="sm:border-r-2 sm:border-[#111827]">
+            <div className="min-w-0 sm:border-r-2 sm:border-[#111827]">
               <div className="border-b border-slate-300 bg-[#F4F1EC] px-6 py-3">
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-gray-700">Mathematics</p>
               </div>
               <SkillList skills={mathSkills} />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="border-b border-slate-300 bg-[#F4F1EC] px-6 py-3">
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-gray-700">Reading</p>
               </div>

@@ -62,14 +62,40 @@ const BANDS = PCTS.map((pct, i) => {
 const CURVE_ALT =
   "A bell curve split into nine stanine bands. Bands 1 to 3 are below the qualifying bar, band 4 is the minimum most locals want, and bands 5 to 9 are above it. About 20 percent of test takers land in band 5, which is average, and only about 4 percent land in band 1 or band 9.";
 
-function CurveSvg({ cfg, className }: { cfg: CurveCfg; className: string }) {
+function CurveSvg({
+  cfg,
+  className,
+  marker,
+  markerLabel = "You",
+  goal,
+  showAverage = true,
+  ariaLabel = CURVE_ALT,
+}: {
+  cfg: CurveCfg;
+  className: string;
+  marker?: number;
+  markerLabel?: string;
+  goal?: number;
+  showAverage?: boolean;
+  ariaLabel?: string;
+}) {
   const { xOf, yOf, bandPath } = geom(cfg);
+
+  // "You are here" pin: a labelled dot on the curve at the test taker's band,
+  // with a short connector up to the label. The label x is clamped off the edges
+  // so it never clips at band 1 or 9.
+  const pin = marker ? BANDS[marker - 1] : null;
+  const pinX = pin ? xOf(pin.mid) : 0;
+  const pinY = pin ? yOf(pin.mid) : 0;
+  const labelX = Math.min(Math.max(pinX, 54), cfg.w - 54);
+  const labelY = cfg.calloutSize + 2;
+
   return (
     <svg
       viewBox={`0 0 ${cfg.w} ${cfg.h}`}
       className={`h-auto w-full ${className}`}
       role="img"
-      aria-label={CURVE_ALT}
+      aria-label={ariaLabel}
     >
       {BANDS.map((b) => (
         <path key={b.stanine} d={bandPath(b.zLo, b.zHi)} fill={b.fill} />
@@ -115,24 +141,65 @@ function CurveSvg({ cfg, className }: { cfg: CurveCfg; className: string }) {
         </g>
       ))}
       {/* single callout on the peak — the colour legend carries the rest */}
-      <text
-        x={xOf(0)}
-        y={yOf(0) - 14}
-        textAnchor="middle"
-        fontSize={cfg.calloutSize}
-        fontWeight="700"
-        fill="#1E3A5F"
-      >
-        5 is average
-      </text>
-      <line
-        x1={xOf(0)}
-        x2={xOf(0)}
-        y1={yOf(0) - 9}
-        y2={yOf(0) - 3}
-        stroke="#1E3A5F"
-        strokeWidth="1.5"
-      />
+      {showAverage && (
+        <>
+          <text
+            x={xOf(0)}
+            y={yOf(0) - 14}
+            textAnchor="middle"
+            fontSize={cfg.calloutSize}
+            fontWeight="700"
+            fill="#1E3A5F"
+          >
+            5 is average
+          </text>
+          <line
+            x1={xOf(0)}
+            x2={xOf(0)}
+            y1={yOf(0) - 9}
+            y2={yOf(0) - 3}
+            stroke="#1E3A5F"
+            strokeWidth="1.5"
+          />
+        </>
+      )}
+
+      {/* goal band: a hollow amber ring under the target number */}
+      {goal && (
+        <circle
+          cx={xOf(BANDS[goal - 1].mid)}
+          cy={cfg.baseY + cfg.numberSize + 3}
+          r={cfg.numberSize * 0.85}
+          fill="none"
+          stroke="#F59E0B"
+          strokeWidth="2"
+        />
+      )}
+
+      {/* "you are here" pin at the test taker's band */}
+      {pin && (
+        <g>
+          <line
+            x1={labelX}
+            y1={labelY + 4}
+            x2={pinX}
+            y2={pinY - 6}
+            stroke="#111827"
+            strokeWidth="1.5"
+          />
+          <circle cx={pinX} cy={pinY} r={cfg.numberSize * 0.32} fill="#111827" stroke="#ffffff" strokeWidth="2" />
+          <text
+            x={labelX}
+            y={labelY}
+            textAnchor="middle"
+            fontSize={cfg.calloutSize + 1}
+            fontWeight="700"
+            fill="#111827"
+          >
+            {markerLabel} · {marker}
+          </text>
+        </g>
+      )}
     </svg>
   );
 }
@@ -143,12 +210,26 @@ const LEGEND = [
   { color: "#1E3A5F", label: "5 and up, above the bar", strong: false },
 ];
 
-export function StanineCurve() {
+export function StanineCurve({
+  marker,
+  markerLabel,
+  goal,
+  caption,
+}: {
+  /** Draw a "you are here" pin at this stanine (1-9); hides the "5 is average" note. */
+  marker?: number;
+  markerLabel?: string;
+  /** Draw a hollow amber ring under this target stanine (1-9). */
+  goal?: number;
+  /** Replace the default figcaption. */
+  caption?: React.ReactNode;
+} = {}) {
+  const shared = { marker, markerLabel, goal, showAverage: marker === undefined };
   return (
     <figure className="border-2 border-[#111827] bg-white">
       <div className="px-3 pt-3 sm:px-0 sm:pt-0">
-        <CurveSvg cfg={NARROW} className="sm:hidden" />
-        <CurveSvg cfg={WIDE} className="hidden sm:block" />
+        <CurveSvg cfg={NARROW} className="sm:hidden" {...shared} />
+        <CurveSvg cfg={WIDE} className="hidden sm:block" {...shared} />
       </div>
       <div className="flex flex-wrap gap-x-6 gap-y-2 border-t-2 border-[#111827] px-5 py-3 text-sm">
         {LEGEND.map((l) => (
@@ -165,10 +246,14 @@ export function StanineCurve() {
         ))}
       </div>
       <figcaption className="border-t-2 border-[#111827] bg-[#F4F1EC] px-5 py-3 text-sm leading-relaxed text-gray-700">
-        Each band is a stanine. Most people land in the middle: about 20% score a 5,
-        and only about 4% land at either end. Scoring is about{" "}
-        <strong className="text-[#111827]">where you sit relative to everyone else</strong>,
-        not the percentage you got right.
+        {caption ?? (
+          <>
+            Each band is a stanine. Most people land in the middle: about 20% score a 5,
+            and only about 4% land at either end. Scoring is about{" "}
+            <strong className="text-[#111827]">where you sit relative to everyone else</strong>,
+            not the percentage you got right.
+          </>
+        )}
       </figcaption>
     </figure>
   );

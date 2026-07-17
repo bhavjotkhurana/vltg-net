@@ -184,16 +184,19 @@ export function computeSkillScores(
   responses: QuestionResponse[],
   questions: QuestionMeta[]
 ): Record<string, SkillScore> {
-  const metaById = Object.fromEntries(questions.map((q) => [q.id, q]));
+  // Iterate over the questions, not the responses: a question the test taker
+  // left blank counts against the skill the same way it counts against the
+  // composite score (skips are wrong, not "no data"). Otherwise a mostly-skipped
+  // test reads as "strong across every skill" while the score up top says
+  // otherwise. For a fully answered test this is identical to tallying responses.
+  const responseById = Object.fromEntries(responses.map((r) => [r.question_id, r]));
   const tally: Record<string, { correct: number; total: number }> = {};
 
-  for (const r of responses) {
-    const meta = metaById[r.question_id];
-    if (!meta) continue;
-    const skill = meta.primary_skill;
+  for (const q of questions) {
+    const skill = q.primary_skill;
     if (!tally[skill]) tally[skill] = { correct: 0, total: 0 };
     tally[skill].total += 1;
-    if (r.is_correct) tally[skill].correct += 1;
+    if (responseById[q.id]?.is_correct) tally[skill].correct += 1;
   }
 
   return Object.fromEntries(
@@ -302,6 +305,14 @@ function buildPrereqChain(
   return chain;
 }
 
+// Pick one of several phrasings deterministically from the skill id, so a plan
+// with five quick wins doesn't repeat the exact same sentence five times.
+function pick<T>(variants: T[], seed: string): T {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) | 0;
+  return variants[Math.abs(h) % variants.length];
+}
+
 function buildReason(
   skill: string,
   score: SkillScore,
@@ -310,11 +321,27 @@ function buildReason(
 ): string {
   const pct = Math.round(score.pct * 100);
   const prereqLabels = weakPrereqs.map(labelFor).join(" and ");
+  // Seed on skill + score so two skills at different percentages don't land on
+  // the same phrasing, while a given result stays stable across renders.
+  const seed = `${skill}:${pct}`;
   switch (category) {
     case "quick_win":
-      return `You're at ${pct}% — nearly there. A focused review session should lock this in.`;
+      return pick(
+        [
+          `You're at ${pct}% — nearly there. A focused review session should lock this in.`,
+          `Already at ${pct}%. This one is close enough that a little targeted practice tips it over.`,
+          `You're at ${pct}%, so the foundation is there. A short, deliberate review closes the rest of the gap.`,
+        ],
+        seed
+      );
     case "foundation":
-      return `You're at ${pct}%. Nothing underneath it is holding you back, so it's a clean place to build from the fundamentals.`;
+      return pick(
+        [
+          `You're at ${pct}%. Nothing underneath it is holding you back, so it's a clean place to build from the fundamentals.`,
+          `At ${pct}%. There's no hidden gap propping this up — start from the basics here and it climbs steadily.`,
+        ],
+        seed
+      );
     case "prerequisite_chain":
       return `You're at ${pct}%. Gaps in ${prereqLabels} are likely what's holding this back — shore those up first and this tends to follow.`;
     case "stretch":
@@ -396,4 +423,18 @@ function estimateTotalHoursToTarget(
   const gap = targetPct - currentPct;
   const maxGap = 1 - currentPct;
   return Math.round((total * (gap / Math.max(maxGap, 0.01))) * 10) / 10;
+}
+
+// A lump-sum hours figure reads as daunting ("47 hours"). The same effort recast
+// as a small daily habit reads as finite and doable. Given hours to a target,
+// return the daily-rhythm framing at a sustainable ~25 min/day.
+export const STUDY_MINUTES_PER_DAY = 25;
+
+export function studyCadence(
+  hoursToTarget: number
+): { minutesPerDay: number; days: number; weeks: number } | null {
+  if (hoursToTarget <= 0) return null;
+  const days = Math.max(1, Math.ceil((hoursToTarget * 60) / STUDY_MINUTES_PER_DAY));
+  const weeks = Math.max(1, Math.round(days / 7));
+  return { minutesPerDay: STUDY_MINUTES_PER_DAY, days, weeks };
 }
