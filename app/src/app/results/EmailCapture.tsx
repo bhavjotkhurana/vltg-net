@@ -21,7 +21,7 @@ export default function EmailCapture() {
     return (
       <div className="mt-4 border-2 border-[#111827] bg-white px-6 py-5">
         <p className="text-sm font-bold text-[#111827]">You&apos;re on the list.</p>
-        <p className="mt-1 text-sm text-gray-700">We&apos;ll let you know when the full study materials are ready.</p>
+        <p className="mt-1 text-sm text-gray-700">I&apos;ll let you know when the full study materials are ready.</p>
       </div>
     );
   }

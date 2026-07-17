@@ -73,7 +73,7 @@ export default function HomePage() {
           {[
             { stat: "69", label: "Questions", sub: "33 math · 36 reading" },
             { stat: "4+", label: "Score to qualify", sub: "1–9 stanine scale" },
-            { stat: "97m", label: "Real test clock", sub: "Untimed here, we benchmark you" },
+            { stat: "97m", label: "Real test clock", sub: "Untimed here, I benchmark you" },
           ].map(({ stat, label, sub }) => (
             <div key={label} className="px-8 py-10 text-center">
               <p className="text-5xl font-extrabold text-amber-400 sm:text-6xl">{stat}</p>

@@ -60,7 +60,7 @@ function LoginForm() {
           </button>
 
           <p className="mt-5 text-center text-xs leading-relaxed text-gray-600">
-            By continuing, you agree to our terms. Your Google account name and email are used to create your VLTG account.
+            By continuing, you agree to the terms. Your Google account name and email are used to create your VLTG account.
           </p>
         </div>
       </div>

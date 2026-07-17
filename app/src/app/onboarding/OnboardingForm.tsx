@@ -141,7 +141,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
             Set your target score.
           </h1>
           <p className="mt-2 text-base leading-relaxed text-gray-700">
-            A score of 4 qualifies you for an interview, and higher scores move you up the list. Pick what you&apos;re aiming for and we&apos;ll build your study plan around it.
+            A score of 4 qualifies you for an interview, and higher scores move you up the list. Pick what you&apos;re aiming for and I&apos;ll build your study plan around it.
           </p>
         </div>
 

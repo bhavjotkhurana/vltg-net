@@ -256,7 +256,7 @@ export default async function ResultsPage() {
 
           {groupedPlan.length === 0 ? (
             <div className="px-6 py-10 text-center">
-              <p className="text-lg font-bold text-[#111827]">You&apos;re strong across every skill we tested.</p>
+              <p className="text-lg font-bold text-[#111827]">You&apos;re strong across every skill I tested.</p>
               <p className="mt-1 text-base text-gray-700">No priority gaps to fix. Keep your edge with a full retake before test day.</p>
             </div>
           ) : (

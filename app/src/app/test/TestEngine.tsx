@@ -273,7 +273,7 @@ export default function TestEngine({
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-gray-700">
               The IBEW aptitude test has two sections, taken in order. Take your time,
-              there&apos;s no cutoff here, but we&apos;ll show you how your pace compares to the real clock.
+              there&apos;s no cutoff here, but I&apos;ll show you how your pace compares to the real clock.
             </p>
 
             <div className="mt-8 divide-y-2 divide-[#111827] border-2 border-[#111827] bg-white">
@@ -373,8 +373,8 @@ export default function TestEngine({
                 <p className="text-sm leading-relaxed text-gray-700">All arithmetic is done by hand. <span className="font-semibold text-[#111827]">Write things down</span> rather than doing it all in your head.</p>
               </div>
               <div className="px-5 py-4">
-                <p className="mb-1 text-base font-bold text-[#111827]">Untimed, but we&apos;ll clock you</p>
-                <p className="text-sm leading-relaxed text-gray-700">Take the time you need. Afterward we&apos;ll tell you whether you&apos;d have finished inside the real <span className="font-semibold text-[#111827]">46-minute</span> limit.</p>
+                <p className="mb-1 text-base font-bold text-[#111827]">Untimed, but I&apos;ll clock you</p>
+                <p className="text-sm leading-relaxed text-gray-700">Take the time you need. Afterward I&apos;ll tell you whether you&apos;d have finished inside the real <span className="font-semibold text-[#111827]">46-minute</span> limit.</p>
               </div>
             </div>
 
@@ -443,7 +443,7 @@ export default function TestEngine({
               </div>
               <div className="border-2 border-white/15 bg-white/5 px-5 py-4">
                 <p className="mb-1 text-base font-bold text-white">Untimed, but reading takes longer</p>
-                <p className="text-sm leading-relaxed text-slate-200">These take <span className="font-semibold text-white">more time than math</span>. Read carefully. Afterward we&apos;ll show you how your pace compares to the real 51-minute limit.</p>
+                <p className="text-sm leading-relaxed text-slate-200">These take <span className="font-semibold text-white">more time than math</span>. Read carefully. Afterward I&apos;ll show you how your pace compares to the real 51-minute limit.</p>
               </div>
             </div>
 
