@@ -59,9 +59,21 @@ function LoginForm() {
             {loading ? "Redirecting…" : "Continue with Google"}
           </button>
 
-          <p className="mt-5 text-center text-xs leading-relaxed text-gray-600">
+          <p className="mt-5 text-center text-xs font-bold uppercase tracking-[0.12em] text-[#1E3A5F]">
+            No credit card required
+          </p>
+          <p className="mt-3 text-center text-xs leading-relaxed text-gray-600">
             By continuing, you agree to the terms. Your Google account name and email are used to create your VLTG account.
           </p>
+        </div>
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 transition-colors hover:text-[#111827]"
+          >
+            Back home
+          </Link>
         </div>
       </div>
     </div>
