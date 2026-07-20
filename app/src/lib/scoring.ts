@@ -1,7 +1,12 @@
 /**
  * IBEW Aptitude Test Prep — Scoring & Diagnostic Logic
- * Adapted for use inside the Next.js app (app/src/lib/scoring.ts)
- * Source of truth: schema/scoring.ts — keep in sync if changes are made there.
+ *
+ * This file is the source of truth. It previously pointed at a second copy in
+ * schema/scoring.ts and asked that the two be kept in sync by hand; they were
+ * not. That copy had fallen a long way behind — it still carried the version of
+ * computeSkillScores that tallied only answered questions, so skips vanished
+ * instead of counting against the skill — and nothing imported it. It has been
+ * deleted rather than left as a trap for anyone who followed the pointer.
  */
 
 import skillsData from "@/data/skills.json";
