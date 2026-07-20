@@ -1,10 +1,19 @@
 # Question Generation Prompt
 
 ## Files to attach
-- `questions/math.json` — exact JSON format, field names, and structure for math questions
-- `questions/reading.json` — exact JSON format and structure for reading questions
-- `questions/passages.json` — passage structure and format
-- `questions/skills.json` — all valid skill IDs and labels (use these exactly)
+
+**The live question bank is `app/src/data/`. It has no upstream — edit it
+directly.** These paths used to point at copies in this folder; those were an
+earlier generation with different questions and different answer keys, and have
+been deleted so nobody regenerates the live test from them.
+
+- `app/src/data/math.json` — exact JSON format, field names, and structure for math questions
+- `app/src/data/reading.json` — exact JSON format and structure for reading questions
+- `app/src/data/passages.json` — passage structure and format
+- `app/src/data/skills.json` — all valid skill IDs and labels (use these exactly)
+
+Note the counts below say 35 math; the live bank is **33** (see
+`ibew-blueprint.md`). Adjust before reusing this prompt.
 
 ---
 
