@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280" font-family="system-ui, sans-serif">
+  <rect width="280" height="280" fill="white"/>
+
+  <!-- Grid lines at each unit -->
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="20" y1="50"  x2="260" y2="50"/>
+    <line x1="20" y1="80"  x2="260" y2="80"/>
+    <line x1="20" y1="110" x2="260" y2="110"/>
+    <line x1="20" y1="170" x2="260" y2="170"/>
+    <line x1="20" y1="200" x2="260" y2="200"/>
+    <line x1="20" y1="230" x2="260" y2="230"/>
+    <line x1="50"  y1="20" x2="50"  y2="260"/>
+    <line x1="80"  y1="20" x2="80"  y2="260"/>
+    <line x1="110" y1="20" x2="110" y2="260"/>
+    <line x1="170" y1="20" x2="170" y2="260"/>
+    <line x1="200" y1="20" x2="200" y2="260"/>
+    <line x1="230" y1="20" x2="230" y2="260"/>
+  </g>
+
+  <!-- Axes -->
+  <line x1="140" y1="15" x2="140" y2="265" stroke="#374151" stroke-width="1.5"/>
+  <line x1="15" y1="140" x2="265" y2="140" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- Axis labels -->
+  <text x="268" y="144" font-size="11" fill="#6b7280">x</text>
+  <text x="143" y="13" font-size="11" fill="#6b7280">y</text>
+
+  <!-- Tick marks -->
+  <g stroke="#374151" stroke-width="1">
+    <line x1="110" y1="137" x2="110" y2="143"/><text x="110" y="154" text-anchor="middle" font-size="9" fill="#9ca3af">−1</text>
+    <line x1="170" y1="137" x2="170" y2="143"/><text x="170" y="154" text-anchor="middle" font-size="9" fill="#9ca3af">1</text>
+    <line x1="137" y1="110" x2="143" y2="110"/><text x="133" y="114" text-anchor="end" font-size="9" fill="#9ca3af">1</text>
+    <line x1="137" y1="170" x2="143" y2="170"/><text x="133" y="174" text-anchor="end" font-size="9" fill="#9ca3af">−1</text>
+  </g>
+
+  <!-- Line j: steep negative slope ~−4, through origin
+       y=−4x → at x=−0.75: y=3, at x=0.75: y=−3
+       center (140,140), scale 30px/unit
+       at x=−0.75: SVG (140−22.5, 140−90)=(117.5,50)
+       at x=0.75: SVG (140+22.5, 140+90)=(162.5,230) -->
+  <line x1="114" y1="20" x2="166" y2="260" stroke="#1E3A5F" stroke-width="2"/>
+  <text x="108" y="30" font-size="13" font-weight="700" fill="#1E3A5F" font-style="italic">j</text>
+
+  <!-- Line k: steep positive slope ~4, through origin
+       y=4x → at x=−0.75: y=−3, at x=0.75: y=3
+       at x=−0.75: SVG (117.5, 230), at x=0.75: SVG (162.5, 50) -->
+  <line x1="114" y1="260" x2="166" y2="20" stroke="#374151" stroke-width="2"/>
+  <text x="168" y="30" font-size="13" font-weight="700" fill="#374151" font-style="italic">k</text>
+
+  <!-- Line m: nearly horizontal, slight negative slope ~−0.15
+       y=−0.15x → at x=−4: y=0.6, at x=4: y=−0.6
+       at x=−4: SVG (140−120, 140−18)=(20,122), at x=4: SVG (260,158) -->
+  <line x1="20" y1="122" x2="260" y2="158" stroke="#6b7280" stroke-width="2"/>
+  <text x="15" y="118" font-size="13" font-weight="700" fill="#6b7280" font-style="italic">m</text>
+
+  <!-- Line n: moderate positive slope ~0.5
+       y=0.5x → at x=−4: y=−2, at x=4: y=2
+       at x=−4: SVG (20, 140+60)=(20,200), at x=4: SVG (260, 140−60)=(260,80) -->
+  <line x1="20" y1="200" x2="260" y2="80" stroke="#F59E0B" stroke-width="2"/>
+  <text x="262" y="78" font-size="13" font-weight="700" fill="#d97706" font-style="italic">n</text>
+</svg>

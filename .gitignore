@@ -20,10 +20,16 @@ next-env.d.ts
 # ── Heavy / legacy content (kept locally, excluded from the repo) ──
 ux/
 research/
-media/
+# Leading slash matters: a bare "media/" also matches app/public/media/, which
+# holds the question diagrams the app serves. Without it they are excluded from
+# the repo, so they work locally and 404 in production.
+/media/
 rc-questions/
 math-questions/
 VLTG Brand Identity Kit/.thumbnail
 
 # Editable design working files
 *.pxd
+
+# Local audit/housekeeping notes — not for GitHub
+PROJECT-AUDIT.md

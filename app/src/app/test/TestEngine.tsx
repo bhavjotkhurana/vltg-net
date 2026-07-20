@@ -103,6 +103,8 @@ export default function TestEngine({
   currentIndexRef.current = currentIndex;
   const navigateToRef = useRef<(i: number) => void>(() => {});
   const handleAnswerRef = useRef<(a: Answer) => void>(() => {});
+  const phaseRef = useRef(phase);
+  phaseRef.current = phase;
 
   // ── Timer ─────────────────────────────────────────────────────────────────
 
@@ -129,6 +131,11 @@ export default function TestEngine({
       // Don't intercept keys typed into form elements
       const tag = (e.target as HTMLElement).tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+
+      // Only while a question is on screen. This effect registers once, but the
+      // phase screens return early further down, so without this guard pressing
+      // "a" on an intro screen answers question 1 before the user has seen it.
+      if (phaseRef.current !== "test") return;
 
       switch (e.key) {
         case "a": case "A": handleAnswerRef.current("A"); break;
@@ -225,22 +232,27 @@ export default function TestEngine({
     const nowFlagged = !flagged[q.id];
     setFlagged((prev) => ({ ...prev, [q.id]: nowFlagged }));
 
-    if (answers[q.id]) {
-      const timeSpent = Math.round(timePerQuestion[q.id] ?? 0);
-      supabase.from("question_responses").upsert(
-        {
-          session_id: sessionId,
-          question_id: q.id,
-          section: q.section,
-          answer_chosen: answers[q.id],
-          is_correct: null,
-          time_spent_seconds: timeSpent,
-          flagged_for_review: nowFlagged,
-          answered_at: new Date().toISOString(),
-        },
-        { onConflict: "session_id,question_id" }
-      );
-    }
+    // Persist the flag even with no answer yet. A question you skipped is the
+    // most likely one to flag, and gating this on an answer meant exactly those
+    // flags were lost on reload. answer_chosen is nullable, so the row is valid.
+    const elapsed = cappedElapsed(questionStartRef.current);
+    const timeSpent = Math.round((timePerQuestion[q.id] ?? 0) + elapsed);
+
+    supabase.from("question_responses").upsert(
+      {
+        session_id: sessionId,
+        question_id: q.id,
+        section: q.section,
+        answer_chosen: answers[q.id] ?? null,
+        is_correct: null,
+        time_spent_seconds: timeSpent,
+        flagged_for_review: nowFlagged,
+        answered_at: new Date().toISOString(),
+      },
+      { onConflict: "session_id,question_id" }
+    ).then(({ error }) => {
+      if (error) console.error("[flag] upsert failed:", error);
+    });
   }
 
   // ── Submit ────────────────────────────────────────────────────────────────

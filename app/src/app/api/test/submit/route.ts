@@ -153,9 +153,18 @@ Tone: supportive and human, like a coach who believes in them — never intimida
         ai_summary: aiSummary,
       });
 
+    // Fail the whole submission if the report didn't land. Marking the session
+    // complete without one strands the user permanently: /results requires a
+    // completed session, finds no report, and shows "Processing results…"
+    // forever with nothing retrying. Leaving the session in progress means the
+    // client's "Submission failed, please try again" is actually true — the
+    // grading above is idempotent, so retrying is safe.
     if (reportError) {
       console.error("Failed to write diagnostic report:", reportError);
-      // Don't fail — still mark session complete
+      return NextResponse.json(
+        { error: "Could not build your report. Please submit again." },
+        { status: 500 }
+      );
     }
 
     // ── Update test session ───────────────────────────────────────────────────
