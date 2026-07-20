@@ -3,6 +3,8 @@
 import { createClient } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import SignOutButton from "@/components/SignOutButton";
+import ReportIssue from "@/components/ReportIssue";
 
 const SCORE_OPTIONS = [
   { score: 4, description: "Minimum to qualify for an interview" },
@@ -15,13 +17,31 @@ const SCORE_OPTIONS = [
 
 type Step = "goal" | "instructions";
 
-export default function OnboardingForm({ userId }: { userId: string }) {
+export default function OnboardingForm({
+  userId,
+  userEmail,
+}: {
+  userId: string;
+  userEmail: string;
+}) {
   const router = useRouter();
   const [step, setStep] = useState<Step>("goal");
   const [selectedScore, setSelectedScore] = useState<number | null>(null);
   const [localUnion, setLocalUnion] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  // Rendered below the card on both steps. Showing the email is functional,
+  // not decoration: signing in with the wrong Google account is the most common
+  // way people get stuck, and this is where they'd notice.
+  const accountLine = (
+    <p className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs text-gray-500">
+      <span>Signed in as {userEmail}.</span>
+      <SignOutButton />
+      <span aria-hidden="true">·</span>
+      <ReportIssue />
+    </p>
+  );
 
   async function handleStartTest() {
     if (!selectedScore) return;
@@ -127,6 +147,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
               {loading ? "Starting…" : "Start the test"}
             </button>
           </div>
+          {accountLine}
         </div>
       </div>
     );
@@ -185,6 +206,7 @@ export default function OnboardingForm({ userId }: { userId: string }) {
         >
           Continue
         </button>
+        {accountLine}
       </div>
     </div>
   );

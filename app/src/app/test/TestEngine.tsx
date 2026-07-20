@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import MathText from "./MathText";
 import { Logo } from "@/components/Logo";
+import SignOutButton from "@/components/SignOutButton";
+import ReportIssue from "@/components/ReportIssue";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -86,7 +88,11 @@ export default function TestEngine({
   });
 
   const questionStartRef = useRef(Date.now());
-  const [totalSeconds, setTotalSeconds] = useState(0);
+  // Seed from time already banked against saved answers, otherwise the session
+  // total restarts at 0 on every resume and under-reports how long the test took.
+  const [totalSeconds, setTotalSeconds] = useState(() =>
+    existingResponses.reduce((sum, r) => sum + (r.time_spent_seconds ?? 0), 0)
+  );
   const [submitting, setSubmitting] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [showGrid, setShowGrid] = useState(false);
@@ -492,16 +498,16 @@ export default function TestEngine({
   return (
     <div className="flex min-h-[100dvh] flex-col bg-[#F4F1EC] md:h-screen md:overflow-hidden">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-20 flex flex-none items-center justify-between border-b-2 border-[#111827] bg-white px-5 py-3.5 sm:px-8">
-        <div className="flex items-center gap-3">
-          <span className={`px-3 py-1 text-xs font-bold uppercase tracking-wide ${
+      <header className="sticky top-0 z-20 flex flex-none items-center justify-between border-b-2 border-[#111827] bg-white px-4 py-2 sm:px-8 sm:py-3.5">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span className={`px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide sm:px-3 sm:text-xs ${
             isMath
               ? "bg-[#1E3A5F] text-white"
               : "bg-amber-500 text-[#111827]"
           }`}>
             {isMath ? "Math" : "Reading"}
           </span>
-          <span className="text-sm font-bold text-gray-600">
+          <span className="text-xs font-bold text-gray-600 sm:text-sm">
             Q<span className="text-[#111827]">{sectionIndex + 1}</span> / {sectionTotal}
           </span>
           <button
@@ -512,22 +518,12 @@ export default function TestEngine({
           </button>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-sm font-bold text-gray-700" aria-label="Time elapsed">
-            {formatTime(totalSeconds)}
-          </span>
-          <button
-            onClick={handleToggleFlag}
-            aria-pressed={!!flagged[currentQuestion.id]}
-            className={`border-2 px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition ${
-              flagged[currentQuestion.id]
-                ? "border-amber-500 bg-amber-50 text-amber-800"
-                : "border-slate-300 bg-white text-gray-700 hover:border-[#111827] hover:text-[#111827]"
-            }`}
-          >
-            {flagged[currentQuestion.id] ? "★ Flagged" : "☆ Flag"}
-          </button>
-        </div>
+        {/* Timer is desktop-only; on mobile it reappears in the grid panel.
+            Flag now lives in the footer at every breakpoint, so it isn't in one
+            place on desktop and another on mobile. */}
+        <span className="hidden text-sm font-bold text-gray-700 sm:block" aria-label="Time elapsed">
+          {formatTime(totalSeconds)}
+        </span>
       </header>
 
       {/* ── Question Content ── */}
@@ -549,7 +545,17 @@ export default function TestEngine({
 
       {/* ── Full Question Grid Panel ── */}
       {showGrid && (
-        <div className="flex-none border-t-2 border-[#111827] bg-white px-5 py-4 sm:px-8">
+        <div className="flex-none border-t-2 border-[#111827] bg-white px-4 py-3 sm:px-8 sm:py-4">
+          {/* Mobile carries the elapsed time and answered count that the header drops */}
+          <div className="mb-3 flex items-center justify-between border-b border-slate-200 pb-3 sm:hidden">
+            <span className="text-xs font-bold text-gray-600">
+              Elapsed <span className="text-[#111827]">{formatTime(totalSeconds)}</span>
+            </span>
+            <span className="text-xs font-bold text-gray-600">
+              <span className="text-[#1E3A5F]">{answeredCount}</span> / {questions.length} answered
+            </span>
+          </div>
+
           {/* Section headers + grid */}
           {(["math", "reading"] as const).map((section) => {
             const sectionQs = questions
@@ -590,8 +596,8 @@ export default function TestEngine({
               </div>
             );
           })}
-          {/* Legend */}
-          <div className="mt-3 flex flex-wrap items-center gap-4 border-t border-slate-200 pt-3">
+          {/* Legend — desktop only; each grid button's aria-label already carries its state */}
+          <div className="mt-3 hidden flex-wrap items-center gap-4 border-t border-slate-200 pt-3 sm:flex">
             {[
               { color: "bg-[#1E3A5F]", label: "Current" },
               { color: "border-2 border-[#1E3A5F] bg-[#1E3A5F]/10", label: "Answered" },
@@ -604,13 +610,31 @@ export default function TestEngine({
               </div>
             ))}
           </div>
+
+          {/* Utility row. Both controls live here rather than in the header or
+              footer: opt-in, and out of the way of the bars we just shrank. */}
+          <div className="mt-3 flex items-center justify-between border-t border-slate-200 pt-3">
+            <ReportIssue
+              getContext={() => ({
+                sessionId,
+                questionId: currentQuestion.id,
+                phase,
+                section: currentQuestion.section,
+              })}
+            />
+            <SignOutButton confirmMessage="Your answers are saved. You can sign back in and pick up where you left off." />
+          </div>
         </div>
       )}
 
       {/* ── Footer Navigation ── */}
-      <footer className="sticky bottom-0 z-20 flex-none border-t-2 border-[#111827] bg-white px-5 py-3.5 sm:px-8">
-        {/* Windowed question grid + expand toggle */}
-        <div className="mb-3.5 flex items-center justify-center gap-1.5">
+      {/* `sticky` is itself a positioned value, so the progress hairline below can
+          be absolutely positioned against this footer without adding `relative`
+          (which would fight `sticky` in the cascade). */}
+      <footer className="sticky bottom-0 z-20 flex-none border-t-2 border-[#111827] bg-white px-4 py-2.5 sm:px-8 sm:py-3.5">
+        {/* Windowed question grid — hidden on mobile; the grid toggle in the
+            controls row below gives full access to all questions in one tap. */}
+        <div className="mb-3.5 hidden items-center justify-center gap-1.5 sm:flex">
           {showLeftEllipsis && (
             <span className="px-1 text-xs text-gray-500">…</span>
           )}
@@ -642,58 +666,80 @@ export default function TestEngine({
           {showRightEllipsis && (
             <span className="px-1 text-xs text-gray-500">…</span>
           )}
-          <button
-            onClick={() => setShowGrid((v) => !v)}
-            aria-label={showGrid ? "Close question grid" : "View all questions"}
-            aria-expanded={showGrid}
-            className={`ml-1 h-9 w-9 flex-none border-2 text-xs font-bold transition sm:h-10 sm:w-10 ${
-              showGrid
-                ? "border-[#111827] bg-[#111827] text-white"
-                : "border-slate-300 text-gray-700 hover:border-[#111827] hover:text-[#111827]"
-            }`}
-          >
-            {showGrid ? "↓" : "↑"}
-          </button>
         </div>
 
-        {/* Progress bar */}
-        <div className="mb-3.5 h-1.5 w-full border border-slate-300 bg-slate-100" role="progressbar" aria-label="Answered" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={questions.length}>
+        {/* Progress hairline, welded to the top border so it costs no layout height */}
+        <div className="absolute inset-x-0 -top-0.5 h-1 bg-slate-200" role="progressbar" aria-label="Answered" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={questions.length}>
           <div
             className="h-full bg-[#1E3A5F] transition-all duration-300"
             style={{ width: `${(answeredCount / questions.length) * 100}%` }}
           />
         </div>
 
-        {/* Prev / answered count / Next / Submit */}
-        <div className="flex items-center justify-between gap-3">
+        {/* Desktop: an equal flex-1 spacer on each side centres the nav group
+            under the question strip above, while Submit still sits hard right.
+            Mobile: the left spacer is hidden and Submit's ml-auto does the work. */}
+        <div className="flex items-center gap-1.5 sm:gap-3">
+          <div className="hidden flex-1 sm:block" aria-hidden="true" />
+
+          {/* Prev/Next are the controls people reach for constantly, so they get
+              a filled tint and a larger glyph. Flag and the grid toggle stay
+              outlined and quiet, which makes the hierarchy read at a glance. */}
           <button
             onClick={() => navigateTo(currentIndex - 1)}
             disabled={currentIndex === 0}
             aria-label="Previous question"
-            className="border-2 border-[#111827] px-5 py-2.5 text-sm font-bold text-[#111827] transition hover:bg-slate-50 disabled:opacity-30"
+            className="h-11 w-11 flex-none border-2 border-[#111827] bg-[#1E3A5F]/[0.08] text-lg font-bold leading-none text-[#111827] transition hover:bg-[#1E3A5F]/[0.16] disabled:opacity-25 sm:h-auto sm:w-auto sm:px-6 sm:py-3 sm:text-xl"
           >
             <span aria-hidden="true">←</span>
           </button>
 
-          <div className="text-center text-xs font-bold text-gray-600">
-            <span className="text-[#1E3A5F]">{answeredCount}</span> / {questions.length}
-          </div>
+          {/* Flag and the grid toggle sit between Prev and Next at every
+              breakpoint: both act on the current question, so they belong with
+              the other per-question controls rather than up in the header. */}
+          <button
+            onClick={handleToggleFlag}
+            aria-pressed={!!flagged[currentQuestion.id]}
+            aria-label={flagged[currentQuestion.id] ? "Unflag this question" : "Flag this question for review"}
+            className={`h-11 w-11 flex-none border-2 text-sm font-bold transition sm:h-10 sm:w-10 sm:text-xs ${
+              flagged[currentQuestion.id]
+                ? "border-amber-500 bg-amber-50 text-amber-800"
+                : "border-slate-300 bg-white text-gray-700 hover:border-[#111827] hover:text-[#111827]"
+            }`}
+          >
+            <span aria-hidden="true">{flagged[currentQuestion.id] ? "★" : "☆"}</span>
+          </button>
+
+          <button
+            onClick={() => setShowGrid((v) => !v)}
+            aria-label={showGrid ? "Close question grid" : "View all questions"}
+            aria-expanded={showGrid}
+            className={`h-11 w-11 flex-none border-2 text-sm font-bold transition sm:h-10 sm:w-10 sm:text-xs ${
+              showGrid
+                ? "border-[#111827] bg-[#111827] text-white"
+                : "border-slate-300 text-gray-700 hover:border-[#111827] hover:text-[#111827]"
+            }`}
+          >
+            <span aria-hidden="true">{showGrid ? "↓" : "↑"}</span>
+          </button>
 
           <button
             onClick={() => navigateTo(currentIndex + 1)}
             disabled={currentIndex === questions.length - 1}
             aria-label="Next question"
-            className="border-2 border-[#111827] px-5 py-2.5 text-sm font-bold text-[#111827] transition hover:bg-slate-50 disabled:opacity-30"
+            className="h-11 w-11 flex-none border-2 border-[#111827] bg-[#1E3A5F]/[0.08] text-lg font-bold leading-none text-[#111827] transition hover:bg-[#1E3A5F]/[0.16] disabled:opacity-25 sm:h-auto sm:w-auto sm:px-6 sm:py-3 sm:text-xl"
           >
             <span aria-hidden="true">→</span>
           </button>
 
-          <button
-            onClick={() => setShowConfirm(true)}
-            className="border-2 border-[#1E3A5F] bg-[#1E3A5F] px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-[#16304f]"
-          >
-            Submit
-          </button>
+          <div className="ml-auto sm:ml-0 sm:flex sm:flex-1 sm:justify-end">
+            <button
+              onClick={() => setShowConfirm(true)}
+              className="flex-none border-2 border-[#1E3A5F] bg-[#1E3A5F] px-3 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#16304f] sm:px-5 sm:py-2.5 sm:text-sm"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </footer>
 

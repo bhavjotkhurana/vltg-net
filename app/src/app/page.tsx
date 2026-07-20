@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -178,26 +179,7 @@ export default function HomePage() {
         </Link>
       </section>
 
-      <footer className="flex flex-col items-center gap-3 border-t-2 border-[#111827] py-8">
-        <Logo className="text-lg" />
-        <p className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600">
-          &ldquo;Voltage&rdquo; · Wired for the test
-        </p>
-        <nav className="flex items-center gap-5">
-          <Link
-            href="/faq"
-            className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
-          >
-            FAQ
-          </Link>
-          <Link
-            href="/about"
-            className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
-          >
-            About VLTG
-          </Link>
-        </nav>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

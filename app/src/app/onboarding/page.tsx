@@ -22,5 +22,5 @@ export default async function OnboardingPage() {
     redirect("/test");
   }
 
-  return <OnboardingForm userId={user.id} />;
+  return <OnboardingForm userId={user.id} userEmail={user.email ?? ""} />;
 }

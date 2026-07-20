@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import SiteFooter from "@/components/SiteFooter";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const ABOUT_DESCRIPTION =
@@ -226,6 +227,8 @@ export default function AboutPage() {
           Those names are only used to describe the exam this test prepares you for.
         </p>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
