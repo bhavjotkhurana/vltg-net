@@ -182,7 +182,7 @@ export default async function ResultsPage() {
           <Link href="/" className="focus-visible:outline-offset-4"><Logo responsive className="text-[1.4rem]" /></Link>
           <div className="flex items-center gap-4">
             <span className="hidden text-xs font-bold uppercase tracking-[0.12em] text-gray-600 sm:inline">Completed {completedDate}</span>
-            <ReportIssue />
+            <ReportIssue context={{ sessionId: session.id }} />
             <SignOutButton />
           </div>
         </div>

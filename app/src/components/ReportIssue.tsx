@@ -8,17 +8,27 @@ const MAX_MESSAGE = 2000;
  * "Report an issue" — a muted trigger plus a modal. The user types free text;
  * the page context is attached silently.
  *
- * `getContext` is a FUNCTION, not an object, so callers can hand over a closure
- * that reads live state at submit time. Passing an object would freeze the
- * context at render time and attach a stale question id if the user navigated
- * while the modal was open.
+ * Two ways to attach context, because the callers differ:
+ *
+ * - `getContext` is a FUNCTION, so a client component can hand over a closure
+ *   that reads live state at submit time. Passing an object there would freeze
+ *   the context at render time and attach a stale question id if the user
+ *   navigated while the modal was open.
+ * - `context` is a plain OBJECT, because a Server Component cannot pass a
+ *   function across the RSC boundary at all. `/results` knows its session id at
+ *   render time and nothing about it changes, so a static object is correct.
+ *
+ * Both merge, with `getContext` winning on key collisions since it is the one
+ * reading live state.
  */
 export default function ReportIssue({
   getContext,
+  context,
   className = "",
   label = "Report an issue",
 }: {
   getContext?: () => Record<string, unknown>;
+  context?: Record<string, unknown>;
   className?: string;
   label?: string;
 }) {
@@ -48,7 +58,7 @@ export default function ReportIssue({
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setState("loading");
-    const ctx = getContext?.() ?? {};
+    const ctx = { ...context, ...(getContext?.() ?? {}) };
     const res = await fetch("/api/issues", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

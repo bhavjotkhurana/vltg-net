@@ -1,7 +1,24 @@
 import { createServerSupabaseClient, createServiceSupabaseClient } from "@/lib/supabase-server";
 import { NextResponse } from "next/server";
+import { createHmac } from "crypto";
 
 const MAX_MESSAGE = 2000;
+const WINDOW_MS = 5 * 60 * 1000;
+const MAX_PER_WINDOW = 5;
+
+/**
+ * A salted hash of the caller's IP, never the IP itself. Enough to count
+ * repeats from one source; not enough to recover the address if the table
+ * leaks. The salt must be secret — IPv4 is small enough to brute force
+ * against an unsalted hash in seconds.
+ */
+function hashIp(request: Request): string | null {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim();
+  if (!ip) return null;
+  const salt = process.env.ISSUE_IP_SALT ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!salt) return null;
+  return createHmac("sha256", salt).update(ip).digest("hex").slice(0, 32);
+}
 
 // Reports can come from anywhere, including the marketing pages where there is
 // no session, so this is deliberately not auth-gated (the waitlist pattern).
@@ -27,16 +44,26 @@ export async function POST(request: Request) {
 
   const service = createServiceSupabaseClient();
 
-  // Cheap guard against accidental double-submits and authenticated spam.
-  // Anonymous flooding isn't covered; revisit if the table shows abuse.
-  if (user) {
-    const since = new Date(Date.now() - 5 * 60 * 1000).toISOString();
+  const ipHash = hashIp(request);
+
+  // Throttle on whichever identity we have. This endpoint deliberately accepts
+  // anonymous reports, so the account check alone left an unauthenticated write
+  // path with no ceiling — anyone could fill the table, and it is the same
+  // database everything else runs on.
+  const since = new Date(Date.now() - WINDOW_MS).toISOString();
+  const identity = user
+    ? { column: "user_id", value: user.id }
+    : ipHash
+      ? { column: "ip_hash", value: ipHash }
+      : null;
+
+  if (identity) {
     const { count } = await service
       .from("issue_reports")
       .select("id", { count: "exact", head: true })
-      .eq("user_id", user.id)
+      .eq(identity.column, identity.value)
       .gte("created_at", since);
-    if ((count ?? 0) >= 5) {
+    if ((count ?? 0) >= MAX_PER_WINDOW) {
       return NextResponse.json({ error: "Too many reports. Try again shortly." }, { status: 429 });
     }
   }
@@ -56,6 +83,7 @@ export async function POST(request: Request) {
     // commit SHA here avoids adding a NEXT_PUBLIC_ build variable.
     user_agent: request.headers.get("user-agent")?.slice(0, 500) ?? null,
     app_version: process.env.VERCEL_GIT_COMMIT_SHA ?? null,
+    ip_hash: ipHash,
   });
 
   if (error) {

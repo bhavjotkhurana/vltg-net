@@ -130,6 +130,11 @@ CREATE TABLE issue_reports (
   user_agent  TEXT,
   app_version TEXT,   -- VERCEL_GIT_COMMIT_SHA
 
+  -- Salted HMAC of the caller's IP, never the IP itself. Rate limits the
+  -- anonymous submission path; nullable because a missing header must not
+  -- block a legitimate report.
+  ip_hash     TEXT,
+
   status      TEXT NOT NULL DEFAULT 'new'
                 CHECK (status IN ('new', 'triaged', 'resolved'))
 );
