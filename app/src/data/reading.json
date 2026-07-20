@@ -51,12 +51,12 @@
       "section": "reading",
       "passage_id": "p001",
       "question_number": 3,
-      "question": "It can be inferred that pictograms are standardized primarily so that",
+      "question": "Employers must keep safety data sheets within a worker's reach during her shift most likely because",
       "options": {
-        "A": "employers can avoid providing safety data sheets.",
-        "B": "workers do not need any training.",
-        "C": "a hazard can be recognized quickly, even before the fine print is read.",
-        "D": "chemicals can be removed from the workplace."
+        "A": "safety data sheets are legally required to be displayed in public areas.",
+        "B": "workers are more likely to read the sheets if they are nearby.",
+        "C": "the information is most needed at the moment something goes wrong, when there is no time to search for it.",
+        "D": "the sheets contain information that labels deliberately leave out."
       },
       "correct_answer": "C",
       "difficulty": "medium",
@@ -66,7 +66,7 @@
       ],
       "topic": null,
       "expected_time_seconds": 85,
-      "explanation": "The passage says a worker can 'recognize a hazard at a glance' because the pictograms are standardized, implying speed of recognition is the purpose.",
+      "explanation": "The passage says data sheets cover emergencies such as a spill or a splash in the eyes, and separately that they must be reachable during a shift rather than locked away. Putting those together, the reason for the location rule is that the information is needed the instant something goes wrong. D describes what the sheets contain, which is true but does not explain where they are kept.",
       "media": null
     },
     {
@@ -105,13 +105,13 @@
         "D": "travelling journeyman."
       },
       "correct_answer": "B",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "primary_skill": "vocabulary_in_context",
       "skill_tags": [
         "vocabulary_in_context"
       ],
       "topic": null,
-      "expected_time_seconds": 85,
+      "expected_time_seconds": 55,
       "explanation": "The passage defines indenture as a contract that 'set out how many years the boy would serve.'",
       "media": null
     },
@@ -197,13 +197,13 @@
         "D": "buries a concrete block."
       },
       "correct_answer": "C",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "primary_skill": "vocabulary_in_context",
       "skill_tags": [
         "vocabulary_in_context"
       ],
       "topic": null,
-      "expected_time_seconds": 85,
+      "expected_time_seconds": 55,
       "explanation": "The passage defines compression as the force that 'pushes them together,' contrasted with tension, which pulls apart.",
       "media": null
     },
@@ -212,12 +212,12 @@
       "section": "reading",
       "passage_id": "p003",
       "question_number": 10,
-      "question": "It can be inferred that without the anchorages, the towers would",
+      "question": "The passage suggests that the towers alone could not hold the bridge up because",
       "options": {
-        "A": "be pulled toward each other by the tension in the cables.",
-        "B": "carry no load at all.",
-        "C": "stand more firmly than before.",
-        "D": "no longer need suspenders."
+        "A": "they can carry weight downward but cannot resist the cables' inward pull.",
+        "B": "they are built from materials that are strong in tension but weak in compression.",
+        "C": "they support the deck directly rather than through the suspenders.",
+        "D": "they are too tall to remain stable without additional support."
       },
       "correct_answer": "A",
       "difficulty": "hard",
@@ -227,7 +227,7 @@
       ],
       "topic": null,
       "expected_time_seconds": 115,
-      "explanation": "The passage states that without the anchorages 'the tension in the cables would drag the towers toward each other.'",
+      "explanation": "The towers carry load straight down through compression, but the main cables pull down and inward, and it is the anchorages that resist that inward pull. Combining those facts, the towers handle only the downward part of the load. B reverses the passage's definitions of tension and compression.",
       "media": null
     },
     {
@@ -810,12 +810,12 @@
       "section": "reading",
       "passage_id": "p012",
       "question_number": 36,
-      "question": "The thin walls of the capillaries are important because they",
+      "question": "The passage suggests that veins contain valves because",
       "options": {
-        "A": "allow oxygen, nutrients, and wastes to be exchanged with cells.",
-        "B": "keep blood under the highest pressure in the body.",
-        "C": "prevent blood from reaching the cells.",
-        "D": "pump blood back to the heart."
+        "A": "the blood they carry is under lower pressure than the blood in arteries.",
+        "B": "their walls are thinner and more likely to collapse.",
+        "C": "they carry blood that has already released its oxygen.",
+        "D": "they are located farther from the heart than arteries."
       },
       "correct_answer": "A",
       "difficulty": "medium",
@@ -825,7 +825,7 @@
       ],
       "topic": null,
       "expected_time_seconds": 85,
-      "explanation": "The passage says it is across 'the thin walls of the capillaries' that oxygen and nutrients pass to cells and wastes pass in.",
+      "explanation": "The passage states that veins return blood at lower pressure and that many contain valves preventing backflow, but never links the two. Low pressure is what makes a one-way mechanism necessary. C is true of veins but has nothing to do with the valves.",
       "media": null
     }
   ]

@@ -465,13 +465,13 @@
     {
       "id": "m023",
       "section": "math",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "primary_skill": "polynomials",
       "skill_tags": [
         "polynomials"
       ],
       "topic": "Polynomials & Algebraic Manipulation",
-      "expected_time_seconds": 125,
+      "expected_time_seconds": 85,
       "question": "Expand: $(x + 4)(x - 3)$.",
       "media": null,
       "options": {
@@ -528,13 +528,13 @@
     {
       "id": "m026",
       "section": "math",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "primary_skill": "factoring",
       "skill_tags": [
         "factoring"
       ],
       "topic": "Factoring",
-      "expected_time_seconds": 125,
+      "expected_time_seconds": 85,
       "question": "Factor completely: $x^2 - 9$.",
       "media": null,
       "options": {
@@ -570,13 +570,13 @@
     {
       "id": "m028",
       "section": "math",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "primary_skill": "quadratics",
       "skill_tags": [
         "quadratics"
       ],
       "topic": "Quadratic Equations",
-      "expected_time_seconds": 125,
+      "expected_time_seconds": 85,
       "question": "Solve: $x^2 = 49$.",
       "media": null,
       "options": {
