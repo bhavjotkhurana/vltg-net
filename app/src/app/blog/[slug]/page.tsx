@@ -88,12 +88,14 @@ export default async function BlogPostPage({
       </header>
 
       <main className="mx-auto max-w-3xl px-6 py-14 sm:px-8 sm:py-20">
-        <Link
-          href="/blog"
-          className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 transition-colors hover:text-[#111827]"
-        >
-          ← All guides
-        </Link>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-bold uppercase tracking-[0.15em] text-gray-600">
+          <Link href="/" className="transition-colors hover:text-[#111827]">
+            ← Back home
+          </Link>
+          <Link href="/blog" className="transition-colors hover:text-[#111827]">
+            All guides
+          </Link>
+        </div>
 
         <p className="mb-3 mt-8 text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F]">
           {clusterLabel(post.cluster)}
@@ -131,6 +133,15 @@ export default async function BlogPostPage({
             className="mt-4 inline-block bg-amber-500 px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-[#111827] transition hover:bg-amber-400 active:scale-95"
           >
             Take the practice test
+          </Link>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-bold uppercase tracking-[0.15em] text-gray-600">
+          <Link href="/" className="transition-colors hover:text-[#111827]">
+            ← Back home
+          </Link>
+          <Link href="/blog" className="transition-colors hover:text-[#111827]">
+            All guides
           </Link>
         </div>
       </main>

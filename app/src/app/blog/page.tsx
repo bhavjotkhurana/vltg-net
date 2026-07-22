@@ -45,7 +45,14 @@ export default function BlogIndexPage() {
       </header>
 
       <main className="mx-auto max-w-3xl px-6 py-14 sm:px-8 sm:py-20">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F]">
+        <Link
+          href="/"
+          className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 transition-colors hover:text-[#111827]"
+        >
+          ← Back home
+        </Link>
+
+        <p className="mb-3 mt-8 text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F]">
           Blog
         </p>
         <h1 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#111827] sm:text-5xl">
@@ -90,6 +97,15 @@ export default function BlogIndexPage() {
             className="mt-4 inline-block bg-amber-500 px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-[#111827] transition hover:bg-amber-400 active:scale-95"
           >
             Take the practice test
+          </Link>
+        </div>
+
+        <div className="mt-10">
+          <Link
+            href="/"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 transition-colors hover:text-[#111827]"
+          >
+            ← Back home
           </Link>
         </div>
       </main>
