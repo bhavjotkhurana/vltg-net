@@ -16,6 +16,12 @@ export default function HomePage() {
         <Logo responsive className="text-[1.6rem]" />
         <nav className="flex items-center gap-5 sm:gap-7">
           <Link
+            href="/blog"
+            className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 hover:text-[#111827] transition-colors"
+          >
+            Blog
+          </Link>
+          <Link
             href="/faq"
             className="text-xs font-bold uppercase tracking-[0.15em] text-gray-600 hover:text-[#111827] transition-colors"
           >

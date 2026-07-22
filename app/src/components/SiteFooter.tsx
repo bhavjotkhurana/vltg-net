@@ -13,6 +13,12 @@ export default function SiteFooter() {
       </p>
       <nav className="flex flex-wrap items-center justify-center gap-5">
         <Link
+          href="/blog"
+          className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
+        >
+          Blog
+        </Link>
+        <Link
           href="/faq"
           className="text-xs font-bold uppercase tracking-[0.15em] text-[#1E3A5F] hover:text-amber-600 transition-colors"
         >
