@@ -302,7 +302,7 @@ export default function FaqPage() {
       />
 
       {/* Nav */}
-      <header className="flex items-center justify-between border-b-2 border-[#111827] px-6 py-4 sm:px-12">
+      <header className="flex items-center justify-between border-b-2 border-[#111827] bg-white px-6 py-4 sm:px-12">
         <Link href="/">
           <Logo responsive className="text-[1.4rem]" />
         </Link>

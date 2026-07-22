@@ -177,7 +177,7 @@ export default async function ResultsPage() {
     <div className="min-h-screen bg-[#F4F1EC]">
 
       {/* ── Nav ── */}
-      <header className="border-b-2 border-[#111827] px-6 py-4 sm:px-10">
+      <header className="border-b-2 border-[#111827] bg-white px-6 py-4 sm:px-10">
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <Link href="/" className="focus-visible:outline-offset-4"><Logo responsive className="text-[1.4rem]" /></Link>
           <div className="flex items-center gap-4">

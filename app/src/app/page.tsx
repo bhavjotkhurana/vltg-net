@@ -12,7 +12,7 @@ export default function HomePage() {
     <div className="flex min-h-screen flex-col bg-[#F4F1EC]">
 
       {/* ── Nav ── */}
-      <header className="flex items-center justify-between border-b-2 border-[#111827] px-6 py-4 sm:px-12">
+      <header className="flex items-center justify-between border-b-2 border-[#111827] bg-white px-6 py-4 sm:px-12">
         <Logo responsive className="text-[1.6rem]" />
         <nav className="flex items-center gap-5 sm:gap-7">
           <Link
