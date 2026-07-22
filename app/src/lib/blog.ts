@@ -26,6 +26,7 @@ const CLUSTER_LABELS: Record<string, string> = {
   prep: "How to prepare",
   "how-it-works": "How it works",
   scoring: "Scoring",
+  career: "The trade",
 };
 
 export function clusterLabel(cluster: string): string {
