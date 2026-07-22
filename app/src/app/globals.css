@@ -47,6 +47,95 @@ body {
   outline-color: var(--amber);
 }
 
+/* ── Blog article typography, branded ──────────────────────────────────────
+   Scoped to `.blog-content` (the rendered markdown). Uses the same tokens as
+   the rest of the site: ink headings, navy links with an amber underline, the
+   amber highlighter-marker motif on key phrases, and amber/navy callout bars. */
+.blog-content {
+  color: var(--muted-strong);
+  font-size: 1.075rem;
+  line-height: 1.75;
+}
+.blog-content > *:first-child { margin-top: 0; }
+
+.blog-content h2 {
+  color: var(--foreground);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-top: 2.75rem;
+  margin-bottom: 0.85rem;
+}
+.blog-content h3 {
+  color: var(--foreground);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+.blog-content p { margin: 1.1rem 0; }
+
+.blog-content a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-underline-offset: 2px;
+}
+.blog-content a:hover { color: var(--amber); }
+
+/* Key phrases in prose get the amber highlighter marker (the hero motif).
+   List labels and callout text are excluded so the amber stays meaningful. */
+.blog-content strong { font-weight: 700; color: var(--foreground); }
+.blog-content p > strong {
+  background-image: linear-gradient(transparent 62%, rgba(251, 191, 36, 0.45) 62%);
+}
+
+.blog-content ul { margin: 1.15rem 0; padding-left: 0; list-style: none; }
+.blog-content ul li { position: relative; padding-left: 1.4rem; margin: 0.5rem 0; }
+.blog-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--amber);
+}
+.blog-content ol { margin: 1.15rem 0; padding-left: 1.5rem; }
+.blog-content ol li { margin: 0.5rem 0; padding-left: 0.25rem; }
+
+/* Narrative pull-quote */
+.blog-content blockquote {
+  border-left: 4px solid var(--navy);
+  background: #fff;
+  padding: 1rem 1.25rem;
+  margin: 1.6rem 0;
+  font-weight: 600;
+  color: var(--navy);
+}
+.blog-content blockquote p { margin: 0.3rem 0; }
+
+.blog-content hr {
+  border: none;
+  border-top: 2px solid var(--foreground);
+  margin: 2.75rem 0;
+}
+
+/* Short-answer key takeaway (a whole-paragraph-bold block, promoted in
+   lib/blog.ts). Mirrors the amber callout on the About page. */
+.blog-callout {
+  border-left: 4px solid var(--amber);
+  background: #FEF3C7; /* amber-100 */
+  padding: 1.15rem 1.4rem;
+  margin: 1.75rem 0;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.6;
+}
+.blog-callout a { color: var(--navy); }
+
 /* Respect users who prefer reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
