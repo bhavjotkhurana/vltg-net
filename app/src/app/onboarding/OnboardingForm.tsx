@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import SignOutButton from "@/components/SignOutButton";
 import ReportIssue from "@/components/ReportIssue";
+import { readAttribution } from "@/lib/attribution";
 
 const SCORE_OPTIONS = [
   { score: 4, description: "Minimum to qualify for an interview" },
@@ -49,10 +50,15 @@ export default function OnboardingForm({
     setLoading(true);
 
     const supabase = createClient();
+    // Attach first-touch attribution captured at landing. This is the one row
+    // created early enough to carry it, so it's where the channel that produced
+    // this user gets recorded for the whole funnel.
+    const attribution = readAttribution();
     const { error } = await supabase.from("user_profiles").insert({
       id: userId,
       desired_score: selectedScore,
       local_union: localUnion.trim() || null,
+      ...attribution,
     });
 
     setLoading(false);

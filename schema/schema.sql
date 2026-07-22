@@ -18,7 +18,18 @@ CREATE TABLE user_profiles (
   desired_score   SMALLINT CHECK (desired_score BETWEEN 1 AND 9),
   local_union     TEXT,       -- e.g. "Local 81 – Scranton, PA" (optional)
   created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+  -- First-touch marketing attribution, captured client-side at landing and
+  -- written when this row is created. Answers "which channel produced this
+  -- user" for the whole funnel. Client-supplied, analytics only (not trusted).
+  utm_source      TEXT,
+  utm_medium      TEXT,
+  utm_campaign    TEXT,
+  utm_content     TEXT,
+  utm_term        TEXT,
+  referrer        TEXT,
+  landing_path    TEXT
 );
 
 -- ============================================================
