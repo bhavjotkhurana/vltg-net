@@ -17,6 +17,8 @@ CREATE TABLE user_profiles (
   id              UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   desired_score   SMALLINT CHECK (desired_score BETWEEN 1 AND 9),
   local_union     TEXT,       -- e.g. "Local 81 – Scranton, PA" (optional)
+  email_opt_in    BOOLEAN,    -- consent from a default-checked box at onboarding;
+                              -- NULL = pre-dated the checkbox (unknown, not opted in)
   created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 

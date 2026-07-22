@@ -29,6 +29,7 @@ export default function OnboardingForm({
   const [step, setStep] = useState<Step>("goal");
   const [selectedScore, setSelectedScore] = useState<number | null>(null);
   const [localUnion, setLocalUnion] = useState("");
+  const [emailOptIn, setEmailOptIn] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -58,6 +59,7 @@ export default function OnboardingForm({
       id: userId,
       desired_score: selectedScore,
       local_union: localUnion.trim() || null,
+      email_opt_in: emailOptIn,
       ...attribution,
     });
 
@@ -204,6 +206,20 @@ export default function OnboardingForm({
             placeholder="e.g. Local 3 – New York, NY"
           />
         </div>
+
+        <label htmlFor="email_opt_in" className="mt-5 flex cursor-pointer items-start gap-3">
+          <input
+            id="email_opt_in"
+            type="checkbox"
+            checked={emailOptIn}
+            onChange={(e) => setEmailOptIn(e.target.checked)}
+            className="mt-0.5 h-5 w-5 flex-none accent-amber-500"
+          />
+          <span className="text-sm leading-snug text-gray-700">
+            Email me occasional updates — new study tools, features, and tips for
+            the test. No spam, and you can opt out anytime.
+          </span>
+        </label>
 
         <button
           onClick={() => { if (selectedScore) setStep("instructions"); }}
