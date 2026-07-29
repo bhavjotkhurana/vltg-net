@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     .from("waitlist")
     .insert({ email: email.trim().toLowerCase() });
 
-  // Ignore duplicate — already signed up is fine
+  // Ignore duplicate - already signed up is fine
   if (error && !error.message.includes("duplicate")) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

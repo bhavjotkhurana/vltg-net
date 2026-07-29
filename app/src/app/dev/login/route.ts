@@ -21,7 +21,7 @@ export async function GET() {
     password: TEST_PASSWORD,
     email_confirm: true,
   });
-  // "already registered" is expected on repeat runs — ignore it.
+  // "already registered" is expected on repeat runs - ignore it.
   if (createError && !/already|registered|exists/i.test(createError.message)) {
     return new Response("Failed to create test user: " + createError.message, {
       status: 500,

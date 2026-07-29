@@ -2,7 +2,7 @@ import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
 
 // Dev-only route to wipe your test session and start fresh.
-// Only works in development — returns 404 in production.
+// Only works in development - returns 404 in production.
 export async function GET() {
   if (process.env.NODE_ENV !== "development") {
     return new Response("Not found", { status: 404 });

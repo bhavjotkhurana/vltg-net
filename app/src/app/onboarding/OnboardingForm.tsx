@@ -216,7 +216,7 @@ export default function OnboardingForm({
             className="mt-0.5 h-5 w-5 flex-none accent-amber-500"
           />
           <span className="text-sm leading-snug text-gray-700">
-            Email me occasional updates — new study tools, features, and tips for
+            Email me occasional updates about new study tools, features, and tips for
             the test. No spam, and you can opt out anytime.
           </span>
         </label>

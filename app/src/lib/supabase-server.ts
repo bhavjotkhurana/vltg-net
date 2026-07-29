@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 
-// Server client — use in Server Components and API routes (respects RLS)
+// Server client - use in Server Components and API routes (respects RLS)
 export async function createServerSupabaseClient() {
   const cookieStore = await cookies();
   return createServerClient(
@@ -21,7 +21,7 @@ export async function createServerSupabaseClient() {
   );
 }
 
-// Service role client — server-side only, bypasses RLS
+// Service role client - server-side only, bypasses RLS
 // Used exclusively to write diagnostic_reports after session submission
 export function createServiceSupabaseClient() {
   return createServiceClient(

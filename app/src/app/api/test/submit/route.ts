@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     });
 
     // ── Update question_responses with is_correct ─────────────────────────────
-    // Batch update — do in parallel
+    // Batch update - do in parallel
     await Promise.all(
       gradedResponses.map((r) =>
         supabase
@@ -97,7 +97,7 @@ export async function POST(request: Request) {
       desiredScore
     );
 
-    // ── Generate AI summary (fire-and-forget safe — won't block submission) ────
+    // ── Generate AI summary (fire-and-forget safe - won't block submission) ────
     let aiSummary: string | null = null;
     if (process.env.ANTHROPIC_API_KEY) {
       try {
@@ -127,7 +127,7 @@ Score: ${diagnostic.composite_score}/9 stanine (math: ${diagnostic.math_raw}/${M
 Weakest skills: ${topWeak || "none identified"}
 Effort to a qualifying score (4), framed as a daily habit: ${cadenceText}
 
-Tone: supportive and human, like a coach who believes in them — never intimidating or discouraging, but honest and specific. Acknowledge where they are, name the single biggest thing to work on, and point to one concrete next step that feels doable. If you mention how much work is ahead, use the daily-habit framing above (e.g. "about two weeks at 25 minutes a day") rather than a lump sum of hours. Write in plain, everyday language. No bullet points. Don't open with generic filler like "Great job" or "Congratulations."`,
+Tone: supportive and human, like a coach who believes in them - never intimidating or discouraging, but honest and specific. Acknowledge where they are, name the single biggest thing to work on, and point to one concrete next step that feels doable. If you mention how much work is ahead, use the daily-habit framing above (e.g. "about two weeks at 25 minutes a day") rather than a lump sum of hours. Write in plain, everyday language. No bullet points. Don't open with generic filler like "Great job" or "Congratulations."`,
           }],
         });
         aiSummary = (msg.content[0] as { type: string; text: string }).text ?? null;
@@ -157,7 +157,7 @@ Tone: supportive and human, like a coach who believes in them — never intimida
     // complete without one strands the user permanently: /results requires a
     // completed session, finds no report, and shows "Processing results…"
     // forever with nothing retrying. Leaving the session in progress means the
-    // client's "Submission failed, please try again" is actually true — the
+    // client's "Submission failed, please try again" is actually true - the
     // grading above is idempotent, so retrying is safe.
     if (reportError) {
       console.error("Failed to write diagnostic report:", reportError);

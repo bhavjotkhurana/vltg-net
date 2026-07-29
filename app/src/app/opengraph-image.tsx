@@ -10,7 +10,7 @@ import { markSvgString, MARK_VIEWBOX_TIGHT } from "@/lib/logoMark";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "VLTG — a free, full-length IBEW aptitude practice test with an instant 1–9 stanine score.";
+  "VLTG: a free, full-length IBEW aptitude practice test with an instant 1–9 stanine score.";
 
 export default async function OpengraphImage() {
   const [regular, bold] = await Promise.all([

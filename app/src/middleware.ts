@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  // Refresh session — required for SSR auth to work correctly
+  // Refresh session - required for SSR auth to work correctly
   const {
     data: { user },
   } = await supabase.auth.getUser();

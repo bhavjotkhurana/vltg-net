@@ -5,7 +5,7 @@ import AttributionCapture from "@/components/AttributionCapture";
 import "./globals.css";
 import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
 
-// Single typeface across the whole app — Work Sans (per VLTG brand kit v1).
+// Single typeface across the whole app - Work Sans (per VLTG brand kit v1).
 // Labels stay distinct via uppercase + letter-spacing + color, not a second font.
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured data — helps Google and AI answer engines understand the site.
+// Structured data - helps Google and AI answer engines understand the site.
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [

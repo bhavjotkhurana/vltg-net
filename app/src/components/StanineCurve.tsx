@@ -140,7 +140,7 @@ function CurveSvg({
           )}
         </g>
       ))}
-      {/* single callout on the peak — the colour legend carries the rest */}
+      {/* single callout on the peak - the colour legend carries the rest */}
       {showAverage && (
         <>
           <text

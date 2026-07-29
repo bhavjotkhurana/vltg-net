@@ -63,7 +63,7 @@ export function captureFirstTouch(): void {
       const refHost = new URL(document.referrer).host;
       if (refHost && refHost !== window.location.host) referrer = document.referrer;
     } catch {
-      // malformed referrer — ignore
+      // malformed referrer - ignore
     }
   }
 

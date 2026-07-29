@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 //
 // Cookie clearing works here because the cookies() adapter in
 // createServerSupabaseClient() serialises Set-Cookie onto this route's
-// response — the same mechanism auth/callback uses to *set* the session.
+// response - the same mechanism auth/callback uses to *set* the session.
 // This must not be attempted from a Server Component, where cookie writes
 // are silently dropped.
 export async function POST() {

@@ -9,7 +9,7 @@ export async function POST() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Delete the completed session — cascades to question_responses and diagnostic_reports
+  // Delete the completed session - cascades to question_responses and diagnostic_reports
   const { error } = await supabase
     .from("test_sessions")
     .delete()

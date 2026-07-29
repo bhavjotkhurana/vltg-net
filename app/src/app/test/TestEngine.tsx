@@ -155,7 +155,7 @@ export default function TestEngine({
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []); // registered once — uses refs to stay current
+  }, []); // registered once - uses refs to stay current
 
   // ── Derived ───────────────────────────────────────────────────────────────
 
@@ -181,7 +181,7 @@ export default function TestEngine({
 
   function navigateTo(index: number) {
     if (index < 0 || index >= questions.length) return;
-    // Intercept the math→reading boundary — show reading intro first
+    // Intercept the math→reading boundary - show reading intro first
     if (
       phase === "test" &&
       questions[currentIndex].section === "math" &&
@@ -499,7 +499,7 @@ export default function TestEngine({
 
   // ── Render ────────────────────────────────────────────────────────────────
 
-  // Windowed question grid — show 7 questions centered on current
+  // Windowed question grid - show 7 questions centered on current
   const WINDOW = 5;
   const half = Math.floor(WINDOW / 2);
   const windowStart = Math.max(0, Math.min(currentIndex - half, questions.length - WINDOW));
@@ -608,7 +608,7 @@ export default function TestEngine({
               </div>
             );
           })}
-          {/* Legend — desktop only; each grid button's aria-label already carries its state */}
+          {/* Legend - desktop only; each grid button's aria-label already carries its state */}
           <div className="mt-3 hidden flex-wrap items-center gap-4 border-t border-slate-200 pt-3 sm:flex">
             {[
               { color: "bg-[#1E3A5F]", label: "Current" },
@@ -644,7 +644,7 @@ export default function TestEngine({
           be absolutely positioned against this footer without adding `relative`
           (which would fight `sticky` in the cascade). */}
       <footer className="sticky bottom-0 z-20 flex-none border-t-2 border-[#111827] bg-white px-4 py-2.5 sm:px-8 sm:py-3.5">
-        {/* Windowed question grid — hidden on mobile; the grid toggle in the
+        {/* Windowed question grid - hidden on mobile; the grid toggle in the
             controls row below gives full access to all questions in one tap. */}
         <div className="mb-3.5 hidden items-center justify-center gap-1.5 sm:flex">
           {showLeftEllipsis && (

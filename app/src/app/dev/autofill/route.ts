@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 // so the results page shows interesting, realistic-looking diagnostic data.
 
 // Correctness rate per skill (0–1). Varied intentionally so the results page
-// isn't flat — some skills strong, some weak, to stress-test the breakdown.
+// isn't flat - some skills strong, some weak, to stress-test the breakdown.
 const SKILL_CORRECT_RATE: Record<string, number> = {
   // Math
   arithmetic_basic: 0.95,
@@ -131,7 +131,14 @@ export async function GET() {
     .map(([id]) => id.replace(/_/g, " "))
     .join(", ");
 
-  const devSummary = `You scored a ${diagnostic.composite_score}/9 — you're in qualifying range, but ${Math.abs(diagnostic.score_gap)} point${Math.abs(diagnostic.score_gap) !== 1 ? "s" : ""} short of your goal. Your biggest gaps are in ${topWeak || "a few key areas"}. Start with those before moving to harder material.`;
+  // score_gap = desired - composite, so a positive gap means short of goal and a
+  // zero-or-negative gap means met or exceeded it. Handle both, or a dev run that
+  // beats its goal reads as "points short," contradicting the hero.
+  const gap = diagnostic.score_gap as number;
+  const devSummary =
+    gap > 0
+      ? `You scored a ${diagnostic.composite_score}/9. You're ${gap} point${gap !== 1 ? "s" : ""} short of your goal. Your biggest gaps are in ${topWeak || "a few key areas"}. Start with those before moving to harder material.`
+      : `You scored a ${diagnostic.composite_score}/9, which hits your goal. Your biggest remaining gaps are in ${topWeak || "a few key areas"}, worth shoring up if you want to climb higher.`;
 
   await service.from("diagnostic_reports").insert({
     session_id: sessionId,

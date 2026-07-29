@@ -1,11 +1,11 @@
 /**
- * IBEW Aptitude Test Prep — Scoring & Diagnostic Logic
+ * IBEW Aptitude Test Prep - Scoring & Diagnostic Logic
  *
  * This file is the source of truth. It previously pointed at a second copy in
  * schema/scoring.ts and asked that the two be kept in sync by hand; they were
- * not. That copy had fallen a long way behind — it still carried the version of
+ * not. That copy had fallen a long way behind - it still carried the version of
  * computeSkillScores that tallied only answered questions, so skips vanished
- * instead of counting against the skill — and nothing imported it. It has been
+ * instead of counting against the skill - and nothing imported it. It has been
  * deleted rather than left as a trap for anyone who followed the pointer.
  */
 
@@ -333,7 +333,7 @@ function buildReason(
     case "quick_win":
       return pick(
         [
-          `You're at ${pct}% — nearly there. A focused review session should lock this in.`,
+          `You're at ${pct}%, nearly there. A focused review session should lock this in.`,
           `Already at ${pct}%. This one is close enough that a little targeted practice tips it over.`,
           `You're at ${pct}%, so the foundation is there. A short, deliberate review closes the rest of the gap.`,
         ],
@@ -343,14 +343,14 @@ function buildReason(
       return pick(
         [
           `You're at ${pct}%. Nothing underneath it is holding you back, so it's a clean place to build from the fundamentals.`,
-          `At ${pct}%. There's no hidden gap propping this up — start from the basics here and it climbs steadily.`,
+          `At ${pct}%. There's no hidden gap propping this up, so start from the basics here and it climbs steadily.`,
         ],
         seed
       );
     case "prerequisite_chain":
-      return `You're at ${pct}%. Gaps in ${prereqLabels} are likely what's holding this back — shore those up first and this tends to follow.`;
+      return `You're at ${pct}%. Gaps in ${prereqLabels} are likely what's holding this back, so shore those up first and this tends to follow.`;
     case "stretch":
-      return `You're at ${pct}%. This is one of the tougher topics — tackle it once the skills above are solid.`;
+      return `You're at ${pct}%. This is one of the tougher topics, so tackle it once the skills above are solid.`;
   }
 }
 

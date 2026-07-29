@@ -9,7 +9,7 @@ const MAX_PER_WINDOW = 5;
 /**
  * A salted hash of the caller's IP, never the IP itself. Enough to count
  * repeats from one source; not enough to recover the address if the table
- * leaks. The salt must be secret — IPv4 is small enough to brute force
+ * leaks. The salt must be secret - IPv4 is small enough to brute force
  * against an unsalted hash in seconds.
  */
 function hashIp(request: Request): string | null {
@@ -22,7 +22,7 @@ function hashIp(request: Request): string | null {
 
 // Reports can come from anywhere, including the marketing pages where there is
 // no session, so this is deliberately not auth-gated (the waitlist pattern).
-// The client never sends user_id — it is derived server-side, so anonymous
+// The client never sends user_id - it is derived server-side, so anonymous
 // reports work without letting anyone forge attribution.
 export async function POST(request: Request) {
   let payload: Record<string, unknown>;
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 
   // Throttle on whichever identity we have. This endpoint deliberately accepts
   // anonymous reports, so the account check alone left an unauthenticated write
-  // path with no ceiling — anyone could fill the table, and it is the same
+  // path with no ceiling - anyone could fill the table, and it is the same
   // database everything else runs on.
   const since = new Date(Date.now() - WINDOW_MS).toISOString();
   const identity = user

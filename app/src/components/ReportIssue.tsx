@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const MAX_MESSAGE = 2000;
 
 /**
- * "Report an issue" — a muted trigger plus a modal. The user types free text;
+ * "Report an issue" - a muted trigger plus a modal. The user types free text;
  * the page context is attached silently.
  *
  * Two ways to attach context, because the callers differ:

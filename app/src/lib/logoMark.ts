@@ -1,6 +1,6 @@
 // The VLTG "V-bolt" mark (brand kit v1.1): a navy V whose right stroke is an
 // amber lightning bolt, with a darker amber facet for the fold. Single source
-// of truth for the paths — the Logo component, favicon, apple icon, and OG
+// of truth for the paths - the Logo component, favicon, apple icon, and OG
 // banner all draw from here so the mark can never drift between surfaces.
 
 export const MARK_COLORS = {
