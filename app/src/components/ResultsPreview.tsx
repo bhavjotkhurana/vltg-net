@@ -23,6 +23,9 @@ export default function ResultsPreview() {
             out of 9 · stanine
           </p>
           <p className="mt-4 text-base font-bold text-white">You&apos;re in qualifying range.</p>
+          <p className="mt-1.5 text-xs font-bold uppercase tracking-[0.12em] text-amber-300">
+            Goal: 7 · 1 point to go
+          </p>
         </div>
         {/* Side-by-side on mobile (fits fine there); stacked on desktop so the
             two cells split the navy panel's height instead of floating in it. */}
@@ -61,8 +64,9 @@ export default function ResultsPreview() {
           Coach note
         </p>
         <p className="text-sm leading-relaxed text-gray-700">
-          You scored a 6, which clears the qualifying bar. Your biggest gaps are in linear
-          equations and polynomials, so start there before the harder material.
+          You scored a 6, which clears the qualifying bar. Your goal is a 7, so you&apos;re
+          one point short. Your biggest gaps are in linear equations and polynomials, so
+          start there to close it.
         </p>
       </div>
 
