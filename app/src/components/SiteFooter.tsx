@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import ReportIssue from "@/components/ReportIssue";
+import { UsFlag } from "@/components/UsFlag";
 
 // Shared footer for the public pages (landing, about, faq) so the marketing
 // surface has consistent chrome and one place to report a problem.
@@ -32,6 +33,7 @@ export default function SiteFooter() {
         </Link>
         <ReportIssue />
       </nav>
+      <UsFlag className="mt-1 h-4 w-auto border border-[#111827]" />
     </footer>
   );
 }

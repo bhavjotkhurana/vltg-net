@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import SiteFooter from "@/components/SiteFooter";
+import ResultsPreview from "@/components/ResultsPreview";
+import TestPreview from "@/components/TestPreview";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -54,8 +56,10 @@ export default function HomePage() {
             <span className="box-decoration-clone bg-amber-400 px-2 py-0.5 text-[#111827]">starting line</span>.
           </h1>
           <p className="mt-8 max-w-xl text-xl leading-relaxed text-gray-700">
-            A full-length IBEW practice test that shows you exactly where you stand,
-            then a study plan to close the gap.
+            A full-length{" "}
+            <span className="box-decoration-clone bg-amber-400 px-1.5 py-0.5 font-semibold text-[#111827]">IBEW practice test</span>{" "}
+            that shows you exactly where you stand, then a study plan and a curated
+            set of free resources to close the gap.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
@@ -92,11 +96,14 @@ export default function HomePage() {
       </section>
 
       {/* ── How it works ── */}
-      <section className="border-b-2 border-[#111827] px-6 py-16 sm:px-12">
+      <section className="border-b-2 border-[#111827] bg-white px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-10">
-            What happens when you take the test
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">
+            How it works
           </p>
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#111827] sm:text-4xl mb-10">
+            What happens when you take the test
+          </h2>
           <div className="grid gap-px bg-[#111827] border-2 border-[#111827] sm:grid-cols-3">
             {[
               {
@@ -112,7 +119,7 @@ export default function HomePage() {
               {
                 num: "03",
                 title: "Get your study plan",
-                body: "A skill-by-skill breakdown of what you got right and wrong, with a prioritized study plan built around your specific gaps.",
+                body: "A skill-by-skill breakdown of what you got right and wrong, a plan that starts with the gaps that move your score most, and a free resource to study each one.",
               },
             ].map(({ num, title, body }) => (
               <div key={num} className="bg-[#F4F1EC] px-8 py-10">
@@ -121,6 +128,25 @@ export default function HomePage() {
                 <p className="mt-3 text-base leading-relaxed text-gray-700">{body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Preview: test → results ── */}
+      <section className="border-b-2 border-[#111827] px-6 py-16 sm:px-12">
+        <div className="mx-auto max-w-4xl">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E3A5F] mb-3">
+            A look inside
+          </p>
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#111827] sm:text-4xl mb-12">
+            The test, then a plan you can act on.
+          </h2>
+          <div className="space-y-6">
+            <TestPreview />
+            <div className="flex justify-center" aria-hidden="true">
+              <span className="text-2xl font-bold text-[#1E3A5F]">&darr;</span>
+            </div>
+            <ResultsPreview />
           </div>
         </div>
       </section>

@@ -214,6 +214,10 @@ const SECTIONS: FaqSection[] = [
         a: "Not here. I want you to answer all 69 questions so the diagnostic has something complete to work with. I do time you in the background, and afterward I'll tell you whether you'd have finished inside the real 46 and 51 minute limits. Better to find out you're slow now than on test day.",
       },
       {
+        q: "What do I get when I finish?",
+        a: "A score on the 1 to 9 stanine scale, a skill-by-skill breakdown of where you're strong and where you're not, and a study plan that starts with the gaps that move your score the most. Next to each gap I point you to a free resource to work on it, so you leave knowing not just your number but exactly what to do next.",
+      },
+      {
         q: "Is it really free?",
         a: "Yes. The test is free and it's staying free. I'll probably build deeper study material later and charge for that. I'd rather tell you now than have you wondering what the catch is.",
       },
@@ -378,6 +382,8 @@ export default function FaqPage() {
           VLTG isn&apos;t affiliated with, endorsed by, or connected to the IBEW, NECA,
           or the electrical Training ALLIANCE. It&apos;s an independent practice tool.
           Those names are only used to describe the exam this test prepares you for.
+          The free study resources it links to, including Khan Academy and Math Is Fun,
+          are independent as well, and not affiliated with VLTG.
         </p>
       </main>
 

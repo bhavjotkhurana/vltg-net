@@ -150,9 +150,9 @@ export default function AboutPage() {
           <p>
             If you score low, I don&apos;t want the takeaway to be &ldquo;I&apos;m bad at
             this.&rdquo; Chances are it wasn&apos;t everything. You&apos;ll see what you got
-            right, not just what you missed. And where there&apos;s a gap you&apos;ll see
-            roughly how long it takes to close, because the useful thing to know is that
-            it&apos;s a finite amount of work and not an infinite amount.
+            right, not just what you missed. And where there&apos;s a gap, you&apos;ll see
+            what to work on first and a free place to start on it, because the useful thing
+            to know is that it&apos;s a finite amount of work and not an infinite amount.
           </p>
           <p>
             The data you generate here also gets handed back to you. That&apos;s the point
@@ -225,6 +225,8 @@ export default function AboutPage() {
           VLTG isn&apos;t affiliated with, endorsed by, or connected to the IBEW, NECA,
           or the electrical Training ALLIANCE. It&apos;s an independent practice tool.
           Those names are only used to describe the exam this test prepares you for.
+          The free study resources it links to, including Khan Academy and Math Is Fun,
+          are independent as well, and not affiliated with VLTG.
         </p>
       </main>
 
