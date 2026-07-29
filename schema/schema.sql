@@ -107,9 +107,12 @@ CREATE TABLE diagnostic_reports (
 );
 
 -- ============================================================
--- 5. WAITLIST
--- Emails captured on the results page for future study material.
--- Anonymous-friendly: written server-side with the service role.
+-- 5. WAITLIST  (RETIRED — kept only so existing rows aren't lost)
+-- Once captured emails on the results page for future study material. The
+-- results page now shows the feedback form instead, and marketing consent is
+-- captured at onboarding via user_profiles.email_opt_in, which is the list to
+-- draw from. The EmailCapture component and /api/waitlist route were removed;
+-- this table is left in place but nothing writes to it anymore.
 -- ============================================================
 CREATE TABLE waitlist (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
