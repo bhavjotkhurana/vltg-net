@@ -1,0 +1,23 @@
+{
+  "_note": "Per-skill free study resources shown next to gaps on the results page. Verified 2026-07-28. Khan Academy is the trust anchor: video, worked examples, no ads, decades of reputation. Math (procedural topics: linear equations, systems, factoring, quadratics, graphs) and reading (all five skills, via Khan's digital-SAT Reading and Writing lessons: Words in Context, Central Ideas and Details, Command of Evidence, Inferences, Text Structure and Purpose) point to Khan; each reading skill lands on its own lesson, so the routing is genuinely per-skill. Math Is Fun (concise text explainers, no login, instant load) covers the quick-reference math topics. Khan is a single-page app whose URLs return 200 to a crawler even when content 404s, so every Khan link here was verified two ways: it is a canonical URL Google has indexed, and the content was confirmed to render in a real browser. Edit freely: this file is the whole mapping.",
+  "resources": {
+    "arithmetic_basic": { "title": "Whole numbers & arithmetic", "url": "https://www.mathsisfun.com/whole-numbers.html", "source": "Math Is Fun" },
+    "fractions": { "title": "Fractions", "url": "https://www.mathsisfun.com/fractions.html", "source": "Math Is Fun" },
+    "order_of_operations": { "title": "Order of operations (PEMDAS)", "url": "https://www.mathsisfun.com/operation-order-pemdas.html", "source": "Math Is Fun" },
+    "algebraic_substitution": { "title": "Substituting values into expressions", "url": "https://www.mathsisfun.com/algebra/substitution.html", "source": "Math Is Fun" },
+    "linear_equations": { "title": "Solving equations & inequalities", "url": "https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:solve-equations-inequalities", "source": "Khan Academy" },
+    "inequalities": { "title": "Solving inequalities", "url": "https://www.mathsisfun.com/algebra/inequality-solving.html", "source": "Math Is Fun" },
+    "systems_of_equations": { "title": "Systems of equations", "url": "https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:systems-of-equations", "source": "Khan Academy" },
+    "polynomials": { "title": "Polynomials", "url": "https://www.mathsisfun.com/algebra/polynomials.html", "source": "Math Is Fun" },
+    "factoring": { "title": "Factoring polynomials", "url": "https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:poly-factor", "source": "Khan Academy" },
+    "quadratics": { "title": "Quadratic functions & equations", "url": "https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratic-functions-equations", "source": "Khan Academy" },
+    "graph_interpretation": { "title": "Linear equations & graphs", "url": "https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:linear-equations-graphs", "source": "Khan Academy" },
+    "number_sequences": { "title": "Sequences & patterns", "url": "https://www.mathsisfun.com/algebra/sequences-series.html", "source": "Math Is Fun" },
+
+    "vocabulary_in_context": { "title": "Words in context", "url": "https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:foundations-craft-and-structure/x0d47bcec73eb6c4b:words-in-context/a/words-in-context-lesson", "source": "Khan Academy" },
+    "detail_retrieval": { "title": "Finding evidence in a text", "url": "https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:foundations-information-and-ideas/x0d47bcec73eb6c4b:command-of-evidence-textual/a/command-of-evidence-textual-lesson", "source": "Khan Academy" },
+    "main_idea": { "title": "Central ideas & details", "url": "https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:foundations-information-and-ideas/x0d47bcec73eb6c4b:central-ideas-and-details/a/central-ideas-and-details-lesson", "source": "Khan Academy" },
+    "inference": { "title": "Inferences", "url": "https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:foundations-information-and-ideas/x0d47bcec73eb6c4b:inferences/a/inferences-lesson", "source": "Khan Academy" },
+    "author_perspective": { "title": "Text structure & purpose", "url": "https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:foundations-craft-and-structure/x0d47bcec73eb6c4b:text-structure-and-purpose/a/text-structure-and-purpose-lesson", "source": "Khan Academy" }
+  }
+}

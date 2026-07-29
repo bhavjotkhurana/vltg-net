@@ -160,6 +160,24 @@ CREATE INDEX idx_reports_user        ON diagnostic_reports(user_id);
 CREATE INDEX idx_issue_reports_created ON issue_reports(created_at DESC);
 CREATE INDEX idx_issue_reports_user    ON issue_reports(user_id);
 
+-- Open-ended feedback from the results-page window (name/email/subject/body).
+-- Distinct from issue_reports (bug reports with technical context) and waitlist
+-- (email-only). Service-role only, like the others.
+CREATE TABLE feedback (
+  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  name        TEXT,
+  email       TEXT,
+  subject     TEXT,
+  body        TEXT NOT NULL CHECK (char_length(btrim(body)) BETWEEN 1 AND 5000),
+  user_id     UUID REFERENCES auth.users(id) ON DELETE SET NULL,
+  path        TEXT,
+  user_agent  TEXT,
+  app_version TEXT
+);
+CREATE INDEX idx_feedback_created ON feedback(created_at DESC);
+CREATE INDEX idx_feedback_user    ON feedback(user_id);
+
 -- ============================================================
 -- ROW LEVEL SECURITY
 -- Users can only access their own data.
@@ -183,8 +201,9 @@ CREATE POLICY "own responses"
 CREATE POLICY "own report read"
   ON diagnostic_reports FOR SELECT USING (auth.uid() = user_id);
 
--- waitlist and issue_reports are service-role only. RLS is enabled with NO
--- policies, which denies anon and authenticated entirely. Nothing in the app
--- reads either table back — triage happens in the Supabase dashboard.
+-- waitlist, issue_reports, and feedback are service-role only. RLS is enabled
+-- with NO policies, which denies anon and authenticated entirely. Nothing in the
+-- app reads these back — triage happens in the Supabase dashboard.
 ALTER TABLE waitlist       ENABLE ROW LEVEL SECURITY;
 ALTER TABLE issue_reports  ENABLE ROW LEVEL SECURITY;
+ALTER TABLE feedback       ENABLE ROW LEVEL SECURITY;

@@ -8,12 +8,15 @@ import {
   studyCadence,
 } from "@/lib/scoring";
 import skillsData from "@/data/skills.json";
+import resourcesData from "@/data/resources.json";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Logo } from "@/components/Logo";
+import { UsFlag } from "@/components/UsFlag";
 import { StanineCurve } from "@/components/StanineCurve";
+import ResourceLink from "@/components/ResourceLink";
 import RetakeButton from "./RetakeButton";
-import EmailCapture from "./EmailCapture";
+import FeedbackForm from "./FeedbackForm";
 import SignOutButton from "@/components/SignOutButton";
 import ReportIssue from "@/components/ReportIssue";
 
@@ -36,6 +39,9 @@ const SKILL_LABELS: Record<string, string> = Object.fromEntries(
 );
 function skillLabel(id: string) { return SKILL_LABELS[id] ?? id.replace(/_/g, " "); }
 
+type Resource = { title: string; url: string; source: string };
+const RESOURCES = resourcesData.resources as Record<string, Resource>;
+
 function ordinal(n: number) {
   const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
@@ -43,7 +49,7 @@ function ordinal(n: number) {
 }
 
 function formatDuration(s: number | null) {
-  if (!s) return "—";
+  if (!s) return "–";
   const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
 }
@@ -63,11 +69,16 @@ function scoreHeadline(score: number, passing: boolean, atGoal: boolean) {
 }
 
 // Study-plan category presentation, in the order we want the learner to work.
-const CATEGORY_META: Record<StudyCategory, { label: string; blurb: string; order: number }> = {
-  quick_win: { label: "Quick wins", blurb: "You're already close here. A short review pushes these over the line.", order: 0 },
-  foundation: { label: "Foundations", blurb: "Core skills worth building up from the ground.", order: 1 },
-  prerequisite_chain: { label: "Fix the root first", blurb: "A skill underneath is holding these back. Start below and work up.", order: 2 },
-  stretch: { label: "Stretch goals", blurb: "More advanced topics. Save these for after the rest.", order: 3 },
+// Each carries an accent so the plan reads as a colour-coded priority ladder:
+// green = easy wins, amber = foundations, red = the blocking root, navy = later.
+const CATEGORY_META: Record<
+  StudyCategory,
+  { label: string; blurb: string; order: number; border: string; text: string }
+> = {
+  quick_win: { label: "Quick wins", blurb: "You're already close here. A short review pushes these over the line.", order: 0, border: "border-emerald-500", text: "text-emerald-700" },
+  foundation: { label: "Foundations", blurb: "Core skills worth building up from the ground.", order: 1, border: "border-amber-400", text: "text-amber-700" },
+  prerequisite_chain: { label: "Fix the root first", blurb: "A skill underneath is holding these back. Start below and work up.", order: 2, border: "border-red-500", text: "text-red-700" },
+  stretch: { label: "Stretch goals", blurb: "More advanced topics. Save these for after the rest.", order: 3, border: "border-[#1E3A5F]", text: "text-[#1E3A5F]" },
 };
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -243,7 +254,7 @@ export default async function ResultsPage() {
           </div>
         </div>
 
-        {/* ══ Strengths first — start from what's already working ══ */}
+        {/* ══ Strengths first - start from what's already working ══ */}
         {strongSkills.length > 0 && (
           <div className="mt-4 border-2 border-[#111827] bg-white px-6 py-5">
             <div className="flex items-baseline gap-3">
@@ -271,7 +282,7 @@ export default async function ResultsPage() {
           </div>
         )}
 
-        {/* ══ STUDY PLAN — the centerpiece ══ */}
+        {/* ══ STUDY PLAN - the centerpiece ══ */}
         <section className="mt-4 border-2 border-[#111827] bg-white">
           <div className="flex flex-col gap-1 border-b-2 border-[#111827] px-6 py-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -300,24 +311,32 @@ export default async function ResultsPage() {
             <ol className="divide-y-2 divide-[#111827]">
               {groupedPlan.map(({ cat, items }, gi) => (
                 <li key={cat}>
-                  <div className="flex items-baseline gap-3 bg-[#F4F1EC] px-6 py-3">
-                    <span className="text-sm font-bold uppercase tracking-[0.1em] text-[#1E3A5F]">
+                  <div className={`flex items-baseline gap-3 border-l-4 ${CATEGORY_META[cat].border} bg-[#F4F1EC] px-6 py-3`}>
+                    <span className={`text-sm font-bold uppercase tracking-[0.1em] ${CATEGORY_META[cat].text}`}>
                       {String(gi + 1).padStart(2, "0")} · {CATEGORY_META[cat].label}
                     </span>
                     <span className="text-sm text-gray-700">{CATEGORY_META[cat].blurb}</span>
                   </div>
                   <div className="divide-y divide-slate-200">
                     {items.map((item) => (
-                      <div key={item.skill} className="px-6 py-4">
-                        <div className="flex items-baseline justify-between gap-3">
-                          <p className="text-lg font-bold text-[#111827]">{skillLabel(item.skill)}</p>
-                          <span className="flex-none text-sm font-bold text-[#1E3A5F]">~{item.hours_estimate}h</span>
-                        </div>
-                        <p className="mt-1 text-base leading-relaxed text-gray-700">{item.reason}</p>
+                      <div key={item.skill} className="px-6 py-6">
+                        <p className="text-lg font-bold text-[#111827]">{skillLabel(item.skill)}</p>
+                        <p className="mt-2 text-base leading-relaxed text-gray-700">{item.reason}</p>
                         {item.chain && item.chain.length > 0 && (
-                          <p className="mt-2 text-xs uppercase tracking-[0.06em] text-gray-600">
+                          <p className="mt-3 text-xs uppercase tracking-[0.06em] text-gray-600">
                             Build up: {item.chain.map(skillLabel).join(" → ")} → {skillLabel(item.skill)}
                           </p>
+                        )}
+                        {RESOURCES[item.skill] && (
+                          <div className="mt-3">
+                            <ResourceLink
+                              sessionId={session.id as string}
+                              skillId={item.skill}
+                              url={RESOURCES[item.skill].url}
+                              title={RESOURCES[item.skill].title}
+                              source={RESOURCES[item.skill].source}
+                            />
+                          </div>
                         )}
                       </div>
                     ))}
@@ -335,7 +354,7 @@ export default async function ResultsPage() {
         <div className="mt-3 border-2 border-[#111827] bg-white">
           <div className="border-b-2 border-[#111827] px-6 py-4">
             <p className="text-lg font-bold text-[#111827]">Every skill tested</p>
-            <p className="mt-0.5 text-base text-gray-700">Sorted weakest to strongest, so you can see the full picture.</p>
+            <p className="mt-0.5 text-base text-gray-700">Sorted strongest to weakest, so you can see the full picture.</p>
           </div>
           <div className="grid divide-y-2 divide-[#111827] sm:grid-cols-2 sm:divide-y-0">
             <div className="min-w-0 sm:border-r-2 sm:border-[#111827]">
@@ -353,7 +372,7 @@ export default async function ResultsPage() {
           </div>
         </div>
 
-        {/* Time & pacing — vs the real section clocks */}
+        {/* Time & pacing - vs the real section clocks */}
         <div className="mt-4 flex flex-col border-2 border-[#111827] bg-white">
           <div className="border-b-2 border-[#111827] px-6 py-4">
             <p className="text-lg font-bold text-[#111827]">Beating the clock</p>
@@ -392,11 +411,11 @@ export default async function ResultsPage() {
                   <div className="mt-5 space-y-3 border-t border-slate-200 pt-5">
                     <div className="flex items-center justify-between">
                       <span className="text-base text-gray-700">Correct avg</span>
-                      <span className="text-base font-bold text-emerald-700">{col.right !== null ? `${col.right}s` : "—"}</span>
+                      <span className="text-base font-bold text-emerald-700">{col.right !== null ? `${col.right}s` : "–"}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-base text-gray-700">Missed avg</span>
-                      <span className="text-base font-bold text-red-600">{col.wrong !== null ? `${col.wrong}s` : "—"}</span>
+                      <span className="text-base font-bold text-red-600">{col.wrong !== null ? `${col.wrong}s` : "–"}</span>
                     </div>
                   </div>
                 </div>
@@ -408,8 +427,8 @@ export default async function ResultsPage() {
           </div>
         </div>
 
-        {/* ══ Email capture ══ */}
-        <EmailCapture />
+        {/* ══ Feedback ══ */}
+        <FeedbackForm />
 
         {/* ══ What's next ══ */}
         <div className="on-dark mt-4 border-2 border-[#111827] bg-[#1E3A5F]">
@@ -445,6 +464,7 @@ export default async function ResultsPage() {
         <div className="mt-8 flex flex-col items-center gap-2 pb-8">
           <Logo className="text-base" />
           <span className="text-xs font-bold uppercase tracking-[0.12em] text-gray-600">Wired for the test</span>
+          <UsFlag className="mt-1 h-4 w-auto border border-[#111827]" />
         </div>
 
       </main>
@@ -458,7 +478,7 @@ function SkillList({ skills }: { skills: [string, SkillScore][] }) {
   const sorted = [...skills].sort(([, a], [, b]) => {
     if (a.total === 0 && b.total > 0) return 1;
     if (b.total === 0 && a.total > 0) return -1;
-    return a.pct - b.pct;
+    return b.pct - a.pct;
   });
   return (
     <div className="divide-y divide-slate-200">
@@ -469,19 +489,19 @@ function SkillList({ skills }: { skills: [string, SkillScore][] }) {
         const label = noData ? "No data" : score.pct >= 0.8 ? "Strong" : score.pct >= 0.5 ? "Needs work" : "Weak";
         const labelColor = noData ? "text-gray-500" : score.pct >= 0.8 ? "text-emerald-700" : score.pct >= 0.5 ? "text-amber-800" : "text-red-600";
         return (
-          <div key={id} className={`flex items-center gap-4 px-6 py-3 ${noData ? "opacity-50" : ""}`}>
+          <div key={id} className={`flex items-center gap-4 px-6 py-3.5 ${noData ? "opacity-50" : ""}`}>
             <div className="min-w-0 flex-1">
-              <div className="mb-1.5 flex items-center justify-between gap-2">
-                <p className="truncate text-base font-bold text-[#111827]">{skillLabel(id)}</p>
+              <p className="mb-1.5 text-base font-bold leading-snug text-[#111827]">{skillLabel(id)}</p>
+              <div className="flex items-center gap-2">
+                <div className="h-2 flex-1 border border-slate-300 bg-slate-100">
+                  {!noData && <div className={`h-full ${barColor}`} style={{ width: `${pct}%` }} />}
+                </div>
                 <span className={`flex-none text-xs font-bold uppercase tracking-wide ${labelColor}`}>{label}</span>
-              </div>
-              <div className="h-2 w-full border border-slate-300 bg-slate-100">
-                {!noData && <div className={`h-full ${barColor}`} style={{ width: `${pct}%` }} />}
               </div>
             </div>
             <div className="w-14 flex-none text-right">
               {noData ? (
-                <p className="text-base text-gray-500">—</p>
+                <p className="text-base text-gray-500">–</p>
               ) : (
                 <>
                   <p className="text-base font-bold text-[#111827]">{score.correct}/{score.total}</p>
