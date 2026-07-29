@@ -57,7 +57,7 @@ export default function HomePage() {
           </h1>
           <p className="mt-8 max-w-xl text-xl leading-relaxed text-gray-700">
             A full-length{" "}
-            <span className="box-decoration-clone bg-amber-400 px-1.5 py-0.5 font-semibold text-[#111827]">IBEW practice test</span>{" "}
+            <span className="box-decoration-clone bg-[#1E3A5F] px-1.5 py-0.5 font-semibold text-white">IBEW practice test</span>{" "}
             that shows you exactly where you stand, then a study plan and a curated
             set of free resources to close the gap.
           </p>
