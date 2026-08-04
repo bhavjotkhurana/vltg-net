@@ -28,6 +28,12 @@ rc-questions/
 math-questions/
 VLTG Brand Identity Kit/.thumbnail
 
+# Loose design exports (logos, avatars, scratch), moved out of the root
+brand-assets/
+
+# Generated Instagram/social content and its local preview server (kept local)
+instagram/
+
 # Editable design working files
 *.pxd
 
@@ -43,3 +49,7 @@ MARKETING-AGENT-PROMPT.md
 JATC-OUTREACH-PLAY.md
 REDDIT-PLAYBOOK.md
 VLTG-PRODUCT-FACTS.md
+VLTG_JATC_outreach_batch1.md
+VLTG_JATC_outreach_batch2.md
+VLTG_JATC_outreach_tracker.csv
+VLTG_JATC_email_template.md
